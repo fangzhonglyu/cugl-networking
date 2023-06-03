@@ -1,0 +1,14 @@
+Replace earclipping triangulator with mono triangulator
+Slider generalized to a slider constraint
+Add HSL features to color
+Kivy/JSON style drawing commands (list of JSON objects)
+
+Ability to assign low-level UI actions (button, slider, text)
+to high level events
+
+UITheme
++ Loads multiple assets to single texture
++ Factory for creating UI widgets
++ Lighter weight than regular UI
+ParticleNode
+Transitions
