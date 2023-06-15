@@ -1,11 +1,1 @@
-Android.mk
-README.md
-__main__.py
 __pycache__/
-buildfiles/
-include/
-licenses/
-scripts/
-sdl2/
-templates/
-thirdparty/

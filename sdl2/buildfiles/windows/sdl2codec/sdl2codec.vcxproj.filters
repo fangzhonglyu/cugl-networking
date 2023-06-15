@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Sources\minimp3">
+      <UniqueIdentifier>{b02d87a7-2868-4b4a-aa73-92b533a1dc0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\ogg">
+      <UniqueIdentifier>{86f2f6c1-3f55-4e9b-82dc-84c31e60b684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\vorbis">
+      <UniqueIdentifier>{165693df-0e54-4948-aede-5cd1df22087c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\flac">
+      <UniqueIdentifier>{d9f45f71-60a2-4e8b-8d9c-541c9b95c261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\vorbis\headers">
+      <UniqueIdentifier>{8da6db55-33bf-4157-8abb-02b85827c85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\vorbis\source">
+      <UniqueIdentifier>{f7cb5186-6bb7-4dac-a909-e30b64250b5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\minimp3.h">
+      <Filter>Sources\minimp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\minimp3_ex.h">
+      <Filter>Sources\minimp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\mp3stream.h">
+      <Filter>Sources\minimp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\flac\include\share\win_utf8_io.h">
+      <Filter>Sources\flac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\backends.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\bitrate.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\codebook.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\codec_internal.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\envelope.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\highlevel.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lookup.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lookup_data.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lpc.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lsp.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\masking.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\mdct.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\misc.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\os.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\psy.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\registry.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\scales.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\smallft.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\window.h">
+      <Filter>Sources\vorbis\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\extensions\codec\CODEC_internals.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL_codec.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\extensions\codec\minimp3\mp3stream.c">
+      <Filter>Sources\minimp3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\ogg\src\bitwise.c">
+      <Filter>Sources\ogg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\ogg\src\framing.c">
+      <Filter>Sources\ogg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitmath.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitreader.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitwriter.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\cpu.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\crc.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed_intrin_sse2.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed_intrin_ssse3.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\float.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\format.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_avx2.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_fma.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_neon.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_sse2.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_sse41.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_vsx.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\md5.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\memory.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\metadata_iterators.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\metadata_object.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_decoder_aspect.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_encoder_aspect.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_helper.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_mapping.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_decoder.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_framing.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_avx2.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_sse2.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_ssse3.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\window.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\share\win_utf8_io\win_utf8_io.c">
+      <Filter>Sources\flac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\analysis.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\bitrate.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\block.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\codebook.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\envelope.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\floor0.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\floor1.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\info.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lookup.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lpc.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lsp.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\mapping0.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\mdct.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\registry.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\res0.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\sharedbook.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\smallft.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\synthesis.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\vorbisenc.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\vorbisfile.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\window.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\psy.c">
+      <Filter>Sources\vorbis\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_common.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_flac.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_mpeg.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_vorbis.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_wav.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

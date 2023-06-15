@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB23374C293D495E000129A4 /* CORE_version.c in Sources */ = {isa = PBXBuildFile; fileRef = EB23374B293D495E000129A4 /* CORE_version.c */; };
+		EB23374D293D495E000129A4 /* CORE_version.c in Sources */ = {isa = PBXBuildFile; fileRef = EB23374B293D495E000129A4 /* CORE_version.c */; };
+		EB233758293D4A5F000129A4 /* libsdl2core-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB233754293D49E5000129A4 /* libsdl2core-mac.a */; };
+		EB233759293D4A67000129A4 /* libsdl2core-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB233756293D49E5000129A4 /* libsdl2core-ios.a */; };
+		EB5D7555293D5E6B00B318A8 /* libsdl2image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5D7549293D5E5F00B318A8 /* libsdl2image.a */; };
+		EB5D7556293D5E7300B318A8 /* libsdl2image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5D7549293D5E5F00B318A8 /* libsdl2image.a */; };
+		EB85F220293D6A4A009AC4A8 /* libsdl2ttf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB10C31293D678B00F11D7F /* libsdl2ttf.a */; };
+		EB85F246293D7473009AC4A8 /* libsdl2codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB85F23C293D7460009AC4A8 /* libsdl2codec.a */; };
+		EB85F247293D747E009AC4A8 /* libsdl2codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB85F23C293D7460009AC4A8 /* libsdl2codec.a */; };
+		EBB10C33293D679700F11D7F /* libsdl2ttf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB10C31293D678B00F11D7F /* libsdl2ttf.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB233753293D49E5000129A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB23374E293D49E5000129A4 /* sdl2core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB7089351CD51810005B1025;
+			remoteInfo = "sdl2core-mac";
+		};
+		EB233755293D49E5000129A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB23374E293D49E5000129A4 /* sdl2core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB7089281CD517C2005B1025;
+			remoteInfo = "sdl2core-ios";
+		};
+		EB5D7548293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9941EE1D352B2600314460;
+			remoteInfo = sdl2image;
+		};
+		EB5D754A293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2337E3293D527F000129A4;
+			remoteInfo = avif;
+		};
+		EB5D754C293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2337B6293D5252000129A4;
+			remoteInfo = dav1d;
+		};
+		EB5D754E293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2337C5293D5262000129A4;
+			remoteInfo = "dav1d-8bit";
+		};
+		EB5D7550293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2337D4293D5272000129A4;
+			remoteInfo = "dav1d-16bit";
+		};
+		EB5D7552293D5E5F00B318A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB23384A293D57CE000129A4;
+			remoteInfo = webp;
+		};
+		EB85F23B293D7460009AC4A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB85F237293D7460009AC4A8 /* sdl2codec.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBA7BC59213B1E62009EB72D;
+			remoteInfo = sdl2codec;
+		};
+		EBB10C30293D678B00F11D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBB10C24293D678B00F11D7F /* sdl2ttf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB88EF5E23D96452009989BA;
+			remoteInfo = sdl2ttf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB23374A293D48DF000129A4 /* CORE_version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CORE_version.h; sourceTree = "<group>"; };
+		EB23374B293D495E000129A4 /* CORE_version.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CORE_version.c; sourceTree = "<group>"; };
+		EB23374E293D49E5000129A4 /* sdl2core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = sdl2core.xcodeproj; sourceTree = SOURCE_ROOT; };
+		EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = sdl2image.xcodeproj; sourceTree = "<group>"; };
+		EB7089281CD517C2005B1025 /* libsdl2-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsdl2-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB7089351CD51810005B1025 /* libsdl2-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsdl2-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB85F237293D7460009AC4A8 /* sdl2codec.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = sdl2codec.xcodeproj; sourceTree = "<group>"; };
+		EBB10C24293D678B00F11D7F /* sdl2ttf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = sdl2ttf.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB7089321CD51810005B1025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB233758293D4A5F000129A4 /* libsdl2core-mac.a in Frameworks */,
+				EB5D7556293D5E7300B318A8 /* libsdl2image.a in Frameworks */,
+				EBB10C33293D679700F11D7F /* libsdl2ttf.a in Frameworks */,
+				EB85F247293D747E009AC4A8 /* libsdl2codec.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB77F1901D368A2600D52B9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB233759293D4A67000129A4 /* libsdl2core-ios.a in Frameworks */,
+				EB5D7555293D5E6B00B318A8 /* libsdl2image.a in Frameworks */,
+				EB85F220293D6A4A009AC4A8 /* libsdl2ttf.a in Frameworks */,
+				EB85F246293D7473009AC4A8 /* libsdl2codec.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB233749293D48B3000129A4 /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				EB23374A293D48DF000129A4 /* CORE_version.h */,
+				EB23374B293D495E000129A4 /* CORE_version.c */,
+			);
+			path = Version;
+			sourceTree = "<group>";
+		};
+		EB23374F293D49E5000129A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB233754293D49E5000129A4 /* libsdl2core-mac.a */,
+				EB233756293D49E5000129A4 /* libsdl2core-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB5D753E293D5E5F00B318A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D7549293D5E5F00B318A8 /* libsdl2image.a */,
+				EB5D754B293D5E5F00B318A8 /* libavif.a */,
+				EB5D754D293D5E5F00B318A8 /* libdav1d.a */,
+				EB5D754F293D5E5F00B318A8 /* libdav1d-8bit.a */,
+				EB5D7551293D5E5F00B318A8 /* libdav1d-16bit.a */,
+				EB5D7553293D5E5F00B318A8 /* libwebp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB85F238293D7460009AC4A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB85F23C293D7460009AC4A8 /* libsdl2codec.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBB10C25293D678B00F11D7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBB10C31293D678B00F11D7F /* libsdl2ttf.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBB10C32293D679700F11D7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBC7C49A1CD512A500005ABE = {
+			isa = PBXGroup;
+			children = (
+				EB233749293D48B3000129A4 /* Version */,
+				EB23374E293D49E5000129A4 /* sdl2core.xcodeproj */,
+				EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */,
+				EBB10C24293D678B00F11D7F /* sdl2ttf.xcodeproj */,
+				EB85F237293D7460009AC4A8 /* sdl2codec.xcodeproj */,
+				EBC7C4A41CD512A500005ABE /* Products */,
+				EBB10C32293D679700F11D7F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EBC7C4A41CD512A500005ABE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB7089281CD517C2005B1025 /* libsdl2-ios.a */,
+				EB7089351CD51810005B1025 /* libsdl2-mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB7089271CD517C2005B1025 /* sdl2-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB70892E1CD517C2005B1025 /* Build configuration list for PBXNativeTarget "sdl2-ios" */;
+			buildPhases = (
+				EB7089241CD517C2005B1025 /* Sources */,
+				EB77F1901D368A2600D52B9E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sdl2-ios";
+			productName = "SDL-ios";
+			productReference = EB7089281CD517C2005B1025 /* libsdl2-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EB7089341CD51810005B1025 /* sdl2-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB70893B1CD51810005B1025 /* Build configuration list for PBXNativeTarget "sdl2-mac" */;
+			buildPhases = (
+				EB7089311CD51810005B1025 /* Sources */,
+				EB7089321CD51810005B1025 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sdl2-mac";
+			productName = "SDL2-static";
+			productReference = EB7089351CD51810005B1025 /* libsdl2-mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBC7C49B1CD512A500005ABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Simple DirectMedia Layer";
+				TargetAttributes = {
+					EB7089271CD517C2005B1025 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					EB7089341CD51810005B1025 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = EBC7C49E1CD512A500005ABE /* Build configuration list for PBXProject "sdl2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EBC7C49A1CD512A500005ABE;
+			productRefGroup = EBC7C4A41CD512A500005ABE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EB85F238293D7460009AC4A8 /* Products */;
+					ProjectRef = EB85F237293D7460009AC4A8 /* sdl2codec.xcodeproj */;
+				},
+				{
+					ProductGroup = EB23374F293D49E5000129A4 /* Products */;
+					ProjectRef = EB23374E293D49E5000129A4 /* sdl2core.xcodeproj */;
+				},
+				{
+					ProductGroup = EB5D753E293D5E5F00B318A8 /* Products */;
+					ProjectRef = EB5D753D293D5E5F00B318A8 /* sdl2image.xcodeproj */;
+				},
+				{
+					ProductGroup = EBB10C25293D678B00F11D7F /* Products */;
+					ProjectRef = EBB10C24293D678B00F11D7F /* sdl2ttf.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EB7089341CD51810005B1025 /* sdl2-mac */,
+				EB7089271CD517C2005B1025 /* sdl2-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EB233754293D49E5000129A4 /* libsdl2core-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsdl2core-mac.a";
+			remoteRef = EB233753293D49E5000129A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB233756293D49E5000129A4 /* libsdl2core-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsdl2core-ios.a";
+			remoteRef = EB233755293D49E5000129A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D7549293D5E5F00B318A8 /* libsdl2image.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsdl2image.a;
+			remoteRef = EB5D7548293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D754B293D5E5F00B318A8 /* libavif.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libavif.a;
+			remoteRef = EB5D754A293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D754D293D5E5F00B318A8 /* libdav1d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libdav1d.a;
+			remoteRef = EB5D754C293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D754F293D5E5F00B318A8 /* libdav1d-8bit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdav1d-8bit.a";
+			remoteRef = EB5D754E293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D7551293D5E5F00B318A8 /* libdav1d-16bit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdav1d-16bit.a";
+			remoteRef = EB5D7550293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB5D7553293D5E5F00B318A8 /* libwebp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libwebp.a;
+			remoteRef = EB5D7552293D5E5F00B318A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EB85F23C293D7460009AC4A8 /* libsdl2codec.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsdl2codec.a;
+			remoteRef = EB85F23B293D7460009AC4A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBB10C31293D678B00F11D7F /* libsdl2ttf.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsdl2ttf.a;
+			remoteRef = EBB10C30293D678B00F11D7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB7089241CD517C2005B1025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB23374D293D495E000129A4 /* CORE_version.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB7089311CD51810005B1025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB23374C293D495E000129A4 /* CORE_version.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EB70892F1CD517C2005B1025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+			};
+			name = Debug;
+		};
+		EB7089301CD517C2005B1025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+			};
+			name = Release;
+		};
+		EB70893C1CD51810005B1025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_LINK_OBJC_RUNTIME = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = sse3;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/X11R6/include,
+					"${SRCROOT}/../src/video/khronos",
+				);
+				INSTALL_PATH = "@rpath";
+				PRODUCT_BUNDLE_IDENTIFIER = org.libsdl.SDL2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EB70893D1CD51810005B1025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_LINK_OBJC_RUNTIME = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = sse3;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/X11R6/include,
+					"${SRCROOT}/../src/video/khronos",
+				);
+				INSTALL_PATH = "@rpath";
+				PRODUCT_BUNDLE_IDENTIFIER = org.libsdl.SDL2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		EBC7C4AA1CD512A500005ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2.14.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_COMPATIBILITY_VERSION = 2.1.0;
+				DYLIB_CURRENT_VERSION = 2.14.0;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_ALTIVEC_EXTENSIONS = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = "OpenGL OpenGLES";
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		EBC7C4AB1CD512A500005ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2.14.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 2.1.0;
+				DYLIB_CURRENT_VERSION = 2.14.0;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_ALTIVEC_EXTENSIONS = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = "OpenGL OpenGLES";
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB70892E1CD517C2005B1025 /* Build configuration list for PBXNativeTarget "sdl2-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB70892F1CD517C2005B1025 /* Debug */,
+				EB7089301CD517C2005B1025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB70893B1CD51810005B1025 /* Build configuration list for PBXNativeTarget "sdl2-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB70893C1CD51810005B1025 /* Debug */,
+				EB70893D1CD51810005B1025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBC7C49E1CD512A500005ABE /* Build configuration list for PBXProject "sdl2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBC7C4AA1CD512A500005ABE /* Debug */,
+				EBC7C4AB1CD512A500005ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBC7C49B1CD512A500005ABE /* Project object */;
+}

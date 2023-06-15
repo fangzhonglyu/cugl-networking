@@ -1,0 +1,1341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D8AE2C328D549EBBE22DFD3 /* dtlssrtptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7582399A88046C6AC781A99 /* dtlssrtptransport.cpp */; };
+		0E07295EA15540B48873509A /* track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B066716EAB44D5BDBE261E /* track.cpp */; };
+		1AD8D0EA55C445AE8EFBD43B /* datachannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707083130D264E3881A60E82 /* datachannel.cpp */; };
+		1EB62B0A6E644C51836AC0A1 /* tcpserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E77B1C91D77A4178B86E64F5 /* tcpserver.cpp */; };
+		2C6EC040294441518AD6B739 /* certificate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62FF4FC85994D049B2495DA /* certificate.cpp */; };
+		2D2177DA90BB41978258FADC /* mediahandlerrootelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3859537EF6B4FF6987537E8 /* mediahandlerrootelement.cpp */; };
+		2DCB1D5EEF434AFF990D55F3 /* capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FD10D6F86184E6081EDE995 /* capi.cpp */; };
+		32BA11C2E2114B7FB7D2CE83 /* init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CB024737C84C24AD335989 /* init.cpp */; };
+		342EB7EFD5E140E0865B968A /* sha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB1E56E69944EB86280B51 /* sha.cpp */; };
+		3C1DBD2DA2584348B7A5775A /* rtppacketizationconfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E66CE88AB51E417887B4FAC1 /* rtppacketizationconfig.cpp */; };
+		3CE2F411F1BF40C3B68EE08E /* nalunit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0699F371AFFE4EDD9835342A /* nalunit.cpp */; };
+		3D914E4224A64B70B666D25F /* wshandshake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B6278FD4B214D2C9E5FD311 /* wshandshake.cpp */; };
+		4C355A28E193436F8182EB5D /* candidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DEF063067A4F718F386D4A /* candidate.cpp */; };
+		4E6DE18597E44A43B2E4100A /* channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28F20772F39D43F5B80B6A6E /* channel.cpp */; };
+		53B44D8B2DF04C2E91CA54B2 /* sctptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6BA3766264A47069DC68945 /* sctptransport.cpp */; };
+		559AAB764E5141EF98A2D935 /* icetransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3C2DB91114B308E83FDC7 /* icetransport.cpp */; };
+		5BF47BEF38AE4FF489243513 /* global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7501A0FED024F38929A8BFB /* global.cpp */; };
+		620D9B19C23C497092DA43C8 /* peerconnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279AB7E9D12E4BD697FCE0B3 /* peerconnection.cpp */; };
+		641012D5506A4296A0C2A660 /* dtlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059A4923DECE49E497FFAEB7 /* dtlstransport.cpp */; };
+		69B0C586BAB5455A9EDC5DCC /* rtp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F89D8BAD329E4363A7DB461D /* rtp.cpp */; };
+		6BCB03C4DC604F5597C635EC /* mediachainablehandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25ADD252D97B4589BFC0BAD1 /* mediachainablehandler.cpp */; };
+		6BF0C2C81DAB4AA89B6F8FCF /* rtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234870CCB3134A1AB63E2DFE /* rtppacketizer.cpp */; };
+		705096EDFC424A43B44EBB0A /* tcptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E11893D1D8147BAA79955E5 /* tcptransport.cpp */; };
+		7095ABB0756B4C3F830458F3 /* rtcpnackresponder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF7A5F7D8407A9F81A426 /* rtcpnackresponder.cpp */; };
+		742053A06ACE4D838F717F15 /* h264rtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EAE2F67F0454A1D9E344374 /* h264rtppacketizer.cpp */; };
+		77F8DF8EE7314C9AB78DA2A1 /* verifiedtlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981EAB4EB55D4BA6BDFDA6B7 /* verifiedtlstransport.cpp */; };
+		7984811191FD4145AE8B1D76 /* tls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6AD64A5D8BA408886135F7C /* tls.cpp */; };
+		7B01D52D13AB4171A8829E8E /* tlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C973987E4453C962118DA /* tlstransport.cpp */; };
+		7C7869C8603B44E58C2444B5 /* websocketserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03FFEB224D87448E92D42780 /* websocketserver.cpp */; };
+		7E19C2DA028848CCA3E6F081 /* configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02873DE33D7D47FD8A573377 /* configuration.cpp */; };
+		7E66297F2ADC4B33BCBF2120 /* opusrtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0704182BB8C40A8BE5194C4 /* opusrtppacketizer.cpp */; };
+		99E0AFFB7E2447C18AB6F554 /* mediahandlerelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51AB49ED5AB415694DF84F3 /* mediahandlerelement.cpp */; };
+		9C39DAE11FA54098A756EF46 /* h264packetizationhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75B5C132F8E4306BCF3F477 /* h264packetizationhandler.cpp */; };
+		A20A4D94497B418BACFA4059 /* rtcpsrreporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F29EA67AC5234EC1B35C7783 /* rtcpsrreporter.cpp */; };
+		A8480AA8EC774180A21191DE /* datachannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCEE95C36E504FF3BB97D5AA /* datachannel.cpp */; };
+		AF365928301C46E992B3EDDD /* logcounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BB146DB5984631A34AC3C8 /* logcounter.cpp */; };
+		C05A9E50F5654C8F8087911C /* track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AB83465FD34CA08803DD22 /* track.cpp */; };
+		C172539EE73A4D71BEB40C65 /* description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B631ECD6186845E585960080 /* description.cpp */; };
+		C44EC426088B49988FE85B50 /* rtcpreceivingsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00C04F2FF70641B9A5ECB37A /* rtcpreceivingsession.cpp */; };
+		C827E73FEC4B43D0AB92D62A /* channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81BCFD7142724BABA6994D85 /* channel.cpp */; };
+		CB1382EF622B46A19C285C1D /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7408EFA909EB4BD49E92ADBA /* utils.cpp */; };
+		CE211EF6C2D24B91A55D1443 /* opuspacketizationhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C9A43527D3470A9E7E5699 /* opuspacketizationhandler.cpp */; };
+		CF2D65192211404580ED3F9F /* pollinterrupter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 719A73133E7846B39DB342F4 /* pollinterrupter.cpp */; };
+		D36E304F40AA46F5AB5EB917 /* pollservice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243CAF39B3D6418D94C63650 /* pollservice.cpp */; };
+		D64FACB3948E4EB28FDE867B /* websocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB777F8B774F86ACBE9FAA /* websocket.cpp */; };
+		DE536AD848314014817BE57D /* processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 397AD14E253E4B13A26C8BCA /* processor.cpp */; };
+		E4ABBE2B4AA54043BECE7238 /* peerconnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97919A83A2754FB187E8A6F0 /* peerconnection.cpp */; };
+		E8020202DE5247EA923F2BDE /* threadpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266A794887134579AAF65678 /* threadpool.cpp */; };
+		EAB89188F25D42588CC5C9DD /* transport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E53E10697B34C92B6ECEC11 /* transport.cpp */; };
+		EB98C6ED2961FD8C00DFB8F9 /* candidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DEF063067A4F718F386D4A /* candidate.cpp */; };
+		EB98C6EE2961FD8C00DFB8F9 /* capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FD10D6F86184E6081EDE995 /* capi.cpp */; };
+		EB98C6EF2961FD8C00DFB8F9 /* channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28F20772F39D43F5B80B6A6E /* channel.cpp */; };
+		EB98C6F02961FD8C00DFB8F9 /* configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02873DE33D7D47FD8A573377 /* configuration.cpp */; };
+		EB98C6F12961FD8C00DFB8F9 /* datachannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707083130D264E3881A60E82 /* datachannel.cpp */; };
+		EB98C6F22961FD8C00DFB8F9 /* description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B631ECD6186845E585960080 /* description.cpp */; };
+		EB98C6F32961FD8C00DFB8F9 /* global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7501A0FED024F38929A8BFB /* global.cpp */; };
+		EB98C6F42961FD8C00DFB8F9 /* h264packetizationhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75B5C132F8E4306BCF3F477 /* h264packetizationhandler.cpp */; };
+		EB98C6F52961FD8C00DFB8F9 /* h264rtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EAE2F67F0454A1D9E344374 /* h264rtppacketizer.cpp */; };
+		EB98C6F62961FD8C00DFB8F9 /* certificate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62FF4FC85994D049B2495DA /* certificate.cpp */; };
+		EB98C6F72961FD8C00DFB8F9 /* channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81BCFD7142724BABA6994D85 /* channel.cpp */; };
+		EB98C6F82961FD8C00DFB8F9 /* datachannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCEE95C36E504FF3BB97D5AA /* datachannel.cpp */; };
+		EB98C6F92961FD8C00DFB8F9 /* dtlssrtptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7582399A88046C6AC781A99 /* dtlssrtptransport.cpp */; };
+		EB98C6FA2961FD8C00DFB8F9 /* dtlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059A4923DECE49E497FFAEB7 /* dtlstransport.cpp */; };
+		EB98C6FB2961FD8C00DFB8F9 /* icetransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3C2DB91114B308E83FDC7 /* icetransport.cpp */; };
+		EB98C6FC2961FD8C00DFB8F9 /* init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CB024737C84C24AD335989 /* init.cpp */; };
+		EB98C6FD2961FD8C00DFB8F9 /* logcounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BB146DB5984631A34AC3C8 /* logcounter.cpp */; };
+		EB98C6FE2961FD8C00DFB8F9 /* peerconnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279AB7E9D12E4BD697FCE0B3 /* peerconnection.cpp */; };
+		EB98C6FF2961FD8C00DFB8F9 /* pollinterrupter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 719A73133E7846B39DB342F4 /* pollinterrupter.cpp */; };
+		EB98C7002961FD8C00DFB8F9 /* pollservice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243CAF39B3D6418D94C63650 /* pollservice.cpp */; };
+		EB98C7012961FD8C00DFB8F9 /* processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 397AD14E253E4B13A26C8BCA /* processor.cpp */; };
+		EB98C7022961FD8C00DFB8F9 /* sctptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6BA3766264A47069DC68945 /* sctptransport.cpp */; };
+		EB98C7032961FD8C00DFB8F9 /* sha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18AB1E56E69944EB86280B51 /* sha.cpp */; };
+		EB98C7042961FD8C00DFB8F9 /* tcpserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E77B1C91D77A4178B86E64F5 /* tcpserver.cpp */; };
+		EB98C7052961FD8C00DFB8F9 /* tcptransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E11893D1D8147BAA79955E5 /* tcptransport.cpp */; };
+		EB98C7062961FD8C00DFB8F9 /* threadpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266A794887134579AAF65678 /* threadpool.cpp */; };
+		EB98C7072961FD8C00DFB8F9 /* tls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6AD64A5D8BA408886135F7C /* tls.cpp */; };
+		EB98C7082961FD8C00DFB8F9 /* tlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C973987E4453C962118DA /* tlstransport.cpp */; };
+		EB98C7092961FD8C00DFB8F9 /* track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B066716EAB44D5BDBE261E /* track.cpp */; };
+		EB98C70A2961FD8C00DFB8F9 /* transport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E53E10697B34C92B6ECEC11 /* transport.cpp */; };
+		EB98C70B2961FD8C00DFB8F9 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7408EFA909EB4BD49E92ADBA /* utils.cpp */; };
+		EB98C70C2961FD8C00DFB8F9 /* verifiedtlstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981EAB4EB55D4BA6BDFDA6B7 /* verifiedtlstransport.cpp */; };
+		EB98C70D2961FD8C00DFB8F9 /* websocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D8648CCFC54D3F9DFCCBC1 /* websocket.cpp */; };
+		EB98C70E2961FD8C00DFB8F9 /* websocketserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925C532B4B7B4525A1D3DC1E /* websocketserver.cpp */; };
+		EB98C70F2961FD8C00DFB8F9 /* wshandshake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B6278FD4B214D2C9E5FD311 /* wshandshake.cpp */; };
+		EB98C7102961FD8C00DFB8F9 /* wstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BB3A12E676C414B98102940 /* wstransport.cpp */; };
+		EB98C7112961FD8C00DFB8F9 /* mediachainablehandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25ADD252D97B4589BFC0BAD1 /* mediachainablehandler.cpp */; };
+		EB98C7122961FD8C00DFB8F9 /* mediahandlerelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51AB49ED5AB415694DF84F3 /* mediahandlerelement.cpp */; };
+		EB98C7132961FD8C00DFB8F9 /* mediahandlerrootelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3859537EF6B4FF6987537E8 /* mediahandlerrootelement.cpp */; };
+		EB98C7142961FD8C00DFB8F9 /* message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69F63113514438BA06737F4 /* message.cpp */; };
+		EB98C7152961FD8C00DFB8F9 /* nalunit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0699F371AFFE4EDD9835342A /* nalunit.cpp */; };
+		EB98C7162961FD8C00DFB8F9 /* opuspacketizationhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C9A43527D3470A9E7E5699 /* opuspacketizationhandler.cpp */; };
+		EB98C7172961FD8C00DFB8F9 /* opusrtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0704182BB8C40A8BE5194C4 /* opusrtppacketizer.cpp */; };
+		EB98C7182961FD8C00DFB8F9 /* peerconnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97919A83A2754FB187E8A6F0 /* peerconnection.cpp */; };
+		EB98C7192961FD8C00DFB8F9 /* rtcpnackresponder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF7A5F7D8407A9F81A426 /* rtcpnackresponder.cpp */; };
+		EB98C71A2961FD8C00DFB8F9 /* rtcpreceivingsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00C04F2FF70641B9A5ECB37A /* rtcpreceivingsession.cpp */; };
+		EB98C71B2961FD8C00DFB8F9 /* rtcpsrreporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F29EA67AC5234EC1B35C7783 /* rtcpsrreporter.cpp */; };
+		EB98C71C2961FD8C00DFB8F9 /* rtp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F89D8BAD329E4363A7DB461D /* rtp.cpp */; };
+		EB98C71D2961FD8C00DFB8F9 /* rtppacketizationconfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E66CE88AB51E417887B4FAC1 /* rtppacketizationconfig.cpp */; };
+		EB98C71E2961FD8C00DFB8F9 /* rtppacketizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234870CCB3134A1AB63E2DFE /* rtppacketizer.cpp */; };
+		EB98C71F2961FD8C00DFB8F9 /* track.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AB83465FD34CA08803DD22 /* track.cpp */; };
+		EB98C7202961FD8C00DFB8F9 /* websocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB777F8B774F86ACBE9FAA /* websocket.cpp */; };
+		EB98C7212961FD8C00DFB8F9 /* websocketserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03FFEB224D87448E92D42780 /* websocketserver.cpp */; };
+		EBF19E8E297CF293000F414E /* libjuice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E75297CF259000F414E /* libjuice.a */; };
+		EBF19E8F297CF293000F414E /* libsrtp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E7B297CF25E000F414E /* libsrtp2.a */; };
+		EBF19E90297CF293000F414E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E82297CF262000F414E /* libcrypto.a */; };
+		EBF19E91297CF293000F414E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E84297CF262000F414E /* libssl.a */; };
+		EBF19E92297CF293000F414E /* libusrsctp-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E8B297CF265000F414E /* libusrsctp-mac.a */; };
+		EBF19E93297CF2BB000F414E /* libjuice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E75297CF259000F414E /* libjuice.a */; };
+		EBF19E94297CF2BB000F414E /* libsrtp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E7B297CF25E000F414E /* libsrtp2.a */; };
+		EBF19E95297CF2BB000F414E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E82297CF262000F414E /* libcrypto.a */; };
+		EBF19E96297CF2BB000F414E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E84297CF262000F414E /* libssl.a */; };
+		EBF19E97297CF2BB000F414E /* libusrsctp-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF19E8D297CF265000F414E /* libusrsctp-ios.a */; };
+		EFB81AA6A6B94C0FA210F25F /* websocketserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925C532B4B7B4525A1D3DC1E /* websocketserver.cpp */; };
+		F51A203985A4449F9CDDD0F8 /* wstransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BB3A12E676C414B98102940 /* wstransport.cpp */; };
+		FCC276E4EECA47FEB7E22204 /* websocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D8648CCFC54D3F9DFCCBC1 /* websocket.cpp */; };
+		FF7DF097A78E4CC9AFB8AC67 /* message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69F63113514438BA06737F4 /* message.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBF19E74297CF259000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E70297CF259000F414E /* libjuice.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DFA47AD8701249D5BB607C97;
+			remoteInfo = juice;
+		};
+		EBF19E7A297CF25E000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E76297CF25E000F414E /* libsrtp2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AD4E7F8CC30A4273BA8BF6DA;
+			remoteInfo = srtp2;
+		};
+		EBF19E81297CF262000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E7C297CF261000F414E /* openssl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B74BFE9820A345DBA125253F;
+			remoteInfo = crypto;
+		};
+		EBF19E83297CF262000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E7C297CF261000F414E /* openssl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 57720F1EAC484CCA89D8C1BE;
+			remoteInfo = ssl;
+		};
+		EBF19E8A297CF265000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E85297CF265000F414E /* usrsctplib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C847FC4D348349419D8562E3;
+			remoteInfo = "usrsctp-mac";
+		};
+		EBF19E8C297CF265000F414E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF19E85297CF265000F414E /* usrsctplib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB98C6812961679D00DFB8F9;
+			remoteInfo = "usrsctp-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB98C6D72961FB3D00DFB8F9 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00C04F2FF70641B9A5ECB37A /* rtcpreceivingsession.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtcpreceivingsession.cpp; path = src/rtcpreceivingsession.cpp; sourceTree = "<group>"; };
+		014F4249A66A4D2D8801D3C0 /* peerconnection.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = peerconnection.hpp; path = src/impl/peerconnection.hpp; sourceTree = "<group>"; };
+		017E036BB0D4443CAE9840B5 /* global.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = global.hpp; path = include/rtc/global.hpp; sourceTree = "<group>"; };
+		02873DE33D7D47FD8A573377 /* configuration.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = configuration.cpp; path = src/configuration.cpp; sourceTree = "<group>"; };
+		0318576598D842CA9379C9CE /* rtppacketizationconfig.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtppacketizationconfig.hpp; path = include/rtc/rtppacketizationconfig.hpp; sourceTree = "<group>"; };
+		03FFEB224D87448E92D42780 /* websocketserver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = websocketserver.cpp; path = src/websocketserver.cpp; sourceTree = "<group>"; };
+		059A4923DECE49E497FFAEB7 /* dtlstransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = dtlstransport.cpp; path = src/impl/dtlstransport.cpp; sourceTree = "<group>"; };
+		0699F371AFFE4EDD9835342A /* nalunit.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = nalunit.cpp; path = src/nalunit.cpp; sourceTree = "<group>"; };
+		093A6D3FFF654E34ABC27C06 /* rtcpnackresponder.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtcpnackresponder.hpp; path = include/rtc/rtcpnackresponder.hpp; sourceTree = "<group>"; };
+		0A938F8B636B4356A1A65A87 /* datachannel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = datachannel.hpp; path = src/impl/datachannel.hpp; sourceTree = "<group>"; };
+		0CE3C156F6DD48E8AF2E235E /* dtlstransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = dtlstransport.hpp; path = src/impl/dtlstransport.hpp; sourceTree = "<group>"; };
+		0F955A5B5320476192F6D30A /* h264packetizationhandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = h264packetizationhandler.hpp; path = include/rtc/h264packetizationhandler.hpp; sourceTree = "<group>"; };
+		17CB024737C84C24AD335989 /* init.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = init.cpp; path = src/impl/init.cpp; sourceTree = "<group>"; };
+		18AB1E56E69944EB86280B51 /* sha.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = sha.cpp; path = src/impl/sha.cpp; sourceTree = "<group>"; };
+		1E4FF7A5F7D8407A9F81A426 /* rtcpnackresponder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtcpnackresponder.cpp; path = src/rtcpnackresponder.cpp; sourceTree = "<group>"; };
+		1E53E10697B34C92B6ECEC11 /* transport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = transport.cpp; path = src/impl/transport.cpp; sourceTree = "<group>"; };
+		21C19B545F654352A49E674C /* tls.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = tls.hpp; path = src/impl/tls.hpp; sourceTree = "<group>"; };
+		234870CCB3134A1AB63E2DFE /* rtppacketizer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtppacketizer.cpp; path = src/rtppacketizer.cpp; sourceTree = "<group>"; };
+		242AC2A6E64C415DA2990A03 /* wshandshake.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = wshandshake.hpp; path = src/impl/wshandshake.hpp; sourceTree = "<group>"; };
+		243CAF39B3D6418D94C63650 /* pollservice.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pollservice.cpp; path = src/impl/pollservice.cpp; sourceTree = "<group>"; };
+		250D653D735E4FB885C9E99F /* channel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = channel.hpp; path = src/impl/channel.hpp; sourceTree = "<group>"; };
+		25ADD252D97B4589BFC0BAD1 /* mediachainablehandler.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = mediachainablehandler.cpp; path = src/mediachainablehandler.cpp; sourceTree = "<group>"; };
+		25B3D63C8C554F8FAE3ACE68 /* datachannel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = datachannel.hpp; path = include/rtc/datachannel.hpp; sourceTree = "<group>"; };
+		266A794887134579AAF65678 /* threadpool.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = threadpool.cpp; path = src/impl/threadpool.cpp; sourceTree = "<group>"; };
+		279AB7E9D12E4BD697FCE0B3 /* peerconnection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = peerconnection.cpp; path = src/impl/peerconnection.cpp; sourceTree = "<group>"; };
+		27ACD0E99768491E992C42BB /* configuration.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = configuration.hpp; path = include/rtc/configuration.hpp; sourceTree = "<group>"; };
+		287A094BF3CD4226A2D1A556 /* logcounter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = logcounter.hpp; path = src/impl/logcounter.hpp; sourceTree = "<group>"; };
+		28F20772F39D43F5B80B6A6E /* channel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = channel.cpp; path = src/channel.cpp; sourceTree = "<group>"; };
+		2B6278FD4B214D2C9E5FD311 /* wshandshake.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = wshandshake.cpp; path = src/impl/wshandshake.cpp; sourceTree = "<group>"; };
+		2BB3A12E676C414B98102940 /* wstransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = wstransport.cpp; path = src/impl/wstransport.cpp; sourceTree = "<group>"; };
+		2D5C973987E4453C962118DA /* tlstransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tlstransport.cpp; path = src/impl/tlstransport.cpp; sourceTree = "<group>"; };
+		2DDF72131A514ED295622921 /* pollinterrupter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = pollinterrupter.hpp; path = src/impl/pollinterrupter.hpp; sourceTree = "<group>"; };
+		3527E2AD3FEE4D92850CD5CD /* rtppacketizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtppacketizer.hpp; path = include/rtc/rtppacketizer.hpp; sourceTree = "<group>"; };
+		363FC190FEC6429ABC482C31 /* websocketserver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = websocketserver.hpp; path = src/impl/websocketserver.hpp; sourceTree = "<group>"; };
+		37C4D6EF165B467A905CE53E /* libdatachannel-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libdatachannel-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37E786E054184FDCAD9DEEA5 /* peerconnection.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = peerconnection.hpp; path = include/rtc/peerconnection.hpp; sourceTree = "<group>"; };
+		397AD14E253E4B13A26C8BCA /* processor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = processor.cpp; path = src/impl/processor.cpp; sourceTree = "<group>"; };
+		3CF83FA3885E480F85EAE21C /* opusrtppacketizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = opusrtppacketizer.hpp; path = include/rtc/opusrtppacketizer.hpp; sourceTree = "<group>"; };
+		427B3AEC1C3D4EF69D4FD073 /* channel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = channel.hpp; path = include/rtc/channel.hpp; sourceTree = "<group>"; };
+		43453F45757349F4A4AA78B4 /* rtc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = rtc.h; path = include/rtc/rtc.h; sourceTree = "<group>"; };
+		45A3B0706A5745BD976035D1 /* wstransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = wstransport.hpp; path = src/impl/wstransport.hpp; sourceTree = "<group>"; };
+		47C0F92C67144B6F99AA82F8 /* tcpserver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = tcpserver.hpp; path = src/impl/tcpserver.hpp; sourceTree = "<group>"; };
+		4A2B5A59BCBD4C2681EC2874 /* rtp.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtp.hpp; path = include/rtc/rtp.hpp; sourceTree = "<group>"; };
+		4A7194412B52401281957707 /* tcptransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = tcptransport.hpp; path = src/impl/tcptransport.hpp; sourceTree = "<group>"; };
+		4E40C578A75E40E981B3E437 /* mediahandlerelement.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = mediahandlerelement.hpp; path = include/rtc/mediahandlerelement.hpp; sourceTree = "<group>"; };
+		4F6440CF345F41FDA1C30A7E /* opuspacketizationhandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = opuspacketizationhandler.hpp; path = include/rtc/opuspacketizationhandler.hpp; sourceTree = "<group>"; };
+		5BDA21CAAC4D41AD81E4C191 /* transport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = transport.hpp; path = src/impl/transport.hpp; sourceTree = "<group>"; };
+		6023C21D1C2E4F79B278B3E3 /* sha.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = sha.hpp; path = src/impl/sha.hpp; sourceTree = "<group>"; };
+		60D8648CCFC54D3F9DFCCBC1 /* websocket.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = websocket.cpp; path = src/impl/websocket.cpp; sourceTree = "<group>"; };
+		61C034A4D5454F3E80E3B266 /* rtcpreceivingsession.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtcpreceivingsession.hpp; path = include/rtc/rtcpreceivingsession.hpp; sourceTree = "<group>"; };
+		67BDF2F93C914C65A9FB9F78 /* dtlssrtptransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = dtlssrtptransport.hpp; path = src/impl/dtlssrtptransport.hpp; sourceTree = "<group>"; };
+		682D96F6076C47149180DDEE /* mediachainablehandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = mediachainablehandler.hpp; path = include/rtc/mediachainablehandler.hpp; sourceTree = "<group>"; };
+		6E1610BDBC964073916B5367 /* websocketserver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = websocketserver.hpp; path = include/rtc/websocketserver.hpp; sourceTree = "<group>"; };
+		6FF3C2DB91114B308E83FDC7 /* icetransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = icetransport.cpp; path = src/impl/icetransport.cpp; sourceTree = "<group>"; };
+		6FFDBA12F34842B6A47CC0C7 /* websocket.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = websocket.hpp; path = include/rtc/websocket.hpp; sourceTree = "<group>"; };
+		707083130D264E3881A60E82 /* datachannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = datachannel.cpp; path = src/datachannel.cpp; sourceTree = "<group>"; };
+		719A73133E7846B39DB342F4 /* pollinterrupter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pollinterrupter.cpp; path = src/impl/pollinterrupter.cpp; sourceTree = "<group>"; };
+		731684E5D79840E89026F387 /* websocket.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = websocket.hpp; path = src/impl/websocket.hpp; sourceTree = "<group>"; };
+		7408EFA909EB4BD49E92ADBA /* utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = utils.cpp; path = src/impl/utils.cpp; sourceTree = "<group>"; };
+		76970C14993A4269BFAC1172 /* utils.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = utils.hpp; path = src/impl/utils.hpp; sourceTree = "<group>"; };
+		77BB146DB5984631A34AC3C8 /* logcounter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = logcounter.cpp; path = src/impl/logcounter.cpp; sourceTree = "<group>"; };
+		780BD83A276A46FBB819C4DD /* verifiedtlstransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = verifiedtlstransport.hpp; path = src/impl/verifiedtlstransport.hpp; sourceTree = "<group>"; };
+		7902DED8605C4CE891F4BF0F /* queue.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = queue.hpp; path = src/impl/queue.hpp; sourceTree = "<group>"; };
+		79922201DF774349B2EFF51E /* processor.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = processor.hpp; path = src/impl/processor.hpp; sourceTree = "<group>"; };
+		7CBB777F8B774F86ACBE9FAA /* websocket.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = websocket.cpp; path = src/websocket.cpp; sourceTree = "<group>"; };
+		7E11893D1D8147BAA79955E5 /* tcptransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tcptransport.cpp; path = src/impl/tcptransport.cpp; sourceTree = "<group>"; };
+		7EC5E16C4E2146E1B465B391 /* mediahandlerrootelement.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = mediahandlerrootelement.hpp; path = include/rtc/mediahandlerrootelement.hpp; sourceTree = "<group>"; };
+		7ECCC7CDB4F741CCBFBBEEE9 /* threadpool.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = threadpool.hpp; path = src/impl/threadpool.hpp; sourceTree = "<group>"; };
+		7FD10D6F86184E6081EDE995 /* capi.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = capi.cpp; path = src/capi.cpp; sourceTree = "<group>"; };
+		81BCFD7142724BABA6994D85 /* channel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = channel.cpp; path = src/impl/channel.cpp; sourceTree = "<group>"; };
+		86ACEB8F88CF4D84941879C8 /* track.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = track.hpp; path = include/rtc/track.hpp; sourceTree = "<group>"; };
+		894878BB4BC14F7EA1388D02 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = common.hpp; path = include/rtc/common.hpp; sourceTree = "<group>"; };
+		925C532B4B7B4525A1D3DC1E /* websocketserver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = websocketserver.cpp; path = src/impl/websocketserver.cpp; sourceTree = "<group>"; };
+		92C86A59C51D436082F74A49 /* rtc.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtc.hpp; path = include/rtc/rtc.hpp; sourceTree = "<group>"; };
+		95DEF063067A4F718F386D4A /* candidate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = candidate.cpp; path = src/candidate.cpp; sourceTree = "<group>"; };
+		96AB83465FD34CA08803DD22 /* track.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = track.cpp; path = src/track.cpp; sourceTree = "<group>"; };
+		97919A83A2754FB187E8A6F0 /* peerconnection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = peerconnection.cpp; path = src/peerconnection.cpp; sourceTree = "<group>"; };
+		981EAB4EB55D4BA6BDFDA6B7 /* verifiedtlstransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = verifiedtlstransport.cpp; path = src/impl/verifiedtlstransport.cpp; sourceTree = "<group>"; };
+		99878BBDBB88463F862F153F /* track.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = track.hpp; path = src/impl/track.hpp; sourceTree = "<group>"; };
+		9EAE2F67F0454A1D9E344374 /* h264rtppacketizer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = h264rtppacketizer.cpp; path = src/h264rtppacketizer.cpp; sourceTree = "<group>"; };
+		9F1511F0E39A4EB38ED92CDC /* init.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = init.hpp; path = src/impl/init.hpp; sourceTree = "<group>"; };
+		A8B066716EAB44D5BDBE261E /* track.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = track.cpp; path = src/impl/track.cpp; sourceTree = "<group>"; };
+		ABFBF83B3E104438B3C53BF7 /* message.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = message.hpp; path = include/rtc/message.hpp; sourceTree = "<group>"; };
+		AE222B68343F42949CAD5C33 /* rtcpsrreporter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = rtcpsrreporter.hpp; path = include/rtc/rtcpsrreporter.hpp; sourceTree = "<group>"; };
+		AED227D4E6B7484E9D3777BD /* pollservice.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = pollservice.hpp; path = src/impl/pollservice.hpp; sourceTree = "<group>"; };
+		AF63405858994E2EA6726AB6 /* tlstransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = tlstransport.hpp; path = src/impl/tlstransport.hpp; sourceTree = "<group>"; };
+		AF65BBE8C8D74026BA359B89 /* h264rtppacketizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = h264rtppacketizer.hpp; path = include/rtc/h264rtppacketizer.hpp; sourceTree = "<group>"; };
+		B631ECD6186845E585960080 /* description.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = description.cpp; path = src/description.cpp; sourceTree = "<group>"; };
+		BDE718C19A354A3CB8BBCB47 /* description.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = description.hpp; path = include/rtc/description.hpp; sourceTree = "<group>"; };
+		C0EF3DCC91634F6E96831AB4 /* nalunit.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = nalunit.hpp; path = include/rtc/nalunit.hpp; sourceTree = "<group>"; };
+		C3859537EF6B4FF6987537E8 /* mediahandlerrootelement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = mediahandlerrootelement.cpp; path = src/mediahandlerrootelement.cpp; sourceTree = "<group>"; };
+		C91A164236A34F6392A5A8EF /* utils.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = utils.hpp; path = include/rtc/utils.hpp; sourceTree = "<group>"; };
+		D049EBEDAD744818955FCC30 /* mediahandler.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = mediahandler.hpp; path = include/rtc/mediahandler.hpp; sourceTree = "<group>"; };
+		D0704182BB8C40A8BE5194C4 /* opusrtppacketizer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = opusrtppacketizer.cpp; path = src/opusrtppacketizer.cpp; sourceTree = "<group>"; };
+		D6AD64A5D8BA408886135F7C /* tls.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tls.cpp; path = src/impl/tls.cpp; sourceTree = "<group>"; };
+		D7CFD582125F4762B3F3B21A /* certificate.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = certificate.hpp; path = src/impl/certificate.hpp; sourceTree = "<group>"; };
+		E1DFF1D09933401E875F2D81 /* candidate.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = candidate.hpp; path = include/rtc/candidate.hpp; sourceTree = "<group>"; };
+		E66CE88AB51E417887B4FAC1 /* rtppacketizationconfig.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtppacketizationconfig.cpp; path = src/rtppacketizationconfig.cpp; sourceTree = "<group>"; };
+		E6BA3766264A47069DC68945 /* sctptransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = sctptransport.cpp; path = src/impl/sctptransport.cpp; sourceTree = "<group>"; };
+		E7501A0FED024F38929A8BFB /* global.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = global.cpp; path = src/global.cpp; sourceTree = "<group>"; };
+		E7582399A88046C6AC781A99 /* dtlssrtptransport.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = dtlssrtptransport.cpp; path = src/impl/dtlssrtptransport.cpp; sourceTree = "<group>"; };
+		E77B1C91D77A4178B86E64F5 /* tcpserver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tcpserver.cpp; path = src/impl/tcpserver.cpp; sourceTree = "<group>"; };
+		EAFBBB96294A429FA4A0D2AA /* reliability.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = reliability.hpp; path = include/rtc/reliability.hpp; sourceTree = "<group>"; };
+		EB98C6D92961FB3D00DFB8F9 /* libdatachannel-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdatachannel-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBF19E70297CF259000F414E /* libjuice.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libjuice.xcodeproj; path = apple/libjuice.xcodeproj; sourceTree = "<group>"; };
+		EBF19E76297CF25E000F414E /* libsrtp2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsrtp2.xcodeproj; path = apple/libsrtp2.xcodeproj; sourceTree = "<group>"; };
+		EBF19E7C297CF261000F414E /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = apple/openssl.xcodeproj; sourceTree = "<group>"; };
+		EBF19E85297CF265000F414E /* usrsctplib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = usrsctplib.xcodeproj; path = apple/usrsctplib.xcodeproj; sourceTree = "<group>"; };
+		F29EA67AC5234EC1B35C7783 /* rtcpsrreporter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtcpsrreporter.cpp; path = src/rtcpsrreporter.cpp; sourceTree = "<group>"; };
+		F51AB49ED5AB415694DF84F3 /* mediahandlerelement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = mediahandlerelement.cpp; path = src/mediahandlerelement.cpp; sourceTree = "<group>"; };
+		F62FF4FC85994D049B2495DA /* certificate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = certificate.cpp; path = src/impl/certificate.cpp; sourceTree = "<group>"; };
+		F69F63113514438BA06737F4 /* message.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = message.cpp; path = src/message.cpp; sourceTree = "<group>"; };
+		F6C9A43527D3470A9E7E5699 /* opuspacketizationhandler.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = opuspacketizationhandler.cpp; path = src/opuspacketizationhandler.cpp; sourceTree = "<group>"; };
+		F75B5C132F8E4306BCF3F477 /* h264packetizationhandler.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = h264packetizationhandler.cpp; path = src/h264packetizationhandler.cpp; sourceTree = "<group>"; };
+		F89D8BAD329E4363A7DB461D /* rtp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rtp.cpp; path = src/rtp.cpp; sourceTree = "<group>"; };
+		F985953D43204988A090C8B2 /* icetransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = icetransport.hpp; path = src/impl/icetransport.hpp; sourceTree = "<group>"; };
+		FA2EE817A855462FBAB164D9 /* sctptransport.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = sctptransport.hpp; path = src/impl/sctptransport.hpp; sourceTree = "<group>"; };
+		FCEE95C36E504FF3BB97D5AA /* datachannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = datachannel.cpp; path = src/impl/datachannel.cpp; sourceTree = "<group>"; };
+		FFAC9613C21E41559552ACFF /* internals.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = internals.hpp; path = src/impl/internals.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51ADE2BFF9C9490A9A000BB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBF19E90297CF293000F414E /* libcrypto.a in Frameworks */,
+				EBF19E91297CF293000F414E /* libssl.a in Frameworks */,
+				EBF19E92297CF293000F414E /* libusrsctp-mac.a in Frameworks */,
+				EBF19E8F297CF293000F414E /* libsrtp2.a in Frameworks */,
+				EBF19E8E297CF293000F414E /* libjuice.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB98C6D62961FB3D00DFB8F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBF19E95297CF2BB000F414E /* libcrypto.a in Frameworks */,
+				EBF19E96297CF2BB000F414E /* libssl.a in Frameworks */,
+				EBF19E97297CF2BB000F414E /* libusrsctp-ios.a in Frameworks */,
+				EBF19E94297CF2BB000F414E /* libsrtp2.a in Frameworks */,
+				EBF19E93297CF2BB000F414E /* libjuice.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		283C2EB68D5F46F4B4455FDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34111FF927204FFEB2EAC89A = {
+			isa = PBXGroup;
+			children = (
+				A86CA12DD78A46A6B196A7E0 /* datachannel */,
+				E6D9C15012A944E28FA73FEC /* Products */,
+				283C2EB68D5F46F4B4455FDA /* Frameworks */,
+				EBF19E7C297CF261000F414E /* openssl.xcodeproj */,
+				EBF19E85297CF265000F414E /* usrsctplib.xcodeproj */,
+				EBF19E76297CF25E000F414E /* libsrtp2.xcodeproj */,
+				EBF19E70297CF259000F414E /* libjuice.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		4C4AC5FEAE5B410F966552F4 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1DFF1D09933401E875F2D81 /* candidate.hpp */,
+				427B3AEC1C3D4EF69D4FD073 /* channel.hpp */,
+				894878BB4BC14F7EA1388D02 /* common.hpp */,
+				27ACD0E99768491E992C42BB /* configuration.hpp */,
+				25B3D63C8C554F8FAE3ACE68 /* datachannel.hpp */,
+				BDE718C19A354A3CB8BBCB47 /* description.hpp */,
+				017E036BB0D4443CAE9840B5 /* global.hpp */,
+				0F955A5B5320476192F6D30A /* h264packetizationhandler.hpp */,
+				AF65BBE8C8D74026BA359B89 /* h264rtppacketizer.hpp */,
+				682D96F6076C47149180DDEE /* mediachainablehandler.hpp */,
+				D049EBEDAD744818955FCC30 /* mediahandler.hpp */,
+				4E40C578A75E40E981B3E437 /* mediahandlerelement.hpp */,
+				7EC5E16C4E2146E1B465B391 /* mediahandlerrootelement.hpp */,
+				ABFBF83B3E104438B3C53BF7 /* message.hpp */,
+				C0EF3DCC91634F6E96831AB4 /* nalunit.hpp */,
+				4F6440CF345F41FDA1C30A7E /* opuspacketizationhandler.hpp */,
+				3CF83FA3885E480F85EAE21C /* opusrtppacketizer.hpp */,
+				37E786E054184FDCAD9DEEA5 /* peerconnection.hpp */,
+				EAFBBB96294A429FA4A0D2AA /* reliability.hpp */,
+				43453F45757349F4A4AA78B4 /* rtc.h */,
+				92C86A59C51D436082F74A49 /* rtc.hpp */,
+				093A6D3FFF654E34ABC27C06 /* rtcpnackresponder.hpp */,
+				61C034A4D5454F3E80E3B266 /* rtcpreceivingsession.hpp */,
+				AE222B68343F42949CAD5C33 /* rtcpsrreporter.hpp */,
+				4A2B5A59BCBD4C2681EC2874 /* rtp.hpp */,
+				0318576598D842CA9379C9CE /* rtppacketizationconfig.hpp */,
+				3527E2AD3FEE4D92850CD5CD /* rtppacketizer.hpp */,
+				86ACEB8F88CF4D84941879C8 /* track.hpp */,
+				C91A164236A34F6392A5A8EF /* utils.hpp */,
+				6FFDBA12F34842B6A47CC0C7 /* websocket.hpp */,
+				6E1610BDBC964073916B5367 /* websocketserver.hpp */,
+				D7CFD582125F4762B3F3B21A /* certificate.hpp */,
+				250D653D735E4FB885C9E99F /* channel.hpp */,
+				0A938F8B636B4356A1A65A87 /* datachannel.hpp */,
+				67BDF2F93C914C65A9FB9F78 /* dtlssrtptransport.hpp */,
+				0CE3C156F6DD48E8AF2E235E /* dtlstransport.hpp */,
+				F985953D43204988A090C8B2 /* icetransport.hpp */,
+				9F1511F0E39A4EB38ED92CDC /* init.hpp */,
+				FFAC9613C21E41559552ACFF /* internals.hpp */,
+				287A094BF3CD4226A2D1A556 /* logcounter.hpp */,
+				014F4249A66A4D2D8801D3C0 /* peerconnection.hpp */,
+				2DDF72131A514ED295622921 /* pollinterrupter.hpp */,
+				AED227D4E6B7484E9D3777BD /* pollservice.hpp */,
+				79922201DF774349B2EFF51E /* processor.hpp */,
+				7902DED8605C4CE891F4BF0F /* queue.hpp */,
+				FA2EE817A855462FBAB164D9 /* sctptransport.hpp */,
+				6023C21D1C2E4F79B278B3E3 /* sha.hpp */,
+				47C0F92C67144B6F99AA82F8 /* tcpserver.hpp */,
+				4A7194412B52401281957707 /* tcptransport.hpp */,
+				7ECCC7CDB4F741CCBFBBEEE9 /* threadpool.hpp */,
+				21C19B545F654352A49E674C /* tls.hpp */,
+				AF63405858994E2EA6726AB6 /* tlstransport.hpp */,
+				99878BBDBB88463F862F153F /* track.hpp */,
+				5BDA21CAAC4D41AD81E4C191 /* transport.hpp */,
+				76970C14993A4269BFAC1172 /* utils.hpp */,
+				780BD83A276A46FBB819C4DD /* verifiedtlstransport.hpp */,
+				731684E5D79840E89026F387 /* websocket.hpp */,
+				363FC190FEC6429ABC482C31 /* websocketserver.hpp */,
+				242AC2A6E64C415DA2990A03 /* wshandshake.hpp */,
+				45A3B0706A5745BD976035D1 /* wstransport.hpp */,
+			);
+			name = "Header Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A86CA12DD78A46A6B196A7E0 /* datachannel */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E1136906C4B19B278C54F /* Source Files */,
+				4C4AC5FEAE5B410F966552F4 /* Header Files */,
+			);
+			name = datachannel;
+			sourceTree = "<group>";
+		};
+		E6D9C15012A944E28FA73FEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37C4D6EF165B467A905CE53E /* libdatachannel-mac.a */,
+				EB98C6D92961FB3D00DFB8F9 /* libdatachannel-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBF19E71297CF259000F414E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBF19E75297CF259000F414E /* libjuice.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBF19E77297CF25E000F414E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBF19E7B297CF25E000F414E /* libsrtp2.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBF19E7D297CF261000F414E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBF19E82297CF262000F414E /* libcrypto.a */,
+				EBF19E84297CF262000F414E /* libssl.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBF19E86297CF265000F414E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBF19E8B297CF265000F414E /* libusrsctp-mac.a */,
+				EBF19E8D297CF265000F414E /* libusrsctp-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA6E1136906C4B19B278C54F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				95DEF063067A4F718F386D4A /* candidate.cpp */,
+				7FD10D6F86184E6081EDE995 /* capi.cpp */,
+				28F20772F39D43F5B80B6A6E /* channel.cpp */,
+				02873DE33D7D47FD8A573377 /* configuration.cpp */,
+				707083130D264E3881A60E82 /* datachannel.cpp */,
+				B631ECD6186845E585960080 /* description.cpp */,
+				E7501A0FED024F38929A8BFB /* global.cpp */,
+				F75B5C132F8E4306BCF3F477 /* h264packetizationhandler.cpp */,
+				9EAE2F67F0454A1D9E344374 /* h264rtppacketizer.cpp */,
+				F62FF4FC85994D049B2495DA /* certificate.cpp */,
+				81BCFD7142724BABA6994D85 /* channel.cpp */,
+				FCEE95C36E504FF3BB97D5AA /* datachannel.cpp */,
+				E7582399A88046C6AC781A99 /* dtlssrtptransport.cpp */,
+				059A4923DECE49E497FFAEB7 /* dtlstransport.cpp */,
+				6FF3C2DB91114B308E83FDC7 /* icetransport.cpp */,
+				17CB024737C84C24AD335989 /* init.cpp */,
+				77BB146DB5984631A34AC3C8 /* logcounter.cpp */,
+				279AB7E9D12E4BD697FCE0B3 /* peerconnection.cpp */,
+				719A73133E7846B39DB342F4 /* pollinterrupter.cpp */,
+				243CAF39B3D6418D94C63650 /* pollservice.cpp */,
+				397AD14E253E4B13A26C8BCA /* processor.cpp */,
+				E6BA3766264A47069DC68945 /* sctptransport.cpp */,
+				18AB1E56E69944EB86280B51 /* sha.cpp */,
+				E77B1C91D77A4178B86E64F5 /* tcpserver.cpp */,
+				7E11893D1D8147BAA79955E5 /* tcptransport.cpp */,
+				266A794887134579AAF65678 /* threadpool.cpp */,
+				D6AD64A5D8BA408886135F7C /* tls.cpp */,
+				2D5C973987E4453C962118DA /* tlstransport.cpp */,
+				A8B066716EAB44D5BDBE261E /* track.cpp */,
+				1E53E10697B34C92B6ECEC11 /* transport.cpp */,
+				7408EFA909EB4BD49E92ADBA /* utils.cpp */,
+				981EAB4EB55D4BA6BDFDA6B7 /* verifiedtlstransport.cpp */,
+				60D8648CCFC54D3F9DFCCBC1 /* websocket.cpp */,
+				925C532B4B7B4525A1D3DC1E /* websocketserver.cpp */,
+				2B6278FD4B214D2C9E5FD311 /* wshandshake.cpp */,
+				2BB3A12E676C414B98102940 /* wstransport.cpp */,
+				25ADD252D97B4589BFC0BAD1 /* mediachainablehandler.cpp */,
+				F51AB49ED5AB415694DF84F3 /* mediahandlerelement.cpp */,
+				C3859537EF6B4FF6987537E8 /* mediahandlerrootelement.cpp */,
+				F69F63113514438BA06737F4 /* message.cpp */,
+				0699F371AFFE4EDD9835342A /* nalunit.cpp */,
+				F6C9A43527D3470A9E7E5699 /* opuspacketizationhandler.cpp */,
+				D0704182BB8C40A8BE5194C4 /* opusrtppacketizer.cpp */,
+				97919A83A2754FB187E8A6F0 /* peerconnection.cpp */,
+				1E4FF7A5F7D8407A9F81A426 /* rtcpnackresponder.cpp */,
+				00C04F2FF70641B9A5ECB37A /* rtcpreceivingsession.cpp */,
+				F29EA67AC5234EC1B35C7783 /* rtcpsrreporter.cpp */,
+				F89D8BAD329E4363A7DB461D /* rtp.cpp */,
+				E66CE88AB51E417887B4FAC1 /* rtppacketizationconfig.cpp */,
+				234870CCB3134A1AB63E2DFE /* rtppacketizer.cpp */,
+				96AB83465FD34CA08803DD22 /* track.cpp */,
+				7CBB777F8B774F86ACBE9FAA /* websocket.cpp */,
+				03FFEB224D87448E92D42780 /* websocketserver.cpp */,
+			);
+			name = "Source Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95130E4228764AC78DE063F1 /* datachannel-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17FB1E4EB9624D868C4C481C /* Build configuration list for PBXNativeTarget "datachannel-mac" */;
+			buildPhases = (
+				B380B727322C4558B0BF6769 /* Sources */,
+				51ADE2BFF9C9490A9A000BB8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "datachannel-mac";
+			productName = "datachannel-static";
+			productReference = 37C4D6EF165B467A905CE53E /* libdatachannel-mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EB98C6D82961FB3D00DFB8F9 /* datachannel-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB98C6EC2961FB3D00DFB8F9 /* Build configuration list for PBXNativeTarget "datachannel-ios" */;
+			buildPhases = (
+				EB98C6D52961FB3D00DFB8F9 /* Sources */,
+				EB98C6D62961FB3D00DFB8F9 /* Frameworks */,
+				EB98C6D72961FB3D00DFB8F9 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "datachannel-ios";
+			productName = datachannel2;
+			productReference = EB98C6D92961FB3D00DFB8F9 /* libdatachannel-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E5FED55066E43BB9F860403 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EB98C6D82961FB3D00DFB8F9 = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = G6P7H83FK6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7AA41C8616594AA3A23AE371 /* Build configuration list for PBXProject "libdatachannel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 34111FF927204FFEB2EAC89A;
+			projectDirPath = ../;
+			projectReferences = (
+				{
+					ProductGroup = EBF19E71297CF259000F414E /* Products */;
+					ProjectRef = EBF19E70297CF259000F414E /* libjuice.xcodeproj */;
+				},
+				{
+					ProductGroup = EBF19E77297CF25E000F414E /* Products */;
+					ProjectRef = EBF19E76297CF25E000F414E /* libsrtp2.xcodeproj */;
+				},
+				{
+					ProductGroup = EBF19E7D297CF261000F414E /* Products */;
+					ProjectRef = EBF19E7C297CF261000F414E /* openssl.xcodeproj */;
+				},
+				{
+					ProductGroup = EBF19E86297CF265000F414E /* Products */;
+					ProjectRef = EBF19E85297CF265000F414E /* usrsctplib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				95130E4228764AC78DE063F1 /* datachannel-mac */,
+				EB98C6D82961FB3D00DFB8F9 /* datachannel-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBF19E75297CF259000F414E /* libjuice.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjuice.a;
+			remoteRef = EBF19E74297CF259000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF19E7B297CF25E000F414E /* libsrtp2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsrtp2.a;
+			remoteRef = EBF19E7A297CF25E000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF19E82297CF262000F414E /* libcrypto.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcrypto.a;
+			remoteRef = EBF19E81297CF262000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF19E84297CF262000F414E /* libssl.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libssl.a;
+			remoteRef = EBF19E83297CF262000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF19E8B297CF265000F414E /* libusrsctp-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libusrsctp-mac.a";
+			remoteRef = EBF19E8A297CF265000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBF19E8D297CF265000F414E /* libusrsctp-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libusrsctp-ios.a";
+			remoteRef = EBF19E8C297CF265000F414E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B380B727322C4558B0BF6769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C355A28E193436F8182EB5D /* candidate.cpp in Sources */,
+				2DCB1D5EEF434AFF990D55F3 /* capi.cpp in Sources */,
+				4E6DE18597E44A43B2E4100A /* channel.cpp in Sources */,
+				7E19C2DA028848CCA3E6F081 /* configuration.cpp in Sources */,
+				1AD8D0EA55C445AE8EFBD43B /* datachannel.cpp in Sources */,
+				C172539EE73A4D71BEB40C65 /* description.cpp in Sources */,
+				5BF47BEF38AE4FF489243513 /* global.cpp in Sources */,
+				9C39DAE11FA54098A756EF46 /* h264packetizationhandler.cpp in Sources */,
+				742053A06ACE4D838F717F15 /* h264rtppacketizer.cpp in Sources */,
+				2C6EC040294441518AD6B739 /* certificate.cpp in Sources */,
+				C827E73FEC4B43D0AB92D62A /* channel.cpp in Sources */,
+				A8480AA8EC774180A21191DE /* datachannel.cpp in Sources */,
+				0D8AE2C328D549EBBE22DFD3 /* dtlssrtptransport.cpp in Sources */,
+				641012D5506A4296A0C2A660 /* dtlstransport.cpp in Sources */,
+				559AAB764E5141EF98A2D935 /* icetransport.cpp in Sources */,
+				32BA11C2E2114B7FB7D2CE83 /* init.cpp in Sources */,
+				AF365928301C46E992B3EDDD /* logcounter.cpp in Sources */,
+				620D9B19C23C497092DA43C8 /* peerconnection.cpp in Sources */,
+				CF2D65192211404580ED3F9F /* pollinterrupter.cpp in Sources */,
+				D36E304F40AA46F5AB5EB917 /* pollservice.cpp in Sources */,
+				DE536AD848314014817BE57D /* processor.cpp in Sources */,
+				53B44D8B2DF04C2E91CA54B2 /* sctptransport.cpp in Sources */,
+				342EB7EFD5E140E0865B968A /* sha.cpp in Sources */,
+				1EB62B0A6E644C51836AC0A1 /* tcpserver.cpp in Sources */,
+				705096EDFC424A43B44EBB0A /* tcptransport.cpp in Sources */,
+				E8020202DE5247EA923F2BDE /* threadpool.cpp in Sources */,
+				7984811191FD4145AE8B1D76 /* tls.cpp in Sources */,
+				7B01D52D13AB4171A8829E8E /* tlstransport.cpp in Sources */,
+				0E07295EA15540B48873509A /* track.cpp in Sources */,
+				EAB89188F25D42588CC5C9DD /* transport.cpp in Sources */,
+				CB1382EF622B46A19C285C1D /* utils.cpp in Sources */,
+				77F8DF8EE7314C9AB78DA2A1 /* verifiedtlstransport.cpp in Sources */,
+				FCC276E4EECA47FEB7E22204 /* websocket.cpp in Sources */,
+				EFB81AA6A6B94C0FA210F25F /* websocketserver.cpp in Sources */,
+				3D914E4224A64B70B666D25F /* wshandshake.cpp in Sources */,
+				F51A203985A4449F9CDDD0F8 /* wstransport.cpp in Sources */,
+				6BCB03C4DC604F5597C635EC /* mediachainablehandler.cpp in Sources */,
+				99E0AFFB7E2447C18AB6F554 /* mediahandlerelement.cpp in Sources */,
+				2D2177DA90BB41978258FADC /* mediahandlerrootelement.cpp in Sources */,
+				FF7DF097A78E4CC9AFB8AC67 /* message.cpp in Sources */,
+				3CE2F411F1BF40C3B68EE08E /* nalunit.cpp in Sources */,
+				CE211EF6C2D24B91A55D1443 /* opuspacketizationhandler.cpp in Sources */,
+				7E66297F2ADC4B33BCBF2120 /* opusrtppacketizer.cpp in Sources */,
+				E4ABBE2B4AA54043BECE7238 /* peerconnection.cpp in Sources */,
+				7095ABB0756B4C3F830458F3 /* rtcpnackresponder.cpp in Sources */,
+				C44EC426088B49988FE85B50 /* rtcpreceivingsession.cpp in Sources */,
+				A20A4D94497B418BACFA4059 /* rtcpsrreporter.cpp in Sources */,
+				69B0C586BAB5455A9EDC5DCC /* rtp.cpp in Sources */,
+				3C1DBD2DA2584348B7A5775A /* rtppacketizationconfig.cpp in Sources */,
+				6BF0C2C81DAB4AA89B6F8FCF /* rtppacketizer.cpp in Sources */,
+				C05A9E50F5654C8F8087911C /* track.cpp in Sources */,
+				D64FACB3948E4EB28FDE867B /* websocket.cpp in Sources */,
+				7C7869C8603B44E58C2444B5 /* websocketserver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB98C6D52961FB3D00DFB8F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB98C6ED2961FD8C00DFB8F9 /* candidate.cpp in Sources */,
+				EB98C6EE2961FD8C00DFB8F9 /* capi.cpp in Sources */,
+				EB98C6EF2961FD8C00DFB8F9 /* channel.cpp in Sources */,
+				EB98C6F02961FD8C00DFB8F9 /* configuration.cpp in Sources */,
+				EB98C6F12961FD8C00DFB8F9 /* datachannel.cpp in Sources */,
+				EB98C6F22961FD8C00DFB8F9 /* description.cpp in Sources */,
+				EB98C6F32961FD8C00DFB8F9 /* global.cpp in Sources */,
+				EB98C6F42961FD8C00DFB8F9 /* h264packetizationhandler.cpp in Sources */,
+				EB98C6F52961FD8C00DFB8F9 /* h264rtppacketizer.cpp in Sources */,
+				EB98C6F62961FD8C00DFB8F9 /* certificate.cpp in Sources */,
+				EB98C6F72961FD8C00DFB8F9 /* channel.cpp in Sources */,
+				EB98C6F82961FD8C00DFB8F9 /* datachannel.cpp in Sources */,
+				EB98C6F92961FD8C00DFB8F9 /* dtlssrtptransport.cpp in Sources */,
+				EB98C6FA2961FD8C00DFB8F9 /* dtlstransport.cpp in Sources */,
+				EB98C6FB2961FD8C00DFB8F9 /* icetransport.cpp in Sources */,
+				EB98C6FC2961FD8C00DFB8F9 /* init.cpp in Sources */,
+				EB98C6FD2961FD8C00DFB8F9 /* logcounter.cpp in Sources */,
+				EB98C6FE2961FD8C00DFB8F9 /* peerconnection.cpp in Sources */,
+				EB98C6FF2961FD8C00DFB8F9 /* pollinterrupter.cpp in Sources */,
+				EB98C7002961FD8C00DFB8F9 /* pollservice.cpp in Sources */,
+				EB98C7012961FD8C00DFB8F9 /* processor.cpp in Sources */,
+				EB98C7022961FD8C00DFB8F9 /* sctptransport.cpp in Sources */,
+				EB98C7032961FD8C00DFB8F9 /* sha.cpp in Sources */,
+				EB98C7042961FD8C00DFB8F9 /* tcpserver.cpp in Sources */,
+				EB98C7052961FD8C00DFB8F9 /* tcptransport.cpp in Sources */,
+				EB98C7062961FD8C00DFB8F9 /* threadpool.cpp in Sources */,
+				EB98C7072961FD8C00DFB8F9 /* tls.cpp in Sources */,
+				EB98C7082961FD8C00DFB8F9 /* tlstransport.cpp in Sources */,
+				EB98C7092961FD8C00DFB8F9 /* track.cpp in Sources */,
+				EB98C70A2961FD8C00DFB8F9 /* transport.cpp in Sources */,
+				EB98C70B2961FD8C00DFB8F9 /* utils.cpp in Sources */,
+				EB98C70C2961FD8C00DFB8F9 /* verifiedtlstransport.cpp in Sources */,
+				EB98C70D2961FD8C00DFB8F9 /* websocket.cpp in Sources */,
+				EB98C70E2961FD8C00DFB8F9 /* websocketserver.cpp in Sources */,
+				EB98C70F2961FD8C00DFB8F9 /* wshandshake.cpp in Sources */,
+				EB98C7102961FD8C00DFB8F9 /* wstransport.cpp in Sources */,
+				EB98C7112961FD8C00DFB8F9 /* mediachainablehandler.cpp in Sources */,
+				EB98C7122961FD8C00DFB8F9 /* mediahandlerelement.cpp in Sources */,
+				EB98C7132961FD8C00DFB8F9 /* mediahandlerrootelement.cpp in Sources */,
+				EB98C7142961FD8C00DFB8F9 /* message.cpp in Sources */,
+				EB98C7152961FD8C00DFB8F9 /* nalunit.cpp in Sources */,
+				EB98C7162961FD8C00DFB8F9 /* opuspacketizationhandler.cpp in Sources */,
+				EB98C7172961FD8C00DFB8F9 /* opusrtppacketizer.cpp in Sources */,
+				EB98C7182961FD8C00DFB8F9 /* peerconnection.cpp in Sources */,
+				EB98C7192961FD8C00DFB8F9 /* rtcpnackresponder.cpp in Sources */,
+				EB98C71A2961FD8C00DFB8F9 /* rtcpreceivingsession.cpp in Sources */,
+				EB98C71B2961FD8C00DFB8F9 /* rtcpsrreporter.cpp in Sources */,
+				EB98C71C2961FD8C00DFB8F9 /* rtp.cpp in Sources */,
+				EB98C71D2961FD8C00DFB8F9 /* rtppacketizationconfig.cpp in Sources */,
+				EB98C71E2961FD8C00DFB8F9 /* rtppacketizer.cpp in Sources */,
+				EB98C71F2961FD8C00DFB8F9 /* track.cpp in Sources */,
+				EB98C7202961FD8C00DFB8F9 /* websocket.cpp in Sources */,
+				EB98C7212961FD8C00DFB8F9 /* websocketserver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3E41A644E9B54B2EB7245279 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				DEAD_CODE_STRIPPING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = MinSizeRel;
+		};
+		55E03ED5EBCA4BEE8F46476F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+					"-Wall",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"-Wextra",
+					"'-std=gnu++17'",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "datachannel-mac";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Debug;
+		};
+		64B269199B8E4985B2A86925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				DEAD_CODE_STRIPPING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		7F51CF1F13A547AA8A3A9D67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "datachannel-mac";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = Release;
+		};
+		96D940E6E81E4DFC86F3EF69 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "datachannel-mac";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = RelWithDebInfo;
+		};
+		B4FD1C5F93DF4A60A11FBC2F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "datachannel-mac";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "$(inherited)";
+			};
+			name = MinSizeRel;
+		};
+		C965B925FB704BD2A0C24DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				DEAD_CODE_STRIPPING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		E12ED009BD474810B21494FE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				DEAD_CODE_STRIPPING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = RelWithDebInfo;
+		};
+		EB98C6DF2961FB3D00DFB8F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = G6P7H83FK6;
+				ENABLE_TESTABILITY = YES;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+					"$(OTHER_CFLAGS)",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB98C6E02961FB3D00DFB8F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G6P7H83FK6;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+					"$(OTHER_CFLAGS)",
+					"-DNDEBUG",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB98C6E12961FB3D00DFB8F9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G6P7H83FK6;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+					"$(OTHER_CFLAGS)",
+					"-DNDEBUG",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = MinSizeRel;
+		};
+		EB98C6E22961FB3D00DFB8F9 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G6P7H83FK6;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RTC_EXPORTS,
+					RTC_STATIC,
+					"'RTC_ENABLE_WEBSOCKET=1'",
+					"'RTC_ENABLE_MEDIA=1'",
+					"'RTC_SYSTEM_SRTP=0'",
+					"'USE_GNUTLS=0'",
+					"'USE_NICE=0'",
+					"'RTC_SYSTEM_JUICE=0'",
+					JUICE_STATIC,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../include",
+					"$(SRCROOT)/../include/rtc",
+					"$(SRCROOT)/../src",
+					"$(SRCROOT)/../deps/usrsctp/usrsctplib",
+					"$(SRCROOT)/../deps/plog/include",
+					"$(SRCROOT)/../deps/libsrtp/crypto/include",
+					"$(SRCROOT)/../deps/libsrtp/include",
+					"$(SRCROOT)/../deps/libjuice/include",
+					"$(SRCROOT)/../deps/openssl/include",
+					"$(SRCROOT)/apple/openssl/include",
+				);
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+					"-Wall",
+					"-Wextra",
+					"-Wno-conversion",
+					"-Wno-logical-op-parentheses",
+					"'-std=gnu++17'",
+					"$(OTHER_CFLAGS)",
+					"-DNDEBUG",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17FB1E4EB9624D868C4C481C /* Build configuration list for PBXNativeTarget "datachannel-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E03ED5EBCA4BEE8F46476F /* Debug */,
+				7F51CF1F13A547AA8A3A9D67 /* Release */,
+				B4FD1C5F93DF4A60A11FBC2F /* MinSizeRel */,
+				96D940E6E81E4DFC86F3EF69 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7AA41C8616594AA3A23AE371 /* Build configuration list for PBXProject "libdatachannel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C965B925FB704BD2A0C24DCA /* Debug */,
+				64B269199B8E4985B2A86925 /* Release */,
+				3E41A644E9B54B2EB7245279 /* MinSizeRel */,
+				E12ED009BD474810B21494FE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EB98C6EC2961FB3D00DFB8F9 /* Build configuration list for PBXNativeTarget "datachannel-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB98C6DF2961FB3D00DFB8F9 /* Debug */,
+				EB98C6E02961FB3D00DFB8F9 /* Release */,
+				EB98C6E12961FB3D00DFB8F9 /* MinSizeRel */,
+				EB98C6E22961FB3D00DFB8F9 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E5FED55066E43BB9F860403 /* Project object */;
+}

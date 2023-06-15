@@ -1,0 +1,13 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeParseArguments.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/FindThreads.cmake
+C:/Users/Walker/Documents/GitHub/libdatachannel/cugl/thirdparty/libdatachannel/buildfiles/cmake/openssl/crypto/CMakeLists.txt
+C:/Users/Walker/Documents/GitHub/libdatachannel/cugl/thirdparty/libdatachannel/deps/openssl/crypto/bn_conf.h.cmake
+C:/Users/Walker/Documents/GitHub/libdatachannel/cugl/thirdparty/libdatachannel/deps/openssl/crypto/buildinf.h.cmake
+C:/Users/Walker/Documents/GitHub/libdatachannel/cugl/thirdparty/libdatachannel/deps/openssl/crypto/dso_conf.h.cmake

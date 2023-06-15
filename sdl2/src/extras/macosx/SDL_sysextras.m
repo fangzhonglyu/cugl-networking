@@ -1,0 +1,153 @@
+/*
+  Simple DirectMedia Layer Extensions
+  Copyright (C) 2022 Walker White
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+*/
+#include "../SDL_sysextras.h"
+
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <AppKit/AppKit.h>
+
+/**
+ * System dependent version of SDL_GetDisplayPixelBounds
+ *
+ * @param displayIndex  The display to query
+ * @param rect          Rectangle to store the display bounds
+ */
+void SDL_SYS_GetDisplayPixelBounds(int displayIndex, SDL_Rect *rect) {
+@autoreleasepool {
+    NSRect screenRect;
+    NSScreen* screen;
+    if (displayIndex == 0) {
+        screen = [NSScreen mainScreen];
+    } else if (displayIndex < NSScreen.screens.count) {
+        screen = NSScreen.screens[displayIndex];
+    } else {
+        screen = nil;
+    }
+    
+    if (screen != nil) {
+        screenRect = [screen frame];
+        rect->x = screenRect.origin.x;
+        rect->y = screenRect.origin.y;
+        rect->w = screenRect.size.width;
+        rect->h = screenRect.size.height;
+        
+        // Convert to pixels
+        float s = [screen backingScaleFactor];
+        rect->x *= s;
+        rect->y *= s;
+        rect->w *= s;
+        rect->h *= s;
+
+    } else {
+        SDL_GetDisplayBounds(displayIndex,rect);
+    }
+}
+}
+
+/**
+ * System dependent version of SDL_GetDisplaySafeBounds
+ *
+ * @param displayIndex  The display to query
+ * @param rect          Rectangle to store the display bounds
+ */
+void SDL_SYS_GetDisplaySafeBounds(int displayIndex, SDL_Rect *rect) {
+@autoreleasepool {
+    if (displayIndex != 0) {
+        SDL_SYS_GetDisplayPixelBounds(displayIndex,rect);
+        return;
+    }
+    
+    NSRect screenRect;
+    NSScreen* screen;
+    screen = [NSScreen mainScreen];
+    screenRect = [screen visibleFrame]; //[screen frame];
+    rect->x = screenRect.origin.x;
+    rect->y = screenRect.origin.y;
+    rect->w = screenRect.size.width;
+    rect->h = screenRect.size.height;
+    
+    // Convert to pixels
+    float s = [screen backingScaleFactor];
+    rect->x *= s;
+    rect->y *= s;
+    rect->w *= s;
+    rect->h *= s;
+}
+}
+
+/**
+ * System dependent version of SDL_CheckDisplayNotch
+ *
+ * @param displayIndex  The display to query
+ *
+ * @return 1 if this device has a notch, 0 otherwise
+ */
+int SDL_SYS_CheckDisplayNotch(int displayIndex) {
+    return 0;
+}
+
+/**
+ * System dependent version of SDL_GetPixelDensity
+ *
+ * @param displayIndex  The display to query
+ *
+ * @return the number of pixels for each point.
+ */
+float SDL_SYS_GetPixelDensity(int displayIndex) {
+@autoreleasepool {
+    NSScreen* screen;
+    if (displayIndex == 0) {
+        screen = [NSScreen mainScreen];
+    } else if (displayIndex < NSScreen.screens.count) {
+        screen = NSScreen.screens[displayIndex];
+    } else {
+        screen = nil;
+    }
+    
+    if (screen != nil) {
+        return [screen backingScaleFactor];
+    }
+    return -1;
+}
+}
+/**
+ * System dependent version of SDL_GetDeviceOrientation
+ *
+ * @param displayIndex  The display to query
+ *
+ * @return the current device orientation.
+ */
+SDL_DisplayOrientation SDL_SYS_GetDeviceOrientation(int displayIndex) {
+    return SDL_ORIENTATION_UNKNOWN;
+}
+
+/**
+ * System dependent version of SDL_GetDefaultOrientation
+ *
+ * @param displayIndex  The display to query
+ *
+ * @return the default orientation of this device.
+ */
+SDL_DisplayOrientation SDL_SYS_GetDefaultOrientation(int displayIndex) {
+    return SDL_ORIENTATION_UNKNOWN;
+}
+
+/* vi: set ts=4 sw=4 expandtab: */

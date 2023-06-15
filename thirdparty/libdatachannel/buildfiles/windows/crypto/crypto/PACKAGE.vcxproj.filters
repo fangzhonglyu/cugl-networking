@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Walker\Documents\GitHub\libdatachannel\cugl\thirdparty\libdatachannel\buildfiles\test\CMakeFiles\26fcbea38cffdada1b7f1e5771ce72fe\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{FB494C8C-D213-3528-9997-354148C5E162}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

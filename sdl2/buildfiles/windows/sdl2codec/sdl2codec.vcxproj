@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\extensions\codec\CODEC_internals.h" />
+    <ClInclude Include="..\..\..\extensions\codec\flac\include\share\win_utf8_io.h" />
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\minimp3.h" />
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\minimp3_ex.h" />
+    <ClInclude Include="..\..\..\extensions\codec\minimp3\mp3stream.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\backends.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\bitrate.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\codebook.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\codec_internal.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\envelope.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\highlevel.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lookup.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lookup_data.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lpc.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\lsp.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\masking.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\mdct.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\misc.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\os.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\psy.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\registry.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\scales.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\smallft.h" />
+    <ClInclude Include="..\..\..\extensions\codec\vorbis\lib\window.h" />
+    <ClInclude Include="..\..\..\include\SDL_codec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_common.c" />
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_flac.c" />
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_mpeg.c" />
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_vorbis.c" />
+    <ClCompile Include="..\..\..\extensions\codec\CODEC_wav.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitmath.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitreader.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\bitwriter.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\cpu.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\crc.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed_intrin_sse2.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\fixed_intrin_ssse3.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\float.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\format.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_avx2.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_fma.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_neon.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_sse2.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_sse41.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\lpc_intrin_vsx.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\md5.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\memory.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\metadata_iterators.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\metadata_object.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_decoder_aspect.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_encoder_aspect.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_helper.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\ogg_mapping.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_decoder.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_framing.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_avx2.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_sse2.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\stream_encoder_intrin_ssse3.c" />
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\libFLAC\window.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\flac\src\share\win_utf8_io\win_utf8_io.c" />
+    <ClCompile Include="..\..\..\extensions\codec\minimp3\mp3stream.c" />
+    <ClCompile Include="..\..\..\extensions\codec\ogg\src\bitwise.c" />
+    <ClCompile Include="..\..\..\extensions\codec\ogg\src\framing.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\analysis.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\bitrate.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\block.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\codebook.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\envelope.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\floor0.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\floor1.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\info.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lookup.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lpc.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\lsp.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\mapping0.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\mdct.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\psy.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\registry.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\res0.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\sharedbook.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\smallft.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\synthesis.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\vorbisenc.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\vorbisfile.c" />
+    <ClCompile Include="..\..\..\extensions\codec\vorbis\lib\window.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{531302a4-1972-4dd5-a0cd-24ee1d93d2fb}</ProjectGuid>
+    <RootNamespace>sdl2codec</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)x86\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)objs\sdl2codec\x86\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)x86\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)objs\sdl2codec\x86\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)objs\sdl2codec\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)objs\sdl2codec\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;FLAC__NO_DLL;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\flac;$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\extensions\codec\flac\include;$(ProjectDir)..\..\..\extensions\codec\flac\src\libFLAC\include;$(ProjectDir)..\..\..\extensions\codec\minimp3;$(ProjectDir)..\..\..\extensions\codec\ogg\include;$(ProjectDir)..\..\..\extensions\codec\vorbis\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4005;4068;4267;4244;4305;4312;4334;4996;6255;6297;6385;6386;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <UseFullPaths>true</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4042 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;FLAC__NO_DLL;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\flac;$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\extensions\codec\flac\include;$(ProjectDir)..\..\..\extensions\codec\flac\src\libFLAC\include;$(ProjectDir)..\..\..\extensions\codec\minimp3;$(ProjectDir)..\..\..\extensions\codec\ogg\include;$(ProjectDir)..\..\..\extensions\codec\vorbis\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4005;4068;4267;4244;4305;4312;4334;4996;6255;6297;6385;6386;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4042 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLAC__NO_DLL;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>Default</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\flac;$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\extensions\codec\flac\include;$(ProjectDir)..\..\..\extensions\codec\flac\src\libFLAC\include;$(ProjectDir)..\..\..\extensions\codec\minimp3;$(ProjectDir)..\..\..\extensions\codec\ogg\include;$(ProjectDir)..\..\..\extensions\codec\vorbis\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4005;4068;4267;4244;4305;4312;4334;4996;6255;6297;6385;6386;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <UseFullPaths>true</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4042 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FLAC__NO_DLL;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\flac;$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\extensions\codec\flac\include;$(ProjectDir)..\..\..\extensions\codec\flac\src\libFLAC\include;$(ProjectDir)..\..\..\extensions\codec\minimp3;$(ProjectDir)..\..\..\extensions\codec\ogg\include;$(ProjectDir)..\..\..\extensions\codec\vorbis\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4005;4068;4267;4244;4305;4312;4334;4996;6255;6297;6385;6386;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4042 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
