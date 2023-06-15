@@ -281,12 +281,21 @@ bool Application::step() {
         _fpswindow.push_back(1000000.0f/micros);
 
         Uint32 updateMicros = micros + _leftover;
-        for (; updateMicros >= FIXED_TIMESTEP; updateMicros -= FIXED_TIMESTEP) {
-			fixedUpdate();
-		}
-        _leftover = updateMicros;
 
-        //update(micros/1000000.0f);
+        #if USING_PHYSICS
+
+            preUpdate(micros / 1000000.0f);
+
+            for (; updateMicros >= FIXED_TIMESTEP; updateMicros -= FIXED_TIMESTEP) {
+                fixedUpdate();
+                _updateCounter++;
+            }
+            _leftover = updateMicros;
+
+            postUpdate(micros / 1000000.0f);
+        #else
+			update(micros / 1000000.0f);
+        #endif
 
         glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearColor.a);
         glStencilMask(0xffffffff);
@@ -294,6 +303,7 @@ bool Application::step() {
 
         draw();
         Display::get()->refresh();
+        Timestamp lastSwap;
     } else {
         running = _state == State::BACKGROUND;
     }
