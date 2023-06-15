@@ -45,7 +45,7 @@
 #define FIXED_TIMESTEP 16667
 #define FIXED_TIMESTEP_S 0.016667f
 
-#define USING_PHYSICS 0
+#define USING_PHYSICS 1
 
 namespace cugl {
 
