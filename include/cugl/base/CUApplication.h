@@ -172,6 +172,11 @@ protected:
     /** A weak pointer to the single application that is running */
     static Application* _theapp;
 
+#pragma mark Network fields
+
+    Uint32 _leftover;
+    Uint64 _updateCounter;
+    Timestamp _lastUpdateTime;
     
 private:
     /** The millisecond equivalent of the FPS; used to delay the core loop */
@@ -204,12 +209,6 @@ private:
      * @param millis    The number of milliseconds since last called
      */
     void processCallbacks(Uint32 millis);
-
-#pragma mark Network fields
-
-    Uint32 _leftover;
-    Uint64 _updateCounter;
-    Timestamp _lastUpdateTime;
     
 #pragma mark -
 #pragma mark Constructors
