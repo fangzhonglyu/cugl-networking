@@ -251,6 +251,10 @@ public:
      */
     bool init();
     
+    Uint64 getUpdateCount() {
+        return _updateCounter;
+    }
+    
     /**
      * Returns the current running application
      *
