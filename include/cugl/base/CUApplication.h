@@ -41,9 +41,10 @@
 #include <deque>
 #include <mutex>
 
+
+#define FIXED_TIMESTEP_S 1.f/50.f
 // timestep in microseconds
-#define FIXED_TIMESTEP 16667
-#define FIXED_TIMESTEP_S 0.016667f
+#define FIXED_TIMESTEP FIXED_TIMESTEP_S * 1000000
 
 #define USING_PHYSICS 1
 
@@ -251,8 +252,12 @@ public:
      */
     bool init();
     
-    Uint64 getUpdateCount() {
+    const Uint64 getUpdateCount() {
         return _updateCounter;
+    }
+    
+    const Uint32 getLeftOver(){
+        return _leftover;
     }
     
     /**
