@@ -260,6 +260,10 @@ public:
         return _leftover;
     }
     
+    void resetLeftOver(){
+        _leftover = 0;
+    }
+    
     /**
      * Returns the current running application
      *
