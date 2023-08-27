@@ -82,6 +82,8 @@ namespace cugl {
  * Erin Catto (2011).
  */
 class Obstacle {
+public:
+    Uint32 _id;
 protected:
     /** Stores the body information for this shape */
     b2BodyDef _bodyinfo;

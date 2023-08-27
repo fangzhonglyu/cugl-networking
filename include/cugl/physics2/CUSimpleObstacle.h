@@ -224,7 +224,7 @@ public:
      */
     virtual void setY(float value) override {
         if (_body != nullptr) {
-            _body->SetTransform(b2Vec2(_body->GetPosition().y,value),_body->GetAngle());
+            _body->SetTransform(b2Vec2(_body->GetPosition().x,value),_body->GetAngle());
         } else {
             _bodyinfo.position.y = value;
         }
