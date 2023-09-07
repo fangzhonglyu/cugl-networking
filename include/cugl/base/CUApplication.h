@@ -252,11 +252,11 @@ public:
      */
     bool init();
     
-    const Uint64 getUpdateCount() {
+    Uint64 getUpdateCount() const {
         return _updateCounter;
     }
     
-    const Uint32 getLeftOver(){
+    Uint32 getLeftOver() const {
         return _leftover;
     }
     
