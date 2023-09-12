@@ -357,6 +357,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D57CE742AAFAD72006625EF /* CUJointSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUJointSet.h; sourceTree = "<group>"; };
 		EB0703B026B4BFC1001838D6 /* CUTextAlignment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUTextAlignment.h; sourceTree = "<group>"; };
 		EB07893B1D2D6E3E000BFDF7 /* CUSimpleExtruder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUSimpleExtruder.cpp; sourceTree = "<group>"; };
 		EB0789521D3020E3000BFDF7 /* CUInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUInput.cpp; sourceTree = "<group>"; };
@@ -924,6 +925,7 @@
 				EB163AF5295E1BC20090F7D4 /* CUBoxObstacle.h */,
 				EB163AF9295E1BC30090F7D4 /* CUCapsuleObstacle.h */,
 				EB163AF6295E1BC30090F7D4 /* CUComplexObstacle.h */,
+				1D57CE742AAFAD72006625EF /* CUJointSet.h */,
 				EB163AF4295E1BC20090F7D4 /* CUObstacle.h */,
 				EB163AF2295E1BC20090F7D4 /* CUObstacleSelector.h */,
 				EB163AF7295E1BC30090F7D4 /* CUObstacleWorld.h */,
