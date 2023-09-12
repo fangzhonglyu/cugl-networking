@@ -31,7 +31,7 @@
 #include "CUObstacle.h"
 #include "CUObstacleWorld.h"
 #include "CUSimpleObstacle.h"
-#include "CUComplexObstacle.h"
+#include "CUJointSet.h"
 #include "CUBoxObstacle.h"
 #include "CUWheelObstacle.h"
 #include "CUPolygonObstacle.h"

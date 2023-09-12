@@ -32,26 +32,6 @@ protected:
     std::vector<b2Joint*>  _joints;
     
 #pragma mark -
-#pragma mark Scene Graph Internals
-    /**
-     * Creates the outline of the physics fixtures in the debug wireframe
-     *
-     * The debug wireframe is use to outline the fixtures attached to this object.
-     * This is very useful when the fixtures have a very different shape than
-     * the texture (e.g. a circular shape attached to a square texture).
-     */
-    virtual void resetDebug() override;
-    
-    /**
-     * Repositions the debug wireframe so that it agrees with the physics object.
-     *
-     * The debug wireframe is use to outline the fixtures attached to this object.
-     * This is very useful when the fixtures have a very different shape than
-     * the texture (e.g. a circular shape attached to a square texture).
-     */
-    virtual void updateDebug() override;
-
-#pragma mark -
 #pragma mark Constructors
 public:
     /**
@@ -61,7 +41,7 @@ public:
      * the heap, use one of the static constructors instead (in this case, in
      * one of the subclasses).
      */
-    JointSet(), _body(nullptr) { }
+    JointSet() { }
     
     /**
      * Deletes this JointSet and all of its resources.
@@ -84,7 +64,7 @@ public:
      *
      * @return the Box2D body for this object.
      */
-    virtual std::shared_ptr<Obstacle>& getBaseObstacle() override { return _base; }
+    virtual std::shared_ptr<Obstacle>& getBaseObstacle() { return _base; }
     
     /**
      * Returns the collection of component physics objects.
