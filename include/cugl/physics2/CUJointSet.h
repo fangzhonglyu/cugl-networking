@@ -14,8 +14,6 @@
 #include <box2d/b2_joint.h>
 #include "CUObstacle.h"
 
-#endif /* __CU_JOINT_SET_H__ */
-
 namespace cugl {
     namespace physics2 {
     
@@ -29,7 +27,7 @@ protected:
     /** A complex physics object has multiple bodies */
     std::vector<std::shared_ptr<Obstacle>> _bodies;
     /** Potential joints for connecting the multiple bodies */
-    std::vector<b2Joint*>  _joints;
+    std::vector<b2Joint*> _joints;
     
 #pragma mark -
 #pragma mark Constructors
@@ -52,7 +50,7 @@ public:
      * The purpose of this destructor is to warn us if we delete an object
      * pre-maturely.
      */
-    virtual ~JointSet();
+    virtual ~JointSet() { } 
     
 #pragma mark -
 #pragma mark Physics Methods
@@ -102,3 +100,5 @@ public:
 
     }
 }
+
+#endif /* __CU_JOINT_SET_H__ */

@@ -132,6 +132,7 @@
     <ClInclude Include="..\..\..\include\cugl\physics2\CUBoxObstacle.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUCapsuleObstacle.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUComplexObstacle.h" />
+    <ClInclude Include="..\..\..\include\cugl\physics2\CUJointSet.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUObstacle.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUObstacleSelector.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUObstacleWorld.h" />

@@ -260,6 +260,22 @@ void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
     obj->activatePhysics(*_world);
 }
 
+bool ObstacleWorld::addJointSet(const std::shared_ptr<cugl::physics2::JointSet>& jset) {
+    // Active all contained bodies.
+    for (auto it = jset->getBodies().begin(); it != jset->getBodies().end(); it++) {
+        _objects.push_back(*it);
+        (*it)->activatePhysics(*_world);
+    }
+
+    bool success = jset->createJoints(*_world);
+    if (success) {
+        for (auto it = jset->getJoints().begin(); it != jset->getJoints().end(); it++) {
+            _joints.push_back(*it);
+        }
+    }
+    return success;
+}
+
 /**
  * Immediately removes object to the physics world
  *

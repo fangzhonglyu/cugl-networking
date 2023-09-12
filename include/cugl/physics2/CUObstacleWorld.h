@@ -47,7 +47,9 @@
 
 #include <vector>
 #include <box2d/b2_world_callbacks.h>
+#include <box2d/b2_world.h>
 #include <cugl/math/cu_math.h>
+#include "CUJointSet.h"
 class b2World;
 
 namespace cugl {
@@ -102,6 +104,8 @@ protected:
     
     /** The list of objects in this world */
     std::vector<std::shared_ptr<Obstacle>> _objects;
+    
+    std::vector<b2Joint*> _joints;
     
     /** The boundary of the world */
     Rect _bounds;
@@ -357,6 +361,13 @@ public:
     const std::vector<std::shared_ptr<Obstacle>>& getObstacles() { return _objects; }
 
     /**
+     * Returns a read-only reference to the list of active obstacles.
+     *
+     * @return a read-only reference to the list of active obstacles.
+     */
+    const std::vector<b2Joint*>& getJoints() { return _joints; }
+
+    /**
      * Immediately adds the obstacle to the physics world
      *
      * Adding an obstacle activates the underlying physics.  It will now have
@@ -370,6 +381,8 @@ public:
      * param obj The obstacle to add
      */
     void addObstacle(const std::shared_ptr<Obstacle>& obj);
+
+    bool addJointSet(const std::shared_ptr<cugl::physics2::JointSet>& jset);
     
     /**
      * Immediately removes an obstacle from the physics world
@@ -680,6 +693,12 @@ public:
      * @param  joint    the joint to be destroyed
      */
     void SayGoodbye(b2Joint* joint) override {
+        for (int i = 0; i < _joints.size(); i++) {
+            if (_joints[i] == joint) {
+                _world->DestroyJoint(joint);
+                _joints[i] = nullptr;
+            }
+        }
         if (destroyJoint != nullptr) {
             destroyJoint(joint);
         }

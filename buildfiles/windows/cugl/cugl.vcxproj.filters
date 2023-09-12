@@ -698,6 +698,9 @@
     <ClInclude Include="..\..\..\include\cugl\net\CUNetworkLayer.h">
       <Filter>Header Files\cugl\net</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\physics2\CUJointSet.h">
+      <Filter>Header Files\cugl\physics2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\assets\CUAssetManager.cpp">
