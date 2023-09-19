@@ -83,7 +83,7 @@ namespace cugl {
  */
 class Obstacle {
 public:
-    Uint32 _id;
+    std::string _id;
 protected:
     /** Stores the body information for this shape */
     b2BodyDef _bodyinfo;

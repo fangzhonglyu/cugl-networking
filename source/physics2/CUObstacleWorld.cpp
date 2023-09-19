@@ -229,9 +229,27 @@ bool ObstacleWorld::init(const Rect bounds) {
  * @return  true if the controller is initialized properly, false otherwise.
  */
 bool ObstacleWorld::init(const Rect bounds, const Vec2 gravity) {
-    CUAssertLog(!_world,"Attempt to reinitialize and active world");
+    return init(bounds, gravity, "");
+}
+
+/**
+ * Initializes a new physics world
+ *
+ * The specified bounds are in terms of the Box2d world, not the screen.
+ * A few attached to this Box2d world should have ways to convert between
+ * the coordinate systems.
+ *
+ * @param  bounds   The game bounds in Box2d coordinates
+ * @param  gravity  The gravitational force on this Box2d world
+ * @param  UUID     The UUID of the netcode connection that established the world.
+ *
+ * @return  true if the controller is initialized properly, false otherwise.
+ */
+bool ObstacleWorld::init(const Rect bounds, const Vec2 gravity, std::string UUID) {
+    CUAssertLog(!_world, "Attempt to reinitialize and active world");
     _bounds = bounds;
-    _world = new b2World(b2Vec2(gravity.x,gravity.y));
+    _world = new b2World(b2Vec2(gravity.x, gravity.y));
+    _UUID = UUID;
     if (_world) {
         return true;
     }
@@ -254,10 +272,18 @@ bool ObstacleWorld::init(const Rect bounds, const Vec2 gravity) {
  *
  * param obj The obstacle to add
  */
-void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
+void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, std::string id, std::string owner) {
     CUAssertLog(inBounds(obj.get()), "Obstacle is not in bounds");
     _objects.push_back(obj);
     obj->activatePhysics(*_world);
+    _idToObj.insert(std::make_pair(id, obj));
+    _objToId.insert(std::make_pair(obj.get(), id));
+    _objToOwner.insert(std::make_pair(obj.get(), owner));
+}
+
+void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
+    std::string id = _UUID + std::to_string(_nextObj++);
+    addObstacle(obj, id, _UUID);
 }
 
 bool ObstacleWorld::addJointSet(const std::shared_ptr<cugl::physics2::JointSet>& jset) {

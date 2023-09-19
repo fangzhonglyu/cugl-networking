@@ -101,11 +101,22 @@ protected:
     int _itposition;
     /** The current gravitational value of the world */
     Vec2 _gravity;
+    /** UUID of the Application NetcodeConnection that established this world */
+    std::string _UUID;
     
     /** The list of objects in this world */
     std::vector<std::shared_ptr<Obstacle>> _objects;
+    std::unordered_map<std::string, std::shared_ptr<physics2::Obstacle>> _idToObj;
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToId;
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToOwner;
     
     std::vector<b2Joint*> _joints;
+    std::unordered_map<Uint32, b2Joint*> _idJoint;
+    std::unordered_map<b2Joint*, Uint32> _jointId;
+    std::unordered_map<b2Joint*, std::string> _jointOwner;
+    
+    Uint32 _nextObj;
+
     
     /** The boundary of the world */
     Rect _bounds;
@@ -116,6 +127,23 @@ protected:
     bool _filters;
     /** Whether or not to activate the destruction listener */
     bool _destroy;
+
+    /**
+     * Immediately adds the obstacle to the physics world
+     *
+     * Adding an obstacle activates the underlying physics.  It will now have
+     * a body.  In the case of a {@link ComplexObstacle}, joints will be added
+     * between the obstacles.  The physics world will include the obstacle in
+     * its next call to update.
+     *
+     * The obstacle will be retained by this world, preventing it from being
+     * garbage collected.
+     *
+     * param obj The obstacle to add
+     */
+     void addObstacle(const std::shared_ptr<Obstacle>& obj, std::string objId, std::string owner);
+
+     friend class Interpolator;
     
     
 #pragma mark -
@@ -174,7 +202,21 @@ public:
      */
     bool init(const Rect bounds, const Vec2 gravity);
 
-    
+    /**
+     * Initializes a new physics world
+     *
+     * The specified bounds are in terms of the Box2d world, not the screen.
+     * A few attached to this Box2d world should have ways to convert between
+     * the coordinate systems.
+     *
+     * @param  bounds   The game bounds in Box2d coordinates
+     * @param  gravity  The gravitational force on this Box2d world
+     * @param  UUID     The UUID of the netcode connection that established the world.
+     *
+     * @return  true if the controller is initialized properly, false otherwise.
+     */
+    bool init(const Rect bounds, const Vec2 gravity, std::string UUID);
+
 #pragma mark -
 #pragma mark Static Constructors
     /**
