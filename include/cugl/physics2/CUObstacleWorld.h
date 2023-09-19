@@ -111,8 +111,8 @@ protected:
     std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToOwner;
     
     std::vector<b2Joint*> _joints;
-    std::unordered_map<Uint32, b2Joint*> _idJoint;
-    std::unordered_map<b2Joint*, Uint32> _jointId;
+    std::unordered_map<Uint32, b2Joint*> _idToJoint;
+    std::unordered_map<b2Joint*, Uint32> _jointToId;
     std::unordered_map<b2Joint*, std::string> _jointOwner;
     
     Uint32 _nextObj;
@@ -217,6 +217,14 @@ public:
      */
     bool init(const Rect bounds, const Vec2 gravity, std::string UUID);
 
+    const std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string>& getObjToId() { return _objToId; }
+    const std::unordered_map<std::string, std::shared_ptr<physics2::Obstacle>>& getIdToObj() { return _idToObj; }
+    const std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string>& getObjToOwner() { return _objToOwner; }
+
+    const std::unordered_map<b2Joint*, Uint32>& getJointToId() { return _jointToId; }
+    const std::unordered_map<Uint32, b2Joint*>& getIdToJoint() { return _idToJoint; }
+    const std::unordered_map<b2Joint*, std::string>& getJointToOwner() { return _jointOwner; }
+    
 #pragma mark -
 #pragma mark Static Constructors
     /**
