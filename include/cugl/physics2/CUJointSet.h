@@ -27,7 +27,13 @@ protected:
     /** A complex physics object has multiple bodies */
     std::vector<std::shared_ptr<Obstacle>> _bodies;
     /** Potential joints for connecting the multiple bodies */
-    std::vector<b2Joint*> _joints;
+    std::vector<b2JointDef> _jointDefs;
+
+    std::vector<std::string> _jointIds;
+
+    void addJointId(std::string id) { _jointIds.push_back(id); }
+
+    friend class ObstacleWorld;
     
 #pragma mark -
 #pragma mark Constructors
@@ -82,20 +88,9 @@ public:
      *
      * @return the collection of joints for this object.
      */
-    const std::vector<b2Joint*>& getJoints() { return _joints; }
-    
-    /**
-     * Creates the joints for this object.
-     *
-     * This method is executed as part of activePhysics. This is the primary method to
-     * override for custom physics objects.
-     *
-     * @param world Box2D world to store joints
-     *
-     * @return true if object allocation succeeded
-     */
-    virtual bool createJoints(b2World& world) {  return false;  }
-    
+    const std::vector<b2JointDef>& getJointDefs() { return _jointDefs; }
+
+    const std::vector<std::string>& getJointIds() { return _jointIds; } 
 };
 
     }

@@ -46,11 +46,15 @@
 #define __CU_PHYSICS_WORLD_H__
 
 #include <vector>
+#include <optional>
 #include <box2d/b2_world_callbacks.h>
 #include <box2d/b2_world.h>
 #include <cugl/math/cu_math.h>
 #include "CUJointSet.h"
+
 class b2World;
+
+class NetPhysicsController;
 
 namespace cugl {
     /**
@@ -110,13 +114,10 @@ protected:
     std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToId;
     std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToOwner;
     
-    std::vector<b2Joint*> _joints;
-    std::unordered_map<Uint32, b2Joint*> _idToJoint;
-    std::unordered_map<b2Joint*, Uint32> _jointToId;
-    std::unordered_map<b2Joint*, std::string> _jointOwner;
+    std::unordered_map<std::string, b2Joint*> _idToJoint;
     
     Uint32 _nextObj;
-
+    Uint32 _nextJoint;
     
     /** The boundary of the world */
     Rect _bounds;
@@ -143,7 +144,9 @@ protected:
      */
      void addObstacle(const std::shared_ptr<Obstacle>& obj, std::string objId, std::string owner);
 
-     friend class Interpolator;
+     void addJoint(const std::string id, const b2JointDef& jointDef);
+
+     friend class NetPhysicsController;
     
     
 #pragma mark -
@@ -221,9 +224,7 @@ public:
     const std::unordered_map<std::string, std::shared_ptr<physics2::Obstacle>>& getIdToObj() { return _idToObj; }
     const std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string>& getObjToOwner() { return _objToOwner; }
 
-    const std::unordered_map<b2Joint*, Uint32>& getJointToId() { return _jointToId; }
-    const std::unordered_map<Uint32, b2Joint*>& getIdToJoint() { return _idToJoint; }
-    const std::unordered_map<b2Joint*, std::string>& getJointToOwner() { return _jointOwner; }
+    const std::unordered_map<std::string, b2Joint*>& getIdToJoint() { return _idToJoint; }
     
 #pragma mark -
 #pragma mark Static Constructors
@@ -411,13 +412,6 @@ public:
     const std::vector<std::shared_ptr<Obstacle>>& getObstacles() { return _objects; }
 
     /**
-     * Returns a read-only reference to the list of active obstacles.
-     *
-     * @return a read-only reference to the list of active obstacles.
-     */
-    const std::vector<b2Joint*>& getJoints() { return _joints; }
-
-    /**
      * Immediately adds the obstacle to the physics world
      *
      * Adding an obstacle activates the underlying physics.  It will now have
@@ -432,7 +426,15 @@ public:
      */
     void addObstacle(const std::shared_ptr<Obstacle>& obj);
 
-    bool addJointSet(const std::shared_ptr<cugl::physics2::JointSet>& jset);
+    std::string addJoint(const b2JointDef& jointdef);
+
+    std::optional<b2Joint*> getJoint(std::string id);
+
+    void removeJoint(std::string id);
+
+    bool addJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset);
+
+    bool removeJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset);
     
     /**
      * Immediately removes an obstacle from the physics world
@@ -732,7 +734,7 @@ public:
      *
      * @param  joint    the joint to be destroyed
      */
-    std::function<void(b2Joint* joint)>     destroyJoint;
+    std::function<void(b2Joint* joint)> destroyJoint;
 
     /**
      * Called when a joint is about to be destroyed.
@@ -743,11 +745,15 @@ public:
      * @param  joint    the joint to be destroyed
      */
     void SayGoodbye(b2Joint* joint) override {
-        for (int i = 0; i < _joints.size(); i++) {
-            if (_joints[i] == joint) {
+        std::string id = "";
+        for (auto it = _idToJoint.begin(); it != _idToJoint.end(); it++) {
+            if (it->second == joint) {
                 _world->DestroyJoint(joint);
-                _joints[i] = nullptr;
+                id = it->first;
             }
+        }
+        if (id != ""){
+            _idToJoint.erase(id);
         }
         if (destroyJoint != nullptr) {
             destroyJoint(joint);

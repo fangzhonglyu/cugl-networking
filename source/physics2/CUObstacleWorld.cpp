@@ -277,8 +277,8 @@ void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, std::strin
     _objects.push_back(obj);
     obj->activatePhysics(*_world);
     _idToObj.insert(std::make_pair(id, obj));
-    _objToId.insert(std::make_pair(obj.get(), id));
-    _objToOwner.insert(std::make_pair(obj.get(), owner));
+    _objToId.insert(std::make_pair(obj, id));
+    _objToOwner.insert(std::make_pair(obj, owner));
 }
 
 void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
@@ -286,20 +286,56 @@ void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
     addObstacle(obj, id, _UUID);
 }
 
-bool ObstacleWorld::addJointSet(const std::shared_ptr<cugl::physics2::JointSet>& jset) {
+std::string ObstacleWorld::addJoint(const b2JointDef& jointDef) {
+    std::string id = _UUID + std::to_string(_nextJoint++);
+    addJoint(id, jointDef);
+    return id;
+}
+
+void ObstacleWorld::addJoint(const std::string id, const b2JointDef& jointDef) {
+    b2Joint* joint = _world->CreateJoint(&jointDef);
+    _idToJoint.insert(std::make_pair(id, joint));
+}
+
+void ObstacleWorld::removeJoint(std::string id) {
+    if (_idToJoint.count(id)) {
+        _world->DestroyJoint(_idToJoint.at(id));
+        _idToJoint.erase(id);
+    }
+}
+
+std::optional<b2Joint*> ObstacleWorld::getJoint(std::string id){
+    if (_idToJoint.count(id) ) {
+        return _idToJoint.at(id);
+	}
+    return std::nullopt;
+}
+
+bool ObstacleWorld::addJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset) {
     // Active all contained bodies.
     for (auto it = jset->getBodies().begin(); it != jset->getBodies().end(); it++) {
         _objects.push_back(*it);
-        (*it)->activatePhysics(*_world);
-    }
-
-    bool success = jset->createJoints(*_world);
-    if (success) {
-        for (auto it = jset->getJoints().begin(); it != jset->getJoints().end(); it++) {
-            _joints.push_back(*it);
+        addObstacle(*it);
+        if (!(*it)->activatePhysics(*_world)) {
+            return false;
         }
     }
-    return success;
+    
+    for (auto it = jset->getJointDefs().begin(); it != jset->getJointDefs().end(); it++) {
+        jset->addJointId(addJoint(*it));
+    }
+    return true;
+}
+
+bool ObstacleWorld::removeJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset) {
+    for (auto it = jset->getJointIds().begin(); it != jset->getJointIds().end(); it++) {
+		removeJoint(*it);
+	}
+    for (auto it = jset->getBodies().begin(); it != jset->getBodies().end(); it++) {
+        (*it)->markRemoved(true);
+    }
+    garbageCollect();
+    return true;
 }
 
 /**
@@ -361,11 +397,21 @@ void ObstacleWorld::garbageCollect() {
  * receive new objects.
  */
 void ObstacleWorld::clear() {
+    for (auto it = _idToJoint.begin(); it != _idToJoint.end(); it++) {
+		_world->DestroyJoint(it->second);
+	}
+    _idToJoint.clear();
+
+    _idToObj.clear();
+    _objToId.clear();
+    _objToOwner.clear();
+
     for(auto it = _objects.begin() ; it != _objects.end(); ++it) {
         Obstacle* obj = it->get();
         obj->deactivatePhysics(*_world);
     }
     _objects.clear();
+    
     update(0);
 }
 
