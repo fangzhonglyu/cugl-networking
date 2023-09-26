@@ -165,12 +165,15 @@ ObstacleWorld::ObstacleWorld() :
 _world(nullptr),
 _collide(false),
 _filters(false),
-_destroy(false) {
+_destroy(false)
+{
     _lockstep   = false;
     _stepssize  = DEFAULT_WORLD_STEP;
     _itvelocity = DEFAULT_WORLD_VELOC;
     _itposition = DEFAULT_WORLD_POSIT;
     _gravity = Vec2(0,DEFAULT_GRAVITY);
+    _nextObj = 0;
+    _nextJoint = 0;
     
     onBeginContact = nullptr;
     onEndContact   = nullptr;
@@ -283,6 +286,11 @@ void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, std::strin
 
 void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
     std::string id = _UUID + std::to_string(_nextObj++);
+    addObstacle(obj, id, _UUID);
+}
+
+void ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
+    std::string id = std::to_string(_nextObj++);
     addObstacle(obj, id, _UUID);
 }
 
