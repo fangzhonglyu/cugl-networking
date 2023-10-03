@@ -29,9 +29,9 @@ protected:
     /** Potential joints for connecting the multiple bodies */
     std::vector<b2JointDef> _jointDefs;
 
-    std::vector<std::string> _jointIds;
+    std::vector<Uint64> _jointIds;
 
-    void addJointId(std::string id) { _jointIds.push_back(id); }
+    void addJointId(Uint64 id) { _jointIds.push_back(id); }
 
     friend class ObstacleWorld;
     
@@ -90,7 +90,7 @@ public:
      */
     const std::vector<b2JointDef>& getJointDefs() { return _jointDefs; }
 
-    const std::vector<std::string>& getJointIds() { return _jointIds; } 
+    const std::vector<Uint64>& getJointIds() { return _jointIds; }
 };
 
     }

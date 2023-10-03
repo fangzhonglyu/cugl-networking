@@ -108,13 +108,16 @@ protected:
     /** UUID of the Application NetcodeConnection that established this world */
     std::string _UUID;
     
+    Uint32 _shortUID;
+
+    
     /** The list of objects in this world */
     std::vector<std::shared_ptr<Obstacle>> _objects;
-    std::unordered_map<std::string, std::shared_ptr<physics2::Obstacle>> _idToObj;
-    std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToId;
-    std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string> _objToOwner;
+    std::unordered_map<Uint64, std::shared_ptr<physics2::Obstacle>> _idToObj;
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>, Uint64> _objToId;
+    std::unordered_set<std::shared_ptr<physics2::Obstacle>> _owned;
     
-    std::unordered_map<std::string, b2Joint*> _idToJoint;
+    std::unordered_map<Uint64, b2Joint*> _idToJoint;
     
     Uint32 _nextObj;
     Uint32 _nextJoint;
@@ -142,9 +145,9 @@ protected:
      *
      * param obj The obstacle to add
      */
-     void addObstacle(const std::shared_ptr<Obstacle>& obj, std::string objId, std::string owner);
+     void addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 objId);
 
-     void addJoint(const std::string id, const b2JointDef& jointDef);
+     void addJoint(Uint64 id, const b2JointDef& jointDef);
 
      friend class NetPhysicsController;
     
@@ -220,11 +223,11 @@ public:
      */
     bool init(const Rect bounds, const Vec2 gravity, std::string UUID);
 
-    const std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string>& getObjToId() { return _objToId; }
-    const std::unordered_map<std::string, std::shared_ptr<physics2::Obstacle>>& getIdToObj() { return _idToObj; }
-    const std::unordered_map<std::shared_ptr<physics2::Obstacle>, std::string>& getObjToOwner() { return _objToOwner; }
+    const std::unordered_map<std::shared_ptr<physics2::Obstacle>,Uint64>& getObjToId() { return _objToId; }
+    const std::unordered_map<Uint64, std::shared_ptr<physics2::Obstacle>>& getIdToObj() { return _idToObj; }
+    const std::unordered_set<std::shared_ptr<physics2::Obstacle>>& getOwned() { return _owned; }
 
-    const std::unordered_map<std::string, b2Joint*>& getIdToJoint() { return _idToJoint; }
+    const std::unordered_map<Uint64, b2Joint*>& getIdToJoint() { return _idToJoint; }
     
 #pragma mark -
 #pragma mark Static Constructors
@@ -428,11 +431,11 @@ public:
     
     void addInitObstacle(const std::shared_ptr<Obstacle>& obj);
 
-    std::string addJoint(const b2JointDef& jointdef);
+    Uint64 addJoint(const b2JointDef& jointdef);
 
-    std::optional<b2Joint*> getJoint(std::string id);
+    std::optional<b2Joint*> getJoint(Uint64 id);
 
-    void removeJoint(std::string id);
+    void removeJoint(Uint64 id);
 
     bool addJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset);
 
@@ -747,14 +750,14 @@ public:
      * @param  joint    the joint to be destroyed
      */
     void SayGoodbye(b2Joint* joint) override {
-        std::string id = "";
+        Uint64 id = 0;
         for (auto it = _idToJoint.begin(); it != _idToJoint.end(); it++) {
             if (it->second == joint) {
                 _world->DestroyJoint(joint);
                 id = it->first;
             }
         }
-        if (id != ""){
+        if (id != 0){
             _idToJoint.erase(id);
         }
         if (destroyJoint != nullptr) {

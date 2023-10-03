@@ -275,44 +275,43 @@ bool ObstacleWorld::init(const Rect bounds, const Vec2 gravity, std::string UUID
  *
  * param obj The obstacle to add
  */
-void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, std::string id, std::string owner) {
+void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 id) {
     CUAssertLog(inBounds(obj.get()), "Obstacle is not in bounds");
     _objects.push_back(obj);
     obj->activatePhysics(*_world);
     _idToObj.insert(std::make_pair(id, obj));
     _objToId.insert(std::make_pair(obj, id));
-    _objToOwner.insert(std::make_pair(obj, owner));
 }
 
 void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
-    std::string id = _UUID + std::to_string(_nextObj++);
-    addObstacle(obj, id, _UUID);
+    Uint64 id = ((Uint64)_shortUID << 32) | _nextObj++;
+    addObstacle(obj, id);
 }
 
 void ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
-    std::string id = std::to_string(_nextObj++);
-    addObstacle(obj, id, _UUID);
+    Uint64 id = ((Uint64)0xf << 32) | _nextObj++;
+    addObstacle(obj, id);
 }
 
-std::string ObstacleWorld::addJoint(const b2JointDef& jointDef) {
-    std::string id = _UUID + std::to_string(_nextJoint++);
+Uint64 ObstacleWorld::addJoint(const b2JointDef& jointDef) {
+    Uint64 id = ((Uint64)_shortUID << 32) | _nextJoint++;
     addJoint(id, jointDef);
     return id;
 }
 
-void ObstacleWorld::addJoint(const std::string id, const b2JointDef& jointDef) {
+void ObstacleWorld::addJoint(Uint64 id, const b2JointDef& jointDef) {
     b2Joint* joint = _world->CreateJoint(&jointDef);
     _idToJoint.insert(std::make_pair(id, joint));
 }
 
-void ObstacleWorld::removeJoint(std::string id) {
+void ObstacleWorld::removeJoint(Uint64 id) {
     if (_idToJoint.count(id)) {
         _world->DestroyJoint(_idToJoint.at(id));
         _idToJoint.erase(id);
     }
 }
 
-std::optional<b2Joint*> ObstacleWorld::getJoint(std::string id){
+std::optional<b2Joint*> ObstacleWorld::getJoint(Uint64 id){
     if (_idToJoint.count(id) ) {
         return _idToJoint.at(id);
 	}
@@ -412,7 +411,7 @@ void ObstacleWorld::clear() {
 
     _idToObj.clear();
     _objToId.clear();
-    _objToOwner.clear();
+    _owned.clear();
 
     for(auto it = _objects.begin() ; it != _objects.end(); ++it) {
         Obstacle* obj = it->get();
