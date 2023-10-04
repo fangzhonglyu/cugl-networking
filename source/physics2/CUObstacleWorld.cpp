@@ -277,20 +277,23 @@ bool ObstacleWorld::init(const Rect bounds, const Vec2 gravity, std::string UUID
  */
 void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 id) {
     CUAssertLog(inBounds(obj.get()), "Obstacle is not in bounds");
+    CUAssertLog(!_idToObj.count(id), "Duplicate Obstacle ids are not allowed");
     _objects.push_back(obj);
     obj->activatePhysics(*_world);
     _idToObj.insert(std::make_pair(id, obj));
     _objToId.insert(std::make_pair(obj, id));
 }
 
-void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
+Uint64 ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
     Uint64 id = ((Uint64)_shortUID << 32) | _nextObj++;
     addObstacle(obj, id);
+    return id;
 }
 
-void ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
+Uint64 ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
     Uint64 id = ((Uint64)0xf << 32) | _nextObj++;
     addObstacle(obj, id);
+    return id;
 }
 
 Uint64 ObstacleWorld::addJoint(const b2JointDef& jointDef) {

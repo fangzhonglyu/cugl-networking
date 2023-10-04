@@ -427,9 +427,9 @@ public:
      *
      * param obj The obstacle to add
      */
-    void addObstacle(const std::shared_ptr<Obstacle>& obj);
+    Uint64 addObstacle(const std::shared_ptr<Obstacle>& obj);
     
-    void addInitObstacle(const std::shared_ptr<Obstacle>& obj);
+    Uint64 addInitObstacle(const std::shared_ptr<Obstacle>& obj);
 
     Uint64 addJoint(const b2JointDef& jointdef);
 
