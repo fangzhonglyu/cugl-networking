@@ -145,6 +145,7 @@ protected:
      *
      * param obj The obstacle to add
      */
+public:
      void addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 objId);
 
      void addJoint(Uint64 id, const b2JointDef& jointDef);
