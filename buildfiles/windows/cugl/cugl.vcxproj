@@ -137,7 +137,6 @@
     <ClInclude Include="..\..\..\include\cugl\physics2\CUObstacleSelector.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUObstacleWorld.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUPolygonObstacle.h" />
-    <ClInclude Include="..\..\..\include\cugl\physics2\CUSimpleObstacle.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\CUWheelObstacle.h" />
     <ClInclude Include="..\..\..\include\cugl\physics2\cu_physics2.h" />
     <ClInclude Include="..\..\..\include\cugl\render\CUCamera.h" />
@@ -306,7 +305,6 @@
     <ClCompile Include="..\..\..\source\physics2\CUObstacleSelector.cpp" />
     <ClCompile Include="..\..\..\source\physics2\CUObstacleWorld.cpp" />
     <ClCompile Include="..\..\..\source\physics2\CUPolygonObstacle.cpp" />
-    <ClCompile Include="..\..\..\source\physics2\CUSimpleObstacle.cpp" />
     <ClCompile Include="..\..\..\source\physics2\CUWheelObstacle.cpp" />
     <ClCompile Include="..\..\..\source\render\CUCamera.cpp" />
     <ClCompile Include="..\..\..\source\render\CUFont.cpp" />

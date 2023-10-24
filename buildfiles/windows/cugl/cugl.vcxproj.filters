@@ -464,9 +464,6 @@
     <ClInclude Include="..\..\..\include\cugl\physics2\CUPolygonObstacle.h">
       <Filter>Header Files\cugl\physics2</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\cugl\physics2\CUSimpleObstacle.h">
-      <Filter>Header Files\cugl\physics2</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cugl\physics2\CUWheelObstacle.h">
       <Filter>Header Files\cugl\physics2</Filter>
     </ClInclude>
@@ -971,9 +968,6 @@
       <Filter>Source Files\physics2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\physics2\CUPolygonObstacle.cpp">
-      <Filter>Source Files\physics2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\physics2\CUSimpleObstacle.cpp">
       <Filter>Source Files\physics2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\physics2\CUWheelObstacle.cpp">
