@@ -285,19 +285,19 @@ void ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 id)
 }
 
 Uint64 ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
-    Uint64 id = ((Uint64)_shortUID << 32) | _nextObj++;
+    Uint64 id = (((Uint64)_shortUID) << 32) | _nextObj++;
     addObstacle(obj, id);
     return id;
 }
 
 Uint64 ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
-    Uint64 id = ((Uint64)0xf << 32) | _nextObj++;
+    Uint64 id = (((Uint64)0xffffffff) << 32) | _nextObj++;
     addObstacle(obj, id);
     return id;
 }
 
 Uint64 ObstacleWorld::addJoint(const b2JointDef& jointDef) {
-    Uint64 id = ((Uint64)_shortUID << 32) | _nextJoint++;
+    Uint64 id = (((Uint64)_shortUID) << 32) | _nextJoint++;
     addJoint(id, jointDef);
     return id;
 }

@@ -415,6 +415,8 @@ public:
      */
     const std::vector<std::shared_ptr<Obstacle>>& getObstacles() { return _objects; }
 
+    void setShortUID(Uint32 uid) { _shortUID = uid; }
+
     /**
      * Immediately adds the obstacle to the physics world
      *
