@@ -985,9 +985,7 @@ public:
         _shared = shared;
     }
     
-    bool isShared(){
-        return _shared;
-    }
+    bool isShared() const { return _shared; }
     
     void clearSharingDirtyBits(){
         _isPosDirty = false;
@@ -999,6 +997,14 @@ public:
         _isFloatConstDirty = false;
     }
     
+    bool isPosDirty() const { return _isPosDirty; }
+    bool isVelDirty() const { return _isVelDirty; }
+    bool isTypeDirty() const { return _isTypeDirty; }
+    bool isAngleDirty() const { return _isAngleDirty; }
+    bool isAngVelDirty() const { return _isAngVelDirty; }
+    bool isBoolConstDirty() const { return _isBoolConstDirty; }
+    bool isFloatConstDirty() const { return _isFloatConstDirty; }
+
 #pragma mark -
 #pragma mark Garbage Collection
     /**
