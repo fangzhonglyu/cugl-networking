@@ -46,7 +46,7 @@
 #ifndef __CU_POLYGON_OBSTACLE_H__
 #define __CU_POLYGON_OBSTACLE_H__
 
-#include "CUSimpleObstacle.h"
+#include "CUObstacle.h"
 #include <cugl/math/CUPoly2.h>
 
 namespace cugl {
@@ -68,7 +68,7 @@ namespace cugl {
  * The polygon can be any one that is representable by a Poly2 object.  That means that
  * it does not need to be convex, but it cannot have holes or self intersections.
  */
-class PolygonObstacle : public SimpleObstacle {
+class PolygonObstacle : public Obstacle {
 protected:
     /** The polygon vertices (for resizing) */
     Poly2 _polygon;
@@ -119,7 +119,7 @@ public:
      * NEVER USE A CONSTRUCTOR WITH NEW. If you want to allocate an object on
      * the heap, use one of the static constructors instead.
      */
-    PolygonObstacle(void) : SimpleObstacle(), _shapes(nullptr), _geoms(nullptr) { }
+    PolygonObstacle(void) : Obstacle(), _shapes(nullptr), _geoms(nullptr) { }
     
     /**
      * Deletes this physics object and all of its resources.
@@ -130,7 +130,7 @@ public:
     virtual ~PolygonObstacle();
     
     // Turn off init warnings
-    using SimpleObstacle::init;
+    using Obstacle::init;
     
     /**
      * Initializes a (not necessarily convex) polygon

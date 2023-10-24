@@ -46,7 +46,7 @@
 #define __CU_WHEEL_OBSTACLE_H__
 
 #include <box2d/b2_circle_shape.h>
-#include "CUSimpleObstacle.h"
+#include "CUObstacle.h"
 
 namespace cugl {
     /**
@@ -69,7 +69,7 @@ namespace cugl {
  *
  * Unless otherwise specified, the center of mass is as the center.
  */
-class WheelObstacle : public SimpleObstacle {
+class WheelObstacle : public Obstacle {
 protected:
     /** Shape information for this box */
     b2CircleShape _shape;
@@ -98,7 +98,7 @@ public:
      * NEVER USE A CONSTRUCTOR WITH NEW. If you want to allocate an object on
      * the heap, use one of the static constructors instead.
      */
-    WheelObstacle(void) : SimpleObstacle(), _geometry(nullptr) { }
+    WheelObstacle(void) : Obstacle(), _geometry(nullptr) { }
     
     /**
      * Deletes this physics object and all of its resources.

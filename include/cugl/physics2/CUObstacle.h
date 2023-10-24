@@ -8,7 +8,12 @@
 //  option to uncouple).  This module is such an example; it couples the
 //  bodies and fixtures from Box2d into a single class, making the physics
 //  easier to use (in most cases).
-//
+
+//  This class serves to provide a uniform interface for all single-body objects
+//  (regardless of shape).  How, it still cannot be instantiated directly, as
+//  the correct instantiation depends on the shape.  See BoxObstacle and
+//  CircleObstacle for concrete examples.
+
 //  This class uses our standard shared-pointer architecture.
 //
 //  1. The constructor does not perform any initialization; it just sets all
@@ -49,6 +54,7 @@
 
 #include <box2d/b2_body.h>
 #include <box2d/b2_fixture.h>
+#include <box2d/b2_world.h>
 #include <iostream>
 #include <cugl/scene2/graph/CUWireNode.h>
 
@@ -68,15 +74,13 @@ namespace cugl {
 /**
  * Base model class to support collisions.
  *
- * Instances represents a body and/or a group of bodies. There should be NO game
+ * Instances represents a body. There should be NO game
  * controlling logic code in a physics objects. That should reside in the 
  * Controllers.
  *
- * This abstract class has no Body or Shape information and should never be
- * instantiated directly. Instead, you should instantiate either SimpleObstacle 
- * or ComplexObstacle. This class only exists to unify common functionality. In
- * particular, it wraps the body and and fixture information into a single 
- * interface.
+ * This is an instance of a Physics object with just one body. It does not have any
+ * joints. It is the primary type of physics object. This class does not provide Shape
+ * information, and should not be instantiated directly.
  *
  * Many of the method comments in this class are taken from the Box2d manual by
  * Erin Catto (2011).
@@ -105,6 +109,22 @@ protected:
     
     /** (Singular) callback function for state updates */
     std::function<void(Obstacle* obstacle)> _listener;
+    
+    /** The physics body for Box2D. */
+    b2Body* _body;
+    
+    /** Number of decimal places to snap position of image to physics body */
+    int _posSnap;
+    /** Cache of factor to snap position of image to physics body */
+    unsigned long _posFact;
+    /** Number of decimal places to snap rotation of image to physics body */
+    int _angSnap;
+    /** Cache of factor to snap rotation of image to physics body */
+    unsigned long _angFact;
+    
+    bool _shared;
+    
+    bool _isPosDirty, _isVelDirty, _isTypeDirty, _isAngleDirty, _isAngVelDirty, _isBoolConstDirty, _isFloatConstDirty;
     
 #pragma mark -
 #pragma mark Scene Graph Internals
@@ -187,7 +207,9 @@ public:
      *
      * @return the body type for Box2D physics
      */
-    virtual b2BodyType getBodyType() const { return _bodyinfo.type; }
+    virtual b2BodyType getBodyType() const {
+        return (_body != nullptr ? _body->GetType() : _bodyinfo.type);
+    }
     
     /**
      * Sets the body type for Box2D physics
@@ -199,7 +221,14 @@ public:
      *
      * @param value the body type for Box2D physics
      */
-    virtual void setBodyType(b2BodyType value) { _bodyinfo.type = value; }
+    virtual void setBodyType(b2BodyType value) {
+        if (_body != nullptr) {
+            _body->SetType(value);
+        } else {
+            _bodyinfo.type = value;
+        }
+        if(_shared){ _isTypeDirty = true; };
+    }
     
     /**
      * Returns the current position for this physics body
@@ -210,7 +239,13 @@ public:
      *
      * @return the current position for this physics body
      */
-    virtual Vec2 getPosition() const { return Vec2(_bodyinfo.position.x,_bodyinfo.position.y); }
+    virtual Vec2 getPosition() const {
+        if (_body != nullptr) {
+            return Vec2(_body->GetPosition().x,_body->GetPosition().y);
+        } else {
+            return Vec2(_bodyinfo.position.x,_bodyinfo.position.y);
+        }
+    }
     
     /**
      * Sets the current position for this physics body
@@ -228,35 +263,60 @@ public:
      * @param x  the current x-coordinate for this physics body
      * @param y  the current y-coordinate for this physics body
      */
-    virtual void setPosition(float x, float y) { _bodyinfo.position.Set(x,y); }
+    virtual void setPosition(float x, float y) {
+        if (_body != nullptr) {
+            _body->SetTransform(b2Vec2(x,y),_body->GetAngle());
+        } else {
+            _bodyinfo.position.Set(x,y);
+        }
+        if(_shared){ _isPosDirty = true; };
+    }
     
     /**
      * Returns the x-coordinate for this physics body
      *
      * @return the x-coordinate for this physics body
      */
-    virtual float getX() const { return _bodyinfo.position.x; }
+    virtual float getX() const {
+        return (_body != nullptr ? _body->GetPosition().x : _bodyinfo.position.x);
+    }
     
     /**
      * Sets the x-coordinate for this physics body
      *
      * @param value  the x-coordinate for this physics body
      */
-    virtual void setX(float value) { _bodyinfo.position.x = value; }
+    virtual void setX(float value) {
+        if (_body != nullptr) {
+            _body->SetTransform(b2Vec2(value,_body->GetPosition().y),_body->GetAngle());
+        } else {
+            _bodyinfo.position.x = value;
+        }
+        if(_shared){ _isPosDirty = true; };
+    }
     
     /**
      * Returns the y-coordinate for this physics body
      *
      * @return the y-coordinate for this physics body
      */
-    virtual float getY() const { return _bodyinfo.position.y; }
+    virtual float getY() const {
+        return (_body != nullptr ? _body->GetPosition().y : _bodyinfo.position.y);
+    }
     
     /**
      * Sets the y-coordinate for this physics body
      *
      * @param value  the y-coordinate for this physics body
      */
-    virtual void setY(float value) { _bodyinfo.position.y = value; }
+    virtual void setY(float value) {
+        if (_body != nullptr) {
+            _body->SetTransform(b2Vec2(_body->GetPosition().x,value),_body->GetAngle());
+        } else {
+            _bodyinfo.position.y = value;
+        }
+        if(_shared){ _isPosDirty = true; };
+    }
     
     /**
      * Returns the angle of rotation for this body (about the center).
@@ -265,14 +325,23 @@ public:
      *
      * @return the angle of rotation for this body
      */
-    virtual float getAngle() const { return _bodyinfo.angle; }
+    virtual float getAngle() const {
+        return (_body != nullptr ? _body->GetAngle() : _bodyinfo.angle);
+    }
     
     /**
      * Sets the angle of rotation for this body (about the center).
      *
      * @param value  the angle of rotation for this body (in radians)
      */
-    virtual void setAngle(float value) { _bodyinfo.angle = value; }
+    virtual void setAngle(float value) {
+        if (_body != nullptr) {
+            _body->SetTransform(_body->GetPosition(),value);
+        } else {
+            _bodyinfo.angle = value;
+        }
+        if(_shared){ _isAngleDirty = true; };
+    }
     
     /**
      * Returns the linear velocity for this physics body
@@ -284,7 +353,11 @@ public:
      * @return the linear velocity for this physics body
      */
     virtual Vec2 getLinearVelocity() const {
-        return Vec2(_bodyinfo.linearVelocity.x,_bodyinfo.linearVelocity.y);
+        if (_body != nullptr) {
+            return Vec2(_body->GetLinearVelocity().x,_body->GetLinearVelocity().y);
+        } else {
+            return Vec2(_bodyinfo.linearVelocity.x,_bodyinfo.linearVelocity.y);
+        }
     }
     
     /**
@@ -303,35 +376,68 @@ public:
      * @param x  the x-coordinate of the linear velocity
      * @param y  the y-coordinate of the linear velocity
      */
-    virtual void setLinearVelocity(float x, float y) { _bodyinfo.linearVelocity.Set(x,y); }
+    virtual void setLinearVelocity(float x, float y) {
+        if (_body != nullptr) {
+            _body->SetLinearVelocity(b2Vec2(x,y));
+        } else {
+            _bodyinfo.linearVelocity.Set(x,y);
+        }
+        if(_shared){ _isVelDirty = true; };
+    }
     
     /**
      * Returns the x-velocity for this physics body
      *
      * @return the x-velocity for this physics body
      */
-    virtual float getVX() const { return _bodyinfo.linearVelocity.x; }
+    virtual float getVX() const {
+        if (_body != nullptr) {
+            return _body->GetLinearVelocity().x;
+        } else {
+            return _bodyinfo.linearVelocity.x;
+        }
+    }
     
     /**
      * Sets the x-velocity for this physics body
      *
      * @param value  the x-velocity for this physics body
      */
-    virtual void setVX(float value) { _bodyinfo.linearVelocity.x = value; }
+    virtual void setVX(float value) {
+        if (_body != nullptr) {
+            _body->SetLinearVelocity(b2Vec2(value,_body->GetLinearVelocity().y));
+        } else {
+            _bodyinfo.linearVelocity.x = value;
+        }
+        if(_shared){ _isVelDirty = true; };
+    }
     
     /**
      * Returns the y-velocity for this physics body
      *
      * @return the y-velocity for this physics body
      */
-    virtual float getVY() const { return _bodyinfo.linearVelocity.y; }
+    virtual float getVY() const {
+        if (_body != nullptr) {
+            return _body->GetLinearVelocity().y;
+        } else {
+            return _bodyinfo.linearVelocity.y;
+        }
+    }
     
     /**
      * Sets the y-velocity for this physics body
      *
      * @param value  the y-velocity for this physics body
      */
-    virtual void setVY(float value) { _bodyinfo.linearVelocity.y = value; }
+    virtual void setVY(float value) {
+        if (_body != nullptr) {
+            _body->SetLinearVelocity(b2Vec2(_body->GetLinearVelocity().x,value));
+        } else {
+            _bodyinfo.linearVelocity.y = value;
+        }
+        if(_shared){ _isVelDirty = true; };
+    }
     
     /**
      * Returns the angular velocity for this physics body
@@ -340,14 +446,23 @@ public:
      *
      * @return the angular velocity for this physics body
      */
-    virtual float getAngularVelocity() const { return _bodyinfo.angularVelocity; }
+    virtual float getAngularVelocity() const {
+        return (_body != nullptr ? _body->GetAngularVelocity() : _bodyinfo.angularVelocity);
+    }
     
     /**
      * Sets the angular velocity for this physics body
      *
      * @param value the angular velocity for this physics body (in radians)
      */
-    virtual void setAngularVelocity(float value) { _bodyinfo.angularVelocity = value; }
+    virtual void setAngularVelocity(float value) {
+        if (_body != nullptr) {
+            _body->SetAngularVelocity(value);
+        } else {
+            _bodyinfo.angularVelocity = value;
+        }
+        if(_shared){ _isAngVelDirty = true; };
+    }
     
     /**
      * Returns true if the body is enabled
@@ -359,7 +474,9 @@ public:
      *
      * @return true if the body is enabled
      */
-    virtual bool isEnabled() const { return _bodyinfo.enabled; }
+    virtual bool isEnabled() const {
+        return (_body != nullptr ? _body->IsEnabled() : _bodyinfo.enabled);
+    }
     
     /**
      * Sets whether the body is enabled
@@ -371,7 +488,14 @@ public:
      *
      * @param value  whether the body is enabled
      */
-    virtual void setEnabled(bool value) { _bodyinfo.enabled = value; }
+    virtual void setEnabled(bool value) {
+        if (_body != nullptr) {
+            _body->SetEnabled(value);
+        } else {
+            _bodyinfo.enabled = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Returns true if the body is awake
@@ -384,7 +508,9 @@ public:
      *
      * @return true if the body is awake
      */
-    virtual bool isAwake() const { return _bodyinfo.awake; }
+    virtual bool isAwake() const {
+        return (_body != nullptr ? _body->IsAwake() : _bodyinfo.awake);
+    }
     
     /**
      * Sets whether the body is awake
@@ -397,7 +523,14 @@ public:
      *
      * @param value  whether the body is awake
      */
-    virtual void setAwake(bool value) { _bodyinfo.awake = value; }
+    virtual void setAwake(bool value) {
+        if (_body != nullptr) {
+            _body->SetAwake(value);
+        } else {
+            _bodyinfo.awake = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Returns false if this body should never fall asleep
@@ -410,7 +543,9 @@ public:
      *
      * @return false if this body should never fall asleep
      */
-    virtual bool isSleepingAllowed() const { return _bodyinfo.allowSleep; }
+    virtual bool isSleepingAllowed() const {
+        return (_body != nullptr ? _body->IsSleepingAllowed() : _bodyinfo.allowSleep);
+    }
     
     /**
      * Sets whether the body should ever fall asleep
@@ -423,7 +558,14 @@ public:
      *
      * @param value  whether the body should ever fall asleep
      */
-    virtual void setSleepingAllowed(bool value) { _bodyinfo.allowSleep = value; }
+    virtual void setSleepingAllowed(bool value) {
+        if (_body != nullptr) {
+            _body->SetSleepingAllowed(value);
+        } else {
+            _bodyinfo.allowSleep = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Returns true if this body is a bullet
@@ -441,7 +583,9 @@ public:
      *
      * @return true if this body is a bullet
      */
-    virtual bool isBullet() const { return _bodyinfo.bullet; }
+    virtual bool isBullet() const {
+        return (_body != nullptr ? _body->IsBullet() : _bodyinfo.bullet);
+    }
     
     /**
      * Sets whether this body is a bullet
@@ -459,7 +603,14 @@ public:
      *
      * @param value  whether this body is a bullet
      */
-    virtual void setBullet(bool value) { _bodyinfo.bullet = value; }
+    virtual void setBullet(bool value) {
+        if (_body != nullptr) {
+            _body->SetBullet(value);
+        } else {
+            _bodyinfo.bullet = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Returns true if this body be prevented from rotating
@@ -468,7 +619,9 @@ public:
      *
      * @return true if this body be prevented from rotating
      */
-    virtual bool isFixedRotation() const { return _bodyinfo.fixedRotation; }
+    virtual bool isFixedRotation() const {
+        return (_body != nullptr ? _body->IsFixedRotation() : _bodyinfo.fixedRotation);
+    }
     
     /**
      * Sets whether this body be prevented from rotating
@@ -477,7 +630,14 @@ public:
      *
      * @param value  whether this body be prevented from rotating
      */
-    virtual void setFixedRotation(bool value) { _bodyinfo.fixedRotation = value; }
+    virtual void setFixedRotation(bool value) {
+        if (_body != nullptr) {
+            _body->SetFixedRotation(value);
+        } else {
+            _bodyinfo.fixedRotation = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Returns the gravity scale to apply to this body
@@ -487,7 +647,9 @@ public:
      *
      * @return the gravity scale to apply to this body
      */
-    virtual float getGravityScale() const { return _bodyinfo.gravityScale; }
+    virtual float getGravityScale() const {
+        return (_body != nullptr ? _body->GetGravityScale() : _bodyinfo.gravityScale);
+    }
     
     /**
      * Sets the gravity scale to apply to this body
@@ -497,7 +659,14 @@ public:
      *
      * @param value  the gravity scale to apply to this body
      */
-    virtual void setGravityScale(float value) { _bodyinfo.gravityScale = value; }
+    virtual void setGravityScale(float value) {
+        if (_body != nullptr) {
+            _body->SetGravityScale(value);
+        } else {
+            _bodyinfo.gravityScale = value;
+        }
+        if(_shared){ _isFloatConstDirty = true; };
+    }
     
     /**
      * Returns the linear damping for this body.
@@ -513,7 +682,9 @@ public:
      *
      * @return the linear damping for this body.
      */
-    virtual float getLinearDamping() const { return _bodyinfo.linearDamping; }
+    virtual float getLinearDamping() const {
+        return (_body != nullptr ? _body->GetLinearDamping() : _bodyinfo.linearDamping);
+    }
     
     /**
      * Sets the linear damping for this body.
@@ -529,7 +700,14 @@ public:
      *
      * @param value  the linear damping for this body.
      */
-    virtual void setLinearDamping(float value) { _bodyinfo.linearDamping = value; }
+    virtual void setLinearDamping(float value) {
+        if (_body != nullptr) {
+            _body->SetLinearDamping(value);
+        } else {
+            _bodyinfo.linearDamping = value;
+        }
+        if(_shared){ _isFloatConstDirty = true; };
+    }
     
     /**
      * Returns the angular damping for this body.
@@ -545,7 +723,9 @@ public:
      *
      * @return the angular damping for this body.
      */
-    virtual float getAngularDamping() const { return _bodyinfo.angularDamping; }
+    virtual float getAngularDamping() const {
+        return (_body != nullptr ? _body->GetAngularDamping() : _bodyinfo.angularDamping);
+    }
     
     /**
      * Sets the angular damping for this body.
@@ -561,7 +741,14 @@ public:
      *
      * @param value  the angular damping for this body.
      */
-    virtual void setAngularDamping(float value) { _bodyinfo.angularDamping = value; }
+    virtual void setAngularDamping(float value) {
+        if (_body != nullptr) {
+            _body->SetAngularDamping(value);
+        } else {
+            _bodyinfo.angularDamping = value;
+        }
+        if(_shared){ _isBoolConstDirty = true; };
+    }
     
     /**
      * Copies the state from the given body to the body def.
@@ -594,7 +781,7 @@ public:
      *
      * @param value  the density of this body
      */
-    virtual void setDensity(float value) { _fixture.density = value; }
+    virtual void setDensity(float value);
     
     /**
      * Returns the friction coefficient of this body
@@ -620,7 +807,7 @@ public:
      *
      * @param value  the friction coefficient of this body
      */
-    virtual void setFriction(float value) { _fixture.friction = value; }
+    virtual void setFriction(float value);
     
     /**
      * Returns the restitution of this body
@@ -646,7 +833,7 @@ public:
      *
      * @param value  the restitution of this body
      */
-    virtual void setRestitution(float value) { _fixture.restitution = value; }
+    virtual void setRestitution(float value);
     
     /**
      * Returns true if this object is a sensor.
@@ -668,7 +855,7 @@ public:
      *
      * @param value  whether this object is a sensor.
      */
-    virtual void setSensor(bool value) { _fixture.isSensor = value; }
+    virtual void setSensor(bool value);
     
     /**
      * Returns the filter data for this object (or null if there is none)
@@ -698,7 +885,7 @@ public:
      *
      * @param value  the filter data for this object
      */
-    virtual void setFilterData(b2Filter value) { _fixture.filter = value; }
+    virtual void setFilterData(b2Filter value);
     
     
 #pragma mark -
@@ -712,7 +899,13 @@ public:
      *
      * @return the center of mass for this physics body
      */
-    virtual Vec2 getCentroid() const { return Vec2(_massdata.center.x,_massdata.center.y); }
+    virtual Vec2 getCentroid() const {
+        if (_body != nullptr) {
+            return Vec2(_body->GetLocalCenter().x,_body->GetLocalCenter().y);
+        } else {
+            return Vec2(_massdata.center.x,_massdata.center.y);
+        }
+    }
     
     /**
      * Sets the center of mass for this physics body
@@ -740,7 +933,9 @@ public:
      *
      * @return the rotational inertia of this body
      */
-    virtual float getInertia() const { return _massdata.I; }
+    virtual float getInertia() const {
+        return  (_body != nullptr ? _body->GetInertia() : _massdata.I);
+    }
     
     /**
      * Sets the rotational inertia of this body
@@ -759,7 +954,9 @@ public:
      *
      * @return the mass of this body
      */
-    virtual float getMass() const { return _massdata.mass; }
+    virtual float getMass() const {
+        return  (_body != nullptr ? _body->GetMass() : _massdata.mass);
+    }
     
     /**
      * Sets the mass of this body
@@ -773,8 +970,34 @@ public:
     /**
      * Resets this body to use the mass computed from the its shape and density
      */
-    virtual void resetMass() { _masseffect = false; }
+    virtual void resetMass() {
+        _masseffect = false;
+        if (_body != nullptr) {
+            _body->ResetMassData();
+        }
+        if(_shared){ _isFloatConstDirty = true; };
+    }
+
+#pragma mark -
+#pragma mark Sharing Information
     
+    void setShared(bool shared){
+        _shared = shared;
+    }
+    
+    bool isShared(){
+        return _shared;
+    }
+    
+    void clearSharingDirtyBits(){
+        _isPosDirty = false;
+        _isVelDirty = false;
+        _isTypeDirty = false;
+        _isAngleDirty = false;
+        _isAngVelDirty = false;
+        _isBoolConstDirty = false;
+        _isFloatConstDirty = false;
+    }
     
 #pragma mark -
 #pragma mark Garbage Collection
@@ -831,7 +1054,7 @@ public:
      *
      * @return a (weak) reference to Box2D body for this obstacle.
      */
-    virtual b2Body* getBody() { return nullptr; }
+    virtual b2Body* getBody() { return _body; }
     
     /**
      * Creates the physics Body(s) for this object, adding them to the world.
@@ -843,7 +1066,7 @@ public:
      *
      * @return true if object allocation succeeded
      */
-    virtual bool activatePhysics(b2World& world) { return false; }
+    virtual bool activatePhysics(b2World& world);
     
     /**
      * Destroys the physics Body(s) of this object if applicable.
@@ -852,7 +1075,21 @@ public:
      *
      * @param world Box2D world that stores body
      */
-    virtual void deactivatePhysics(b2World& world) {}
+    virtual void deactivatePhysics(b2World& world);
+    
+    /**
+     * Create new fixtures for this body, defining the shape
+     *
+     * This is the primary method to override for custom physics objects.
+     */
+    virtual void createFixtures() {}
+    
+    /**
+     * Release the fixtures for this body, reseting the shape
+     *
+     * This is the primary method to override for custom physics objects.
+     */
+    virtual void releaseFixtures() {}
 
     
 #pragma mark -
@@ -873,6 +1110,9 @@ public:
     virtual void update(float delta) {
         if (_scene) { updateDebug(); }
         if (_listener) { _listener(this); }
+        if (isDirty()) {
+            createFixtures();
+        }
     }
     
     /**
@@ -903,6 +1143,78 @@ public:
      */
     void setListener(const std::function<void(Obstacle* obstacle)>& listener) {
         _listener = listener;
+    }
+    
+#pragma mark -
+#pragma mark Render Snap
+    /**
+     * Returns the number of decimal places to snap the node to the physics body
+     *
+     * Physics bodies will have very precise positions, but these fractional
+     * positions may not be ideal for drawing, and may produce artifacts.  When
+     * the value of snap is nonnegative, CUGL will round the position of the
+     * node to snap decimal places.
+     *
+     * For example, if the snap is 0, it will always round position to the
+     * nearest integer. If it is 1, it will round it to the nearest 10th of a
+     * point.  If it is -1 (or any negative value) it will not snap at all.
+     *
+     * @return the number of decimal places to snap the node to the physics body
+     */
+    int getPositionSnap()   { return _posSnap; }
+    
+    /**
+     * Sets the number of decimal places to snap the node to the physics body
+     *
+     * Physics bodies will have very precise positions, but these fractional
+     * positions may not be ideal for drawing, and may produce artifacts.  When
+     * the value of snap is nonnegative, CUGL will round the position of the
+     * node to snap decimal places.
+     *
+     * For example, if the snap is 0, it will always round position to the
+     * nearest integer. If it is 1, it will round it to the nearest 10th of a
+     * point.  If it is -1 (or any negative value) it will not snap at all.
+     *
+     * @param snap the number of decimal places to snap the node to the physics body
+     */
+    void setPositionSnap(unsigned int snap) {
+        _posSnap = snap;
+        _posFact = (unsigned long)(_posSnap >= 0 ? std::pow(10, snap) : 0);
+    }
+
+    /**
+     * Returns the number of decimal places to snap rotation to the physics body
+     *
+     * Physics bodies will have very precise angles, but these fractional angles
+     * may not be ideal for drawing, and may produce artifacts.  When the value
+     * of snap is nonnegative, CUGL will round the rotation (measured in degrees,
+     * as that is the value used by images) of the image to snap decimal places.
+     *
+     * For example, if the snap is 0, it will always round the angle to the
+     * nearest degree. If it is 1, it will round it to the nearest 10th of a
+     * degree.  If it is -1 (or any negative value) it will not snap at all.
+     *
+     * @return the number of decimal places to snap rotation to the physics body
+     */
+    int getAngleSnap()      { return _angSnap; }
+    
+    /**
+     * Sets the number of decimal places to snap rotation to the physics body
+     *
+     * Physics bodies will have very precise angles, but these fractional angles
+     * may not be ideal for drawing, and may produce artifacts.  When the value
+     * of snap is nonnegative, CUGL will round the rotation (measured in degrees,
+     * as that is the value used by images) of the image to snap decimal places.
+     *
+     * For example, if the snap is 0, it will always round the angle to the
+     * nearest degree. If it is 1, it will round it to the nearest 10th of a
+     * degree.  If it is -1 (or any negative value) it will not snap at all.
+     *
+     * @param snap the number of decimal places to snap rotation to the physics body
+     */
+    void setAngleSnap(unsigned int snap)    {
+        _angSnap = snap;
+        _angFact = (unsigned long)(_angSnap >= 0 ? std::pow(10, snap) : 0);
     }
 
 #pragma mark -

@@ -48,7 +48,7 @@
 #include <box2d/b2_polygon_shape.h>
 #include <box2d/b2_circle_shape.h>
 #include <box2d/b2_collision.h>
-#include "CUSimpleObstacle.h"
+#include "CUObstacle.h"
 
 namespace cugl {
     /**
@@ -76,7 +76,7 @@ namespace cugl {
  * half-capsules or full capsules.  In the case where width == height, the
  * capsule will be a circle or semicircle, depending on the capsula shape.
  */
-class CapsuleObstacle : public SimpleObstacle {
+class CapsuleObstacle : public Obstacle {
 protected:
     /** Shape information for this capsule core */
     b2PolygonShape _shape;
@@ -131,7 +131,7 @@ public:
      * NEVER USE A CONSTRUCTOR WITH NEW. If you want to allocate an object on
      * the heap, use one of the static constructors instead.
      */
-    CapsuleObstacle(void) : SimpleObstacle(),
+    CapsuleObstacle(void) : Obstacle(),
     _core(nullptr), _cap1(nullptr), _cap2(nullptr), _seamEpsilon(0.0f) { }
     
     /**

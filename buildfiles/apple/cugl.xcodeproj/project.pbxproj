@@ -273,7 +273,6 @@
 		EB163B0A295E1BF90090F7D4 /* CUObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B01295E1BF90090F7D4 /* CUObstacle.cpp */; };
 		EB163B0B295E1BF90090F7D4 /* CUCapsuleObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B02295E1BF90090F7D4 /* CUCapsuleObstacle.cpp */; };
 		EB163B0C295E1BF90090F7D4 /* CUObstacleWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B03295E1BF90090F7D4 /* CUObstacleWorld.cpp */; };
-		EB163B0D295E1BF90090F7D4 /* CUSimpleObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B04295E1BF90090F7D4 /* CUSimpleObstacle.cpp */; };
 		EB163B0E295E1BF90090F7D4 /* CUWheelObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B05295E1BF90090F7D4 /* CUWheelObstacle.cpp */; };
 		EB163B0F295E1BFF0090F7D4 /* CUWheelObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B05295E1BF90090F7D4 /* CUWheelObstacle.cpp */; };
 		EB163B10295E1BFF0090F7D4 /* CUCapsuleObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B02295E1BF90090F7D4 /* CUCapsuleObstacle.cpp */; };
@@ -281,7 +280,6 @@
 		EB163B12295E1BFF0090F7D4 /* CUObstacleWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B03295E1BF90090F7D4 /* CUObstacleWorld.cpp */; };
 		EB163B13295E1BFF0090F7D4 /* CUComplexObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163AFD295E1BF80090F7D4 /* CUComplexObstacle.cpp */; };
 		EB163B14295E1BFF0090F7D4 /* CUPolygonObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B00295E1BF90090F7D4 /* CUPolygonObstacle.cpp */; };
-		EB163B15295E1BFF0090F7D4 /* CUSimpleObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B04295E1BF90090F7D4 /* CUSimpleObstacle.cpp */; };
 		EB163B16295E1BFF0090F7D4 /* CUObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163B01295E1BF90090F7D4 /* CUObstacle.cpp */; };
 		EB163B17295E1BFF0090F7D4 /* CUObstacleSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB163AFE295E1BF80090F7D4 /* CUObstacleSelector.cpp */; };
 		EB448DC92985C9C400B8FC7B /* libdatachannel-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB448DC62985C9B000B8FC7B /* libdatachannel-mac.a */; };
@@ -470,7 +468,6 @@
 		EB163AF8295E1BC30090F7D4 /* CUWheelObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUWheelObstacle.h; sourceTree = "<group>"; };
 		EB163AF9295E1BC30090F7D4 /* CUCapsuleObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUCapsuleObstacle.h; sourceTree = "<group>"; };
 		EB163AFA295E1BC30090F7D4 /* CUPolygonObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUPolygonObstacle.h; sourceTree = "<group>"; };
-		EB163AFB295E1BC30090F7D4 /* CUSimpleObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSimpleObstacle.h; sourceTree = "<group>"; };
 		EB163AFD295E1BF80090F7D4 /* CUComplexObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUComplexObstacle.cpp; sourceTree = "<group>"; };
 		EB163AFE295E1BF80090F7D4 /* CUObstacleSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUObstacleSelector.cpp; sourceTree = "<group>"; };
 		EB163AFF295E1BF90090F7D4 /* CUBoxObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUBoxObstacle.cpp; sourceTree = "<group>"; };
@@ -478,7 +475,6 @@
 		EB163B01295E1BF90090F7D4 /* CUObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUObstacle.cpp; sourceTree = "<group>"; };
 		EB163B02295E1BF90090F7D4 /* CUCapsuleObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUCapsuleObstacle.cpp; sourceTree = "<group>"; };
 		EB163B03295E1BF90090F7D4 /* CUObstacleWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUObstacleWorld.cpp; sourceTree = "<group>"; };
-		EB163B04295E1BF90090F7D4 /* CUSimpleObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUSimpleObstacle.cpp; sourceTree = "<group>"; };
 		EB163B05295E1BF90090F7D4 /* CUWheelObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUWheelObstacle.cpp; sourceTree = "<group>"; };
 		EB1B34AF1D26CB290057E0BD /* CUScene2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUScene2.h; sourceTree = "<group>"; };
 		EB1B34C81D2C5FD60057E0BD /* CUTimestamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUTimestamp.h; sourceTree = "<group>"; };
@@ -930,7 +926,6 @@
 				EB163AF2295E1BC20090F7D4 /* CUObstacleSelector.h */,
 				EB163AF7295E1BC30090F7D4 /* CUObstacleWorld.h */,
 				EB163AFA295E1BC30090F7D4 /* CUPolygonObstacle.h */,
-				EB163AFB295E1BC30090F7D4 /* CUSimpleObstacle.h */,
 				EB163AF8295E1BC30090F7D4 /* CUWheelObstacle.h */,
 			);
 			path = physics2;
@@ -946,7 +941,6 @@
 				EB163AFE295E1BF80090F7D4 /* CUObstacleSelector.cpp */,
 				EB163B03295E1BF90090F7D4 /* CUObstacleWorld.cpp */,
 				EB163B00295E1BF90090F7D4 /* CUPolygonObstacle.cpp */,
-				EB163B04295E1BF90090F7D4 /* CUSimpleObstacle.cpp */,
 				EB163B05295E1BF90090F7D4 /* CUWheelObstacle.cpp */,
 			);
 			path = physics2;
@@ -1741,7 +1735,6 @@
 				EB16383129561FE40090F7D4 /* CUPlane.cpp in Sources */,
 				EB16389F295634670090F7D4 /* CUPathNode.cpp in Sources */,
 				EB16388F295627E30090F7D4 /* CUScissor.cpp in Sources */,
-				EB163B15295E1BFF0090F7D4 /* CUSimpleObstacle.cpp in Sources */,
 				EB1638752956265B0090F7D4 /* CUAssetManager.cpp in Sources */,
 				EB163892295627E30090F7D4 /* CUCamera.cpp in Sources */,
 				EB16383029561FE40090F7D4 /* CUPath2.cpp in Sources */,
@@ -1839,7 +1832,6 @@
 				EB163B0E295E1BF90090F7D4 /* CUWheelObstacle.cpp in Sources */,
 				EB163A63295E14200090F7D4 /* CUAnimateAction.cpp in Sources */,
 				EB163A6B295E14200090F7D4 /* CUMoveAction.cpp in Sources */,
-				EB163B0D295E1BF90090F7D4 /* CUSimpleObstacle.cpp in Sources */,
 				EB1639D1295A243D0090F7D4 /* CUAudioFader.cpp in Sources */,
 				EB16389C295634660090F7D4 /* CUCanvasNode.cpp in Sources */,
 				EB163898295634660090F7D4 /* CUOrderedNode.cpp in Sources */,
