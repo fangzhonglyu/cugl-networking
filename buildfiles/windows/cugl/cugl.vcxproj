@@ -129,6 +129,7 @@
     <ClInclude Include="..\..\..\include\cugl\netphysics\CUObstacleFactory.h" />
     <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysObjEvent.h" />
     <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysSyncEvent.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\cu_netphysics.h" />
     <ClInclude Include="..\..\..\include\cugl\netphysics\cu_net_events.h" />
     <ClInclude Include="..\..\..\include\cugl\net\CUICEAddress.h" />
     <ClInclude Include="..\..\..\include\cugl\net\CUInetAddress.h" />

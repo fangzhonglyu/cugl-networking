@@ -734,6 +734,9 @@
     <ClInclude Include="..\..\..\include\cugl\netphysics\cu_net_events.h">
       <Filter>Header Files\cugl\netphysics</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\cu_netphysics.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\assets\CUAssetManager.cpp">
