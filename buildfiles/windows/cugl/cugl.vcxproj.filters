@@ -138,6 +138,12 @@
     <Filter Include="Header Files\cugl\net">
       <UniqueIdentifier>{9f2c8b73-e499-4ac3-af59-a7a063818c5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\netphysics">
+      <UniqueIdentifier>{ee51a459-9807-4255-9a96-45ef98a19930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cugl\netphysics">
+      <UniqueIdentifier>{7c49c826-3340-4cb5-9ec3-3ea8e8fa3475}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\cugl\cugl.h">
@@ -697,6 +703,36 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\cugl\physics2\CUJointSet.h">
       <Filter>Header Files\cugl\physics2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetEvent.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CULWSerializer.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetEventController.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetPhysicsController.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUGameStateEvent.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUObstacleFactory.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysObjEvent.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysSyncEvent.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CULWDeserializer.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cugl\netphysics\cu_net_events.h">
+      <Filter>Header Files\cugl\netphysics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

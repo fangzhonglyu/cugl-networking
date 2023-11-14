@@ -120,6 +120,16 @@
     <ClInclude Include="..\..\..\include\cugl\math\polygon\CUSimpleExtruder.h" />
     <ClInclude Include="..\..\..\include\cugl\math\polygon\CUSplinePather.h" />
     <ClInclude Include="..\..\..\include\cugl\math\polygon\cu_polygon.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUGameStateEvent.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CULWDeserializer.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CULWSerializer.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetEvent.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetEventController.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUNetPhysicsController.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUObstacleFactory.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysObjEvent.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\CUPhysSyncEvent.h" />
+    <ClInclude Include="..\..\..\include\cugl\netphysics\cu_net_events.h" />
     <ClInclude Include="..\..\..\include\cugl\net\CUICEAddress.h" />
     <ClInclude Include="..\..\..\include\cugl\net\CUInetAddress.h" />
     <ClInclude Include="..\..\..\include\cugl\net\CUNetcodeChannel.h" />

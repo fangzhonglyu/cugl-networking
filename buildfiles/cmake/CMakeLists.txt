@@ -98,6 +98,7 @@ file(GLOB SOURCE_FILES
   ${CUGL_DIR}/source/scene2/actions/*.cpp
   ${CUGL_DIR}/source/physics2/*.cpp
   ${CUGL_DIR}/source/net/*.cpp
+  ${CUGL_DIR}/source/netphysics/*.cpp
   ${CUGL_DIR}/source/external/*.c)
 
 # Build it all

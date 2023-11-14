@@ -1,3 +1,6 @@
 __pycache__/
 *.DS_Store
 *.plist
+/buildfiles/windows/.vs/
+/buildfiles/windows/objs/
+/buildfiles/windows/x64/

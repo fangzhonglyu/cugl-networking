@@ -324,11 +324,7 @@ std::optional<b2Joint*> ObstacleWorld::getJoint(Uint64 id){
 bool ObstacleWorld::addJointSet(std::shared_ptr<cugl::physics2::JointSet>& jset) {
     // Active all contained bodies.
     for (auto it = jset->getBodies().begin(); it != jset->getBodies().end(); it++) {
-        _objects.push_back(*it);
         addObstacle(*it);
-        if (!(*it)->activatePhysics(*_world)) {
-            return false;
-        }
     }
     
     for (auto it = jset->getJointDefs().begin(); it != jset->getJointDefs().end(); it++) {
@@ -370,6 +366,7 @@ void ObstacleWorld::removeObstacle(Obstacle* obj) {
             return;
         }
     }
+    
     CUAssertLog(false, "Physics object not present in world");
 }
 
@@ -387,6 +384,10 @@ void ObstacleWorld::garbageCollect() {
     for(size_t ii = 0; ii < _objects.size(); ii++) {
         if (_objects[ii]->isRemoved()) {
             _objects[ii]->deactivatePhysics(*_world);
+            if (_objToId.count(_objects[ii])) {
+                _idToObj.erase(_objToId.at(_objects[ii]));
+            }
+            _objToId.erase(_objects[ii]);
             _objects[ii] = nullptr;
         } else {
             if (pos != ii) {
