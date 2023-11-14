@@ -34,6 +34,7 @@
 #define __CU_LW_DESERIALIZER_H__
 
 #include <vector>
+#include <SDL_stdinc.h>
 
 namespace cugl {
 

@@ -535,5 +535,7 @@ public:
 
 };
 
+    }
+}
 
 #endif /* __CU_PHYS_OBJ_EVENT_H__ */

@@ -34,6 +34,9 @@
 #define __CU_LW_SERIALIZER_H__
 
 #include <vector>
+#include <memory>
+#include <SDL_stdinc.h>
+#include <cugl/base/CUEndian.h>
 
 namespace cugl {
 
@@ -187,93 +190,6 @@ public:
     void reset() {
         _data.clear();
     }
-};
-
-class LWDeserializer{
-private:
-    /** Currently loaded data */
-    std::vector<std::byte> _data;
-    /** Position in the data of next byte to read */
-    size_t _pos;
-
-public:
-    LWDeserializer() : _pos(0) {}
-    
-    static std::shared_ptr<LWDeserializer> alloc() {
-        return std::make_shared<LWDeserializer>();
-    }
-    
-    void receive(const std::vector<std::byte>& msg){
-        _data = msg;
-        _pos = 0;
-    }
-    
-    bool readBool(){
-        if (_pos >= _data.size()) {
-            return false;
-        }
-        uint8_t value = static_cast<uint8_t>(_data[_pos++]);
-        return value == 1;
-    }
-    
-    std::byte readByte(){
-        if (_pos >= _data.size()) {
-            return std::byte(0);
-        }
-        const std::byte b = _data[_pos++];
-        return b;
-    }
-    
-    float readFloat(){
-        if (_pos >= _data.size()) {
-            return 0.0f;
-        }
-        const float* r = reinterpret_cast<const float*>(_data.data() + _pos);
-        _pos += sizeof(float);
-        return marshall(*r);
-    }
-    
-    Sint32 readSint32(){
-        if (_pos >= _data.size()) {
-            return 0;
-        }
-        const Sint32* r = reinterpret_cast<const Sint32*>(_data.data() + _pos);
-        _pos += sizeof(Sint32);
-        return marshall(*r);
-    }
-    
-    Uint16 readUint16(){
-        if (_pos >= _data.size()) {
-            return 0;
-        }
-        const Uint16* r = reinterpret_cast<const Uint16*>(_data.data() + _pos);
-        _pos += sizeof(Uint16);
-        return marshall(*r);
-    }
-    
-    Uint32 readUint32(){
-        if (_pos >= _data.size()) {
-            return 0;
-        }
-        const Uint32* r = reinterpret_cast<const Uint32*>(_data.data() + _pos);
-        _pos += sizeof(Uint32);
-        return marshall(*r);
-    }
-    
-    Uint64 readUint64(){
-        if (_pos >= _data.size()) {
-            return 0;
-        }
-        const Uint64* r = reinterpret_cast<const Uint64*>(_data.data() + _pos);
-        _pos += sizeof(Uint64);
-        return marshall(*r);
-    }
-    
-    void reset(){
-        _pos = 0;
-        _data.clear();
-    }
-    
 };
 
     }

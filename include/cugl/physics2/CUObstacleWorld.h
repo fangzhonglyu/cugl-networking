@@ -54,8 +54,6 @@
 
 class b2World;
 
-class NetPhysicsController;
-
 namespace cugl {
     /**
      * The classes to represent 2-d physics.
@@ -149,8 +147,6 @@ public:
      void addObstacle(const std::shared_ptr<Obstacle>& obj, Uint64 objId);
 
      void addJoint(Uint64 id, const b2JointDef& jointDef);
-
-     friend class NetPhysicsController;
     
     
 #pragma mark -

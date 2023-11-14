@@ -4,6 +4,24 @@
 // 
 //  The header for the networked physics controller
 //
+//  CUGL MIT License:
+//      This software is provided 'as-is', without any express or implied
+//      warranty.  In no event will the authors be held liable for any damages
+//      arising from the use of this software.
+//
+//      Permission is granted to anyone to use this software for any purpose,
+//      including commercial applications, and to alter it and redistribute it
+//      freely, subject to the following restrictions:
+//
+//      1. The origin of this software must not be misrepresented; you must not
+//      claim that you wrote the original software. If you use this software
+//      in a product, an acknowledgment in the product documentation would be
+//      appreciated but is not required.
+//
+//      2. Altered source versions must be plainly marked as such, and must not
+//      be misrepresented as being the original software.
+//
+//      3. This notice may not be removed or altered from any source distribution.
 //  Created by Barry Lyu on 6/28/23.
 //
 
@@ -11,10 +29,18 @@
 #define __CU_NET_PHYSICS_CONTROLLER_H__
 
 #include <queue>
-#include <cugl/cugl.h>
-#include "CUNetEvent.h"
+#include <cugl/netphysics/cu_net_events.h>
+#include <cugl/physics2/CUObstacleWorld.h>
 
-using namespace cugl;
+namespace cugl {
+
+    /**
+     * The CUGL networked physics classes.
+     *
+     * This internal namespace is for optional networking physics management package.
+     * This package provides automatic synchronization of physics objects across devices.
+     */
+    namespace netphysics {
 
 /** 
  * Struct for storing target parameters for interpolation
@@ -61,9 +87,9 @@ protected:
     /** The next available obstacle ID */
     Uint64 _objRotation;
     /** The physics world instance */
-    std::shared_ptr<cugl::physics2::ObstacleWorld> _world;
+    std::shared_ptr<physics2::ObstacleWorld> _world;
     /** Cache of all on-ogoing interpolations */
-    std::unordered_map<std::shared_ptr<physics2::Obstacle>,std::shared_ptr<targetParam>> _cache;
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>,std::shared_ptr<netphysics::targetParam>> _cache;
     /** Temporary cache for removal after traversal */
     std::vector<std::shared_ptr<physics2::Obstacle>> _deleteCache;
 
@@ -115,7 +141,7 @@ public:
      * user is recommended to use custom NetEvent types to handle obstacle
      * creation without use of the physics controller.
      */
-    void init(std::shared_ptr<cugl::physics2::ObstacleWorld>& world, Uint32 shortUID, std::function<void(const std::shared_ptr<physics2::Obstacle>&, const std::shared_ptr<scene2::SceneNode>&)> linkSceneToObsFunc) {
+    void init(std::shared_ptr<physics2::ObstacleWorld>& world, Uint32 shortUID, std::function<void(const std::shared_ptr<physics2::Obstacle>&, const std::shared_ptr<scene2::SceneNode>&)> linkSceneToObsFunc) {
         _world = world;
         _world->setShortUID(shortUID);
         _linkSceneToObsFunc = linkSceneToObsFunc;
@@ -201,7 +227,7 @@ public:
      * @param obj The obstacle to interpolate
      * @param param The target parameters for interpolation
      */
-    void addSyncObject(std::shared_ptr<physics2::Obstacle> obj, std::shared_ptr<targetParam> param);
+    void addSyncObject(std::shared_ptr<physics2::Obstacle> obj, std::shared_ptr<netphysics::targetParam> param);
 
     /**
      * Packs syncs for the physics info and adds it to _outEvents.
@@ -231,4 +257,6 @@ public:
 	}
 };
 
+    }
+}
 #endif /* __CU_NET_PHYSICS_CONTROLLER_H__ */

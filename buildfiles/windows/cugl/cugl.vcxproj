@@ -300,6 +300,8 @@
     <ClCompile Include="..\..\..\source\math\polygon\CUPolyFactory.cpp" />
     <ClCompile Include="..\..\..\source\math\polygon\CUSimpleExtruder.cpp" />
     <ClCompile Include="..\..\..\source\math\polygon\CUSplinePather.cpp" />
+    <ClCompile Include="..\..\..\source\netphysics\CUNetEventController.cpp" />
+    <ClCompile Include="..\..\..\source\netphysics\CUNetPhysicsController.cpp" />
     <ClCompile Include="..\..\..\source\net\CUICEAddress.cpp" />
     <ClCompile Include="..\..\..\source\net\CUInetAddress.cpp" />
     <ClCompile Include="..\..\..\source\net\CUNetcodeChannel.cpp" />

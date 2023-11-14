@@ -33,8 +33,10 @@
 #ifndef __CU_NET_EVENT_H__
 #define __CU_NET_EVENT_H__
 
-#include <cstdint>
+#include <SDL_stdinc.h>
 #include <vector>
+#include <string>
+#include <memory>
 #include <cugl/netphysics/CULWSerializer.h>
 #include <cugl/netphysics/CULWDeserializer.h>
 
@@ -97,11 +99,15 @@ public:
      *
      * @return a new event of the same type
      */
-    virtual std::shared_ptr<NetEvent> newEvent();
+    virtual std::shared_ptr<NetEvent> newEvent() {
+        return std::make_shared<NetEvent>();
+    }
     /**
      * Serialize any paramater that the event contains to a vector of bytes.
      */
-    virtual std::vector<std::byte> serialize();
+    virtual std::vector<std::byte> serialize() {
+        return std::vector<std::byte>();
+    }
     /**
      * Deserialize a vector of bytes and set the corresponding parameters.
      *
@@ -111,7 +117,7 @@ public:
      * should be able to recreate a serialized event entirely, setting all the 
      * useful parameters of this class.
      */
-    virtual void deserialize(const std::vector<std::byte>& data);
+    virtual void deserialize(const std::vector<std::byte>& data) { }
 
     /**
      * This method returns the timestamp of the event from the sender.

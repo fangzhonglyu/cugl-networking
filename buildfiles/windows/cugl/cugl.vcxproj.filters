@@ -1174,6 +1174,12 @@
     <ClCompile Include="..\..\..\source\net\CUNetworkLayer.cpp">
       <Filter>Source Files\net</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\netphysics\CUNetEventController.cpp">
+      <Filter>Source Files\netphysics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\netphysics\CUNetPhysicsController.cpp">
+      <Filter>Source Files\netphysics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\source\math\dsp\cuDSP128.inl">

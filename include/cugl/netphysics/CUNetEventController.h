@@ -2,8 +2,27 @@
 //  CUNetEventController.h
 //  Networked Physics Library
 //
-//  The header for a general network controllers for multiplayer physics based game
+//  The header for a general network controller for multiplayer physics based game.
 //
+//  CUGL MIT License:
+//      This software is provided 'as-is', without any express or implied
+//      warranty.  In no event will the authors be held liable for any damages
+//      arising from the use of this software.
+//
+//      Permission is granted to anyone to use this software for any purpose,
+//      including commercial applications, and to alter it and redistribute it
+//      freely, subject to the following restrictions:
+//
+//      1. The origin of this software must not be misrepresented; you must not
+//      claim that you wrote the original software. If you use this software
+//      in a product, an acknowledgment in the product documentation would be
+//      appreciated but is not required.
+//
+//      2. Altered source versions must be plainly marked as such, and must not
+//      be misrepresented as being the original software.
+//
+//      3. This notice may not be removed or altered from any source distribution.
+// 
 //  Created by Barry Lyu on 9/5/23.
 //
 
@@ -15,14 +34,16 @@
 #include <vector>
 #include <concepts>
 #include <queue>
-#include <cugl/cugl.h>
+#include <memory>
 #include "cu_net_events.h"
 #include <cugl/netphysics/CUNetEvent.h>
-#include "CUNetPhysicsController.h"
+#include <cugl/netphysics/CUNetPhysicsController.h>
 #include <cugl/assets/CUAssetManager.h>
 #include <cugl/base/CUApplication.h>
 #include <cugl/net/CUNetcodeConfig.h>
 #include <cugl/net/CUNetcodeConnection.h>
+#include <cugl/physics2/CUObstacle.h>
+#include <cugl/physics2/CUObstacleWorld.h>
 
 namespace cugl {
 
@@ -80,14 +101,14 @@ public:
 
 protected:
     /** The asset manager for the controller. */
-    std::shared_ptr<AssetManager> _assets;
+    ::std::shared_ptr<AssetManager> _assets;
     /** Reference to the App */
-    Application* _appRef;
+    cugl::Application* _appRef;
     /** The App fixed-time stamp when the game starts */
     Uint64 _startGameTimeStamp;
 
     /** The network configuration */
-    net::NetcodeConfig _config;
+    cugl::net::NetcodeConfig _config;
     /** The network connection */
     std::shared_ptr<net::NetcodeConnection> _network;
 

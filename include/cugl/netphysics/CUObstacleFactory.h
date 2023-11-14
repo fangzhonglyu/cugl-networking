@@ -61,7 +61,7 @@ public:
     /**
 	 * Returns a newly allocated obstacle factory.
 	 */
-    static std::shared_ptr<ObstacleFactory> alloc() {
+    static ::std::shared_ptr<ObstacleFactory> alloc() {
         return std::make_shared<ObstacleFactory>();
     };
 
@@ -84,7 +84,9 @@ public:
      * - Position/Velocity of the obstacle
      * - Any metadata about the obstacle
      */
-    virtual std::pair<std::shared_ptr<physics2::Obstacle>, std::shared_ptr<scene2::SceneNode>> createObstacle(const std::vector<std::byte>& params);
+    virtual std::pair<std::shared_ptr<physics2::Obstacle>, std::shared_ptr<scene2::SceneNode>> createObstacle(const std::vector<std::byte>& params) {
+        return std::make_pair(std::make_shared<physics2::Obstacle>(), std::make_shared<scene2::SceneNode>());
+    }
 };
 
     }
