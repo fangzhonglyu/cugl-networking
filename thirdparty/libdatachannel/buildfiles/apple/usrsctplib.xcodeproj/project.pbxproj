@@ -736,6 +736,22 @@
 				);
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = (
+					"-std=c99",
+					"-pedantic",
+					"-Wall",
+					"-Wextra",
+					"-Wfloat-equal",
+					"-Wshadow",
+					"-Wpointer-arith",
+					"-Winit-self",
+					"-Wno-unused-function",
+					"-Wno-unused-parameter",
+					"-Wno-unreachable-code",
+					"-Wno-address-of-packed-member",
+					"-Wno-deprecated-declarations",
+					"-Wstrict-prototypes",
+				);
 				OTHER_LIBTOOLFLAGS = "";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "usrsctp-mac";
