@@ -33,6 +33,34 @@
 
 using namespace cugl::netphysics;
 
+/**
+ * Initializes the controller with the given asset manager.
+ *
+ * Requires asset to contain key "server" for a json value of the form:
+ * {
+ *     "lobby" : {
+ *         "address" : "xxx.xxx.xxx.xxx",
+ *         "port": xxxx
+ *     },
+ *     "ice servers" : [
+ *         {
+ *             "turn" : false,
+ *             "address" : "xxx.xxx.xxx.xxx",
+ *             "port" : xxxx
+ *         },
+ *         {
+ *             "turn" : true,
+ *             "address" : "xxx.xxx.xxx.xxx",
+ *             "port" : xxxx,
+ *             "username": "xxxxxx",
+ *             "password": "xxxxxx"
+ *         }
+ *     ],
+ *     "max players" : <INT>,
+ *     "API version" : <INT>
+ * }
+
+ */
 bool NetEventController::init(const std::shared_ptr<cugl::AssetManager>& assets) {
     // Attach the primitive event types for deserialization
     attachEventType<GameStateEvent>();
@@ -47,6 +75,12 @@ bool NetEventController::init(const std::shared_ptr<cugl::AssetManager>& assets)
     return true;
 }
 
+/**
+ * Starts handshake process for starting game.
+ 
+ * Once the handshake is finished, the controller changes status to
+ * INGAME, starts sending synchronization events if physics is enabled.
+ */
 void NetEventController::startGame() {
     CUAssertLog(_isHost, "Only host should call startGame()");
     if (_status == Status::CONNECTED) {
@@ -54,6 +88,12 @@ void NetEventController::startGame() {
     }
 }
 
+/**
+ * Marks the client as ready for game start.
+ 
+ * Returns true if the mark was successful. And false otherwise. Only
+ * valid after receiving shortUID from host.
+ */
 bool NetEventController::markReady() {
     if (_status == Status::HANDSHAKE && _shortUID) {
 		_status = Status::READY;
@@ -63,6 +103,12 @@ bool NetEventController::markReady() {
     return false;
 }
 
+/**
+ * Connect to a new lobby as host.
+ *
+ * If successful, the controller status changes to CONNECTED, and the
+ * {@link _roomid} is set to the lobby id.
+ */
 bool NetEventController::connectAsHost() {
     if (_status == Status::NETERROR) {
         disconnect();
@@ -77,6 +123,11 @@ bool NetEventController::connectAsHost() {
     return checkConnection();
 }
 
+/**
+ * Connect to an existing lobby as client.
+ *
+ * If successful, the controller status changes to CONNECTED.
+ */
 bool NetEventController::connectAsClient(std::string roomid) {
     if (_status == Status::NETERROR) {
         disconnect();
@@ -92,6 +143,9 @@ bool NetEventController::connectAsClient(std::string roomid) {
     return checkConnection();
 }
 
+/**
+ * Disconnect from the current lobby.
+ */
 void NetEventController::disconnect() {
     _network->close();
     _network = nullptr;
@@ -108,6 +162,9 @@ void NetEventController::disconnect() {
     _physController = nullptr;
 }
 
+/**
+ * This method checks the connection status and updates the controller status.
+ */
 bool NetEventController::checkConnection() {
     auto state = _network->getState();
     if (state == net::NetcodeConnection::State::CONNECTED) {
@@ -123,7 +180,7 @@ bool NetEventController::checkConnection() {
         if (_isHost) {
             auto players = _network->getPlayers();
             Uint32 shortUID = 1;
-            CULog("NUM Players: %d", players.size());
+            CULog("NUM Players: %zu", players.size());
             for (auto it = players.begin(); it != players.end(); it++) {
                 CULog("Player Name: %s", (*it).c_str());
                 _network->sendTo((*it), wrap(GameStateEvent::allocUIDAssign(shortUID++)));
@@ -148,6 +205,12 @@ bool NetEventController::checkConnection() {
     return true;
 }
 
+/**
+ * Processes all events received during the last update.
+ *
+ * This method either processes events internally if it is a built-in event
+ * and adds them to the inbound event queue otherwise.
+ */
 void NetEventController::processReceivedEvent(const std::shared_ptr<NetEvent>& e) {
     if (auto game = std::dynamic_pointer_cast<GameStateEvent>(e)) {
         processGameStateEvent(game);
@@ -167,6 +230,11 @@ void NetEventController::processReceivedEvent(const std::shared_ptr<NetEvent>& e
     }
 }
 
+/**
+ * Processes a GameStateEvent.
+ *
+ * This method updates the controller status based on the event received.
+ */
 void NetEventController::processGameStateEvent(const std::shared_ptr<GameStateEvent>& e) {
     CULog("GAME STATE %d, CUR STATE %d", e->getType(), _status);
     if (_status == HANDSHAKE && e->getType() == GameStateEvent::UID_ASSIGN) {
@@ -186,6 +254,12 @@ void NetEventController::processGameStateEvent(const std::shared_ptr<GameStateEv
     CULog("FINISHED STATE %d", _status);
 }
 
+/**
+ * Processes all received packets received during the last update.
+ *
+ * This method unwraps byte vectors into NetEvents and calls
+ * {@link processReceivedEvent()}.
+ */
 void NetEventController::processReceivedData(){
     _network->receive([this](const std::string source,
         const std::vector<std::byte>& data) {
@@ -194,6 +268,9 @@ void NetEventController::processReceivedData(){
     });
 }
 
+/**
+ * Broadcasts all queued outbound events.
+ */
 void NetEventController::sendQueuedOutData(){
     int msgCount = 0;
     int byteCount = 0;
@@ -208,27 +285,39 @@ void NetEventController::sendQueuedOutData(){
     _outEventQueue.clear();
 }
 
+/**
+ * Updates the network controller.
+ */
 void NetEventController::updateNet() {
     if(_network){
         checkConnection();
-        processReceivedData();
+        
 
         if (_status == INGAME && _physEnabled) {
             if (_isHost) {
-                _physController->packPhysSync();
+                _physController->packPhysSync(NetPhysicsController::FULL_SYNC);
             }
+            _physController->packPhysObj();
 			_physController->fixedUpdate();
-            
             for (auto it = _physController->getOutEvents().begin(); it != _physController->getOutEvents().end(); it++) {
                 pushOutEvent(*it);
 		    }
             _physController->getOutEvents().clear();
                 
 		}
+        
+        processReceivedData();
         sendQueuedOutData();
     }
 }
 
+/**
+ * Returns if there are remaining custom inbound events.
+ *
+ * Thhe events in this queue is to be polled and processed by outside
+ * classes. Inbound events are preserved acrossupdates, and only cleared
+ * by {@link popInEvent()}.
+ */
 bool NetEventController::isInAvailable() {
     if ( _inEventQueue.empty() )
         return false;
@@ -236,17 +325,35 @@ bool NetEventController::isInAvailable() {
     return top->_eventTimeStamp <= _appRef->getUpdateCount()-_startGameTimeStamp;
 }
 
-
+/**
+ * Returns the next custom inbound event and removes it from the queue.
+ *
+ * Requires there to be remaining inbound events.
+ */
 std::shared_ptr<NetEvent> NetEventController::popInEvent() {
 	auto e = _inEventQueue.front();
 	_inEventQueue.pop();
 	return e;
 }
 
+/**
+ * Queues an outbound event to be sent to peers.
+ *
+ * Queued events are sent when {@link updateNet()} is called. and cleared
+ * after sending.
+ */
 void NetEventController::pushOutEvent(const std::shared_ptr<NetEvent>& e) {
 	_outEventQueue.push_back(e);
 }
 
+/**
+ * Unwraps the a byte vector data into a NetEvent.
+ *
+ * The controller automatically detects the type of event, spawns a new
+ * empty instance of that event, and calls the event's
+ * {@link NetEvent#deserialize()} method. This method is only called on
+ * outbound events.
+ */
 std::shared_ptr<NetEvent> NetEventController::unwrap(const std::vector<std::byte>& data, std::string source) {
     CUAssertLog(data.size() >= MIN_MSG_LENGTH && (Uint8)data[0] < _newEventVector.size(), "Unwrapping invalid event");
     LWDeserializer deserializer;
@@ -260,6 +367,13 @@ std::shared_ptr<NetEvent> NetEventController::unwrap(const std::vector<std::byte
     return e;
 }
 
+/**
+ * Wraps a NetEvent into a byte vector.
+ *
+ * The controller calls the event's {@link NetEvent#serialize()} method
+ * and packs the event into byte data. This method is only on inbound
+ * events.
+ */
 const std::vector<std::byte> NetEventController::wrap(const std::shared_ptr<NetEvent>& e) {
     LWSerializer serializer;
     serializer.writeByte((std::byte)getType(*e));

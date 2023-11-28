@@ -101,8 +101,8 @@ protected:
     std::unordered_map<std::shared_ptr<physics2::Obstacle>,std::shared_ptr<scene2::SceneNode>> _sharedObsToNodeMap;
     
     /** 
-     * Helper function for linear object interpolation 
-     * 
+     * Helper function for linear object interpolation.
+     *
      * Formula: (target-source)/stepsLeft + source
      */
     float interpolate(int stepsLeft, float target, float source);
@@ -111,7 +111,19 @@ protected:
     std::vector<std::shared_ptr<NetEvent>> _outEvents;
     
 public:
-    /** 
+    enum SyncType {
+        /** 
+         * Synchronize all objects (Shared or unshared) in the world 
+         * Objects that other clients do not recognize will be ignored. 
+         */
+        OVERRIDE_FULL_SYNC,
+        /** Synchronize all shared objects in the world */
+        FULL_SYNC,
+        /** Prioritize syncing volatile objects */
+        PRIO_SYNC
+    };
+    
+    /**
      * Constructor for the controller without initialization. 
      */
     NetPhysicsController():
@@ -178,6 +190,8 @@ public:
 
     /**
      * Processes a physics object synchronization event.
+     *
+     * This method is called automatically by the NetEventController
      */
     void processPhysObjEvent(const std::shared_ptr<PhysObjEvent>& event);
 
@@ -230,12 +244,20 @@ public:
     void addSyncObject(std::shared_ptr<physics2::Obstacle> obj, std::shared_ptr<netphysics::targetParam> param);
 
     /**
-     * Packs syncs for the physics info and adds it to _outEvents.
+     * Packs object dynamics data for synchronization and add it to _outEvents.
+     *
+     * This method can be used to prompt the physics controller to synchronize objects,
+     * It is called automatically, but additional calls to it can help fix potential desyncing.
+     *
+     * @param type  the type of synchronization
      */
-    void packPhysSync();
+    void packPhysSync(SyncType type);
 
     /**
-     * Packs syncs for obstacle changes and adds it to _outEvents.
+     * Packs any changed object information and add them to _outEvents.
+     *
+     * This method helps synchronize any method calls to the obstacles that set its properties.
+     * This includes explicit setPosition(), setVelocity(), setBodyType(), etc.
      */
     void packPhysObj();
     

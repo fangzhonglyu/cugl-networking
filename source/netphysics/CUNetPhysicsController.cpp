@@ -36,6 +36,11 @@
 using namespace cugl;
 using namespace cugl::netphysics;
 
+/**
+ * Processes a physics object synchronization event.
+ *
+ * This method is called automatically by the NetEventController
+ */
 void NetPhysicsController::processPhysObjEvent(const std::shared_ptr<PhysObjEvent>&event) {
     if (event->getSourceId() == "")
         return; // Ignore physic syncs from self.
@@ -104,11 +109,26 @@ void NetPhysicsController::processPhysObjEvent(const std::shared_ptr<PhysObjEven
             if (event->_inertia != obj->getInertia()) obj->setInertia(event->_inertia);
             if (event->_centroid != obj->getCentroid()) obj->setCentroid(event->_centroid);
             break;
+        default:
+            break;
 	}
     // ====== END NON-SHARED BLOCK ======
     obj->setShared(true);
 }
 
+/**
+ * Adds a shared obstacle to the physics world.
+ *
+ * This method is used to add a shared obstacle across all clients.
+ *
+ * @param factoryID The ID of the obstacle factory to use
+ * @param bytes The serialized parameters taken by the obstacle factory
+ *
+ * @return A pair of the added obstacle and its corresponding scene node
+ *
+ * Users can uses the returned references to manually link the obstacle,
+ * or for custom obstacle setups.
+ */
 std::pair<std::shared_ptr<physics2::Obstacle>, std::shared_ptr<scene2::SceneNode>> NetPhysicsController::addSharedObstacle(Uint32 factoryID, std::shared_ptr<std::vector<std::byte>> bytes) {
     CUAssertLog(factoryID < _obstacleFacts.size(), "Unknown object Factory %u", factoryID);
     auto pair = _obstacleFacts[factoryID]->createObstacle(*bytes);
@@ -120,6 +140,11 @@ std::pair<std::shared_ptr<physics2::Obstacle>, std::shared_ptr<scene2::SceneNode
     return pair;
 }
 
+/**
+ * Removes a shared obstacle from the physics world.
+ *
+ * If linkSceneToObsFunc was provided, the scene node will also be removed.
+ */
 void NetPhysicsController::removeSharedObstacle(std::shared_ptr<physics2::Obstacle> obj) {
     auto map = _world->getObjToId();
     if (map.count(obj)) {
@@ -133,6 +158,9 @@ void NetPhysicsController::removeSharedObstacle(std::shared_ptr<physics2::Obstac
 	}
 }
 
+/**
+ * Resets the physics controller.
+ */
 void NetPhysicsController::processPhysSyncEvent(const std::shared_ptr<PhysSyncEvent>& event) {
     if (event->getSourceId() == "")
         return; // Ignore physic syncs from self.
@@ -170,6 +198,12 @@ void NetPhysicsController::processPhysSyncEvent(const std::shared_ptr<PhysSyncEv
     }
 }
 
+/**
+ * Adds an object to interpolate with the given target parameters.
+ *
+ * @param obj The obstacle to interpolate
+ * @param param The target parameters for interpolation
+ */
 void NetPhysicsController::addSyncObject(std::shared_ptr<physics2::Obstacle> obj, std::shared_ptr<targetParam> param){
     if(_cache.count(obj)){
         #if ITPR_METHOD == 1
@@ -191,43 +225,79 @@ void NetPhysicsController::addSyncObject(std::shared_ptr<physics2::Obstacle> obj
     _itprCount ++;
 }
 
+/**
+ * Returns true if the given obstacle is being interpolated.
+ */
 bool NetPhysicsController::isInSync(std::shared_ptr<physics2::Obstacle> obj){
     return _cache.count(obj) > 0;
 }
 
-void NetPhysicsController::packPhysSync() {
+/**
+ * Packs object dynamics data for synchronization and add it to _outEvents.
+ *
+ * This method can be used to prompt the physics controller to synchronize objects,
+ * It is called automatically, but additional calls to it can help fix potential desyncing.
+ *
+ * @param type  the type of synchronization
+ */
+void NetPhysicsController::packPhysSync(SyncType type) {
     auto event = PhysSyncEvent::alloc();
-    std::vector<Uint64> velQueue;
-    for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
-        Uint64 id = (*it).first;
-        auto obj = (*it).second;
-        velQueue.push_back(id);
+    
+    switch (type) {
+        case OVERRIDE_FULL_SYNC:
+            for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
+                Uint64 id = (*it).first;
+                auto obj = (*it).second;
+                event->addObj(obj, id);
+            }
+            break;
+        case FULL_SYNC:
+            for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
+                Uint64 id = (*it).first;
+                auto obj = (*it).second;
+                if(obj->isShared())
+                    event->addObj(obj, id);
+            }
+            break;
+        case PRIO_SYNC:
+            std::vector<Uint64> velQueue;
+            for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
+                Uint64 id = (*it).first;
+                auto obj = (*it).second;
+                if(obj->isShared())
+                    velQueue.push_back(id);
+            }
+
+            std::sort(velQueue.begin(), velQueue.end(), [this](Uint64 const& l, Uint64 const& r) {
+                return _world->getIdToObj().at(l)->getLinearVelocity().length() > _world->getIdToObj().at(r)->getLinearVelocity().length();
+                ; });
+            
+            size_t numPrioObj = SDL_min(60,velQueue.size());
+            
+            
+            for (size_t i = 0; i < numPrioObj; i++) {
+                auto obj = _world->getIdToObj().at(velQueue[i]);
+                if(obj->isShared())
+                    event->addObj(obj,velQueue[i]);
+            }
+            
+            for (size_t i = 0; i < SDL_min(20,velQueue.size()); i++) {
+                auto obj = _world->getObstacles()[_objRotation];
+                event->addObj(obj,_world->getObjToId().at(obj));
+                _objRotation = (_objRotation+1)%_world->getObstacles().size();
+            }
+            break;
     }
-
-    std::sort(velQueue.begin(), velQueue.end(), [this](Uint64 const& l, Uint64 const& r) {
-        return _world->getIdToObj().at(l)->getLinearVelocity().length() > _world->getIdToObj().at(r)->getLinearVelocity().length();
-        ; });
-
-    for (size_t i = 0; i < 20; i++) {
-        auto obj = _world->getObstacles()[_objRotation];
-        event->addObj(obj,_world->getObjToId().at(obj));
-        _objRotation = (_objRotation+1)%_world->getObstacles().size();
-        /*for (auto it = _collisionMap[id].begin(); it != _collisionMap[id].end(); it++) {
-            event->addObj(*it);
-        }*/
-    }
-
-    for (size_t i = 0; i < 20; i++) {
-        auto obj = _world->getIdToObj().at(velQueue[i]);
-        event->addObj(obj,velQueue[i]);
-
-        /*for (auto it = _collisionMap[id].begin(); it != _collisionMap[id].end(); it++) {
-           event->addObj(*it);
-        }*/
-    }
+    
     _outEvents.push_back(event);
 }
 
+/**
+ * Packs any changed object information and add them to _outEvents.
+ *
+ * This method helps synchronize any method calls to the obstacles that set its properties.
+ * This includes explicit setPosition(), setVelocity(), setBodyType(), etc.
+ */
 void NetPhysicsController::packPhysObj() {
     auto objs = _world->getObstacles();
     for (auto it = objs.begin(); it != objs.end(); it++) {
@@ -260,6 +330,9 @@ void NetPhysicsController::packPhysObj() {
 	}
 }
 
+/**
+ * Updates the physics controller.
+ */
 void NetPhysicsController::fixedUpdate(){
     packPhysObj();
 
@@ -333,6 +406,11 @@ void NetPhysicsController::fixedUpdate(){
     }
 }
 
+/**
+ * Helper function for linear object interpolation.
+ *
+ * Formula: (target-source)/stepsLeft + source
+ */
 float NetPhysicsController::interpolate(int stepsLeft, float target, float source){
     return (target-source)/stepsLeft+source;
 }

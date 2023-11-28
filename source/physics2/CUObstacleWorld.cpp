@@ -292,6 +292,7 @@ Uint64 ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
 
 Uint64 ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
     Uint64 id = (((Uint64)0xffffffff) << 32) | _nextObj++;
+    obj->setShared(true);
     addObstacle(obj, id);
     return id;
 }
