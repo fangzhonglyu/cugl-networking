@@ -766,8 +766,7 @@
 				E98507D12B084435007E413C /* CULWSerializer.h */,
 				E98507D22B084435007E413C /* CUPhysSyncEvent.h */,
 			);
-			name = netphysics;
-			path = cugl/netphysics;
+			path = netphysics;
 			sourceTree = "<group>";
 		};
 		E98507D32B08444A007E413C /* netphysics */ = {
@@ -1271,7 +1270,6 @@
 		EBC2F15F1D74A67B007EC7A6 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				E98507C72B084435007E413C /* netphysics */,
 				EBDB2A1A295609BD00A4B39C /* cugl */,
 				EBDB2A1B29560B3300A4B39C /* cJSON */,
 				EB448DAC2985C32E00B8FC7B /* stduuid */,
@@ -1434,6 +1432,7 @@
 		EBDB2A1A295609BD00A4B39C /* cugl */ = {
 			isa = PBXGroup;
 			children = (
+				E98507C72B084435007E413C /* netphysics */,
 				EBC2F18C1D74AA1D007EC7A6 /* cugl.h */,
 				EBC2F1601D74A685007EC7A6 /* base */,
 				EBC2F1611D74A6B6007EC7A6 /* util */,
