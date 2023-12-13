@@ -118,6 +118,7 @@ protected:
     std::unordered_map<Uint64, b2Joint*> _idToJoint;
     
     Uint32 _nextObj;
+    Uint32 _nextInitObj;
     Uint32 _nextJoint;
     
     /** The boundary of the world */

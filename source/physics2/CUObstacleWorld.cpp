@@ -173,6 +173,7 @@ _destroy(false)
     _itposition = DEFAULT_WORLD_POSIT;
     _gravity = Vec2(0,DEFAULT_GRAVITY);
     _nextObj = 0;
+    _nextInitObj = 0;
     _nextJoint = 0;
     
     onBeginContact = nullptr;
@@ -291,7 +292,7 @@ Uint64 ObstacleWorld::addObstacle(const std::shared_ptr<Obstacle>& obj) {
 }
 
 Uint64 ObstacleWorld::addInitObstacle(const std::shared_ptr<Obstacle>& obj) {
-    Uint64 id = (((Uint64)0xffffffff) << 32) | _nextObj++;
+    Uint64 id = (((Uint64)0xffffffff) << 32) | _nextInitObj++;
     obj->setShared(true);
     addObstacle(obj, id);
     return id;

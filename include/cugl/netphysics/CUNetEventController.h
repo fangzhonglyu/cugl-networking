@@ -85,7 +85,7 @@ public:
     enum Status {
         /** No connection requested */
         IDLE,
-        /** Connecting to lobby */
+        /** Connecting to lobby (negotating) */
         CONNECTING,
         /** Connected to lobby */
         CONNECTED,
