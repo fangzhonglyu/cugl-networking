@@ -116,6 +116,7 @@ bool NetEventController::connectAsHost() {
 
     _isHost = true;
     if (_status == Status::IDLE) {
+        _physController = NetPhysicsController::alloc();
         _status = Status::CONNECTING;
         _network = net::NetcodeConnection::alloc(_config);
         _network->open();
@@ -135,6 +136,7 @@ bool NetEventController::connectAsClient(std::string roomid) {
 
     _isHost = false;
     if (_status == Status::IDLE) {
+        _physController = NetPhysicsController::alloc();
         _status = Status::CONNECTING;
         _network = net::NetcodeConnection::alloc(_config, roomid);
         _network->open();
@@ -147,7 +149,8 @@ bool NetEventController::connectAsClient(std::string roomid) {
  * Disconnect from the current lobby.
  */
 void NetEventController::disconnect() {
-    _network->close();
+    if(_network)
+        _network->close();
     _network = nullptr;
     _shortUID = 0;
     _status = Status::IDLE;
@@ -158,6 +161,10 @@ void NetEventController::disconnect() {
     _outEventQueue.clear();
     while (!_inEventQueue.empty()) {
         _inEventQueue.pop();
+    }
+    
+    if(_physController){
+        _physController->dispose();
     }
     _physController = nullptr;
 }
@@ -291,12 +298,9 @@ void NetEventController::sendQueuedOutData(){
 void NetEventController::updateNet() {
     if(_network){
         checkConnection();
-        
 
         if (_status == INGAME && _physEnabled) {
-            if (_isHost) {
-                _physController->packPhysSync(NetPhysicsController::FULL_SYNC);
-            }
+            _physController->packPhysSync(NetPhysicsController::FULL_SYNC);
             _physController->packPhysObj();
 			_physController->fixedUpdate();
             for (auto it = _physController->getOutEvents().begin(); it != _physController->getOutEvents().end(); it++) {

@@ -53,6 +53,9 @@ void NetPhysicsController::processPhysObjEvent(const std::shared_ptr<PhysObjEven
             _linkSceneToObsFunc(pair.first, pair.second);
             _sharedObsToNodeMap.insert(std::make_pair(pair.first, pair.second));
         }
+        if(_isHost){
+            _world->getOwned().insert({pair.first,0});
+        }
         return;
     }
 
@@ -109,6 +112,16 @@ void NetPhysicsController::processPhysObjEvent(const std::shared_ptr<PhysObjEven
             if (event->_inertia != obj->getInertia()) obj->setInertia(event->_inertia);
             if (event->_centroid != obj->getCentroid()) obj->setCentroid(event->_centroid);
             break;
+        case PhysObjEvent::Type::OBJ_OWNER_ACQUIRE:
+            _world->getOwned().erase(obj);
+            //CULog("Erased ownership for %llu",event->getObjId());
+            break;
+        case PhysObjEvent::Type::OBJ_OWNER_RELEASE:
+            if(_isHost){
+                _world->getOwned().insert(std::make_pair(obj,0));
+                //CULog("Regained ownership for %llu",event->getObjId());
+            }
+            
         default:
             break;
 	}
@@ -134,10 +147,39 @@ std::pair<std::shared_ptr<physics2::Obstacle>, std::shared_ptr<scene2::SceneNode
     auto pair = _obstacleFacts[factoryID]->createObstacle(*bytes);
     pair.first->setShared(true);
     Uint64 objId = _world->addObstacle(pair.first);
+    if(_isHost){
+        _world->getOwned().insert(std::make_pair(pair.first,0));
+    }
     if (_linkSceneToObsFunc)
 		_linkSceneToObsFunc(pair.first, pair.second);
     _outEvents.push_back(PhysObjEvent::allocCreation(factoryID,objId,bytes));
     return pair;
+}
+
+void NetPhysicsController::acquireObs(std::shared_ptr<physics2::Obstacle> obs, Uint64 duration){
+    if(_isHost){
+        _world->getOwned().insert(std::make_pair(obs, 0));
+    }
+    _world->getOwned().insert(std::make_pair(obs,duration));
+    Uint64 id = _world->getObjToId().at(obs);
+    auto event = PhysObjEvent::allocOwnerAcquire(id, duration);
+    _outEvents.push_back(event);
+}
+
+void NetPhysicsController::releaseObs(std::shared_ptr<physics2::Obstacle> obs){
+    if(!_isHost){
+        _world->getOwned().erase(obs);
+        Uint64 id = _world->getObjToId().at(obs);
+        auto event = PhysObjEvent::allocOwnerRelease(id);
+        _outEvents.push_back(event);
+    }
+    
+}
+
+void NetPhysicsController::ownAll(){
+    for(auto it = _world->getObstacles().begin(); it != _world->getObstacles().end(); ++it){
+        _world->getOwned().insert(std::make_pair((*it), 0));
+    }
 }
 
 /**
@@ -248,14 +290,15 @@ void NetPhysicsController::packPhysSync(SyncType type) {
             for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
                 Uint64 id = (*it).first;
                 auto obj = (*it).second;
-                event->addObj(obj, id);
+                if(obj->isShared())
+                    event->addObj(obj, id);
             }
             break;
         case FULL_SYNC:
             for (auto it = _world->getIdToObj().begin(); it != _world->getIdToObj().end(); it++) {
                 Uint64 id = (*it).first;
                 auto obj = (*it).second;
-                if(obj->isShared())
+                if(obj->isShared() && _world->getOwned().count(obj))
                     event->addObj(obj, id);
             }
             break;
@@ -335,6 +378,23 @@ void NetPhysicsController::packPhysObj() {
  */
 void NetPhysicsController::fixedUpdate(){
     packPhysObj();
+    
+    //Ownership transfer
+    std::vector<std::shared_ptr<cugl::physics2::Obstacle>> deleteCache;
+    for(auto it = _world->getObstacles().begin() ; it != _world->getObstacles().end(); ++it){
+        if(_world->getOwned().count(*it)){
+            Uint64 left = _world->getOwned().at(*it);
+            if(left==1){
+                releaseObs(*it);
+            }
+            else if(left>1){
+                _world->getOwned()[*it]=left-1;
+            }
+        }
+    }
+    for(auto it = deleteCache.begin(); it != deleteCache.end(); ++it){
+        _world->getOwned().erase((*it));
+    }
 
     for(auto it = _cache.begin(); it != _cache.end(); it++){
         auto obj = it->first;

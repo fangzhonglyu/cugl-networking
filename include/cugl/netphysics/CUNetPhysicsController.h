@@ -83,6 +83,8 @@ protected:
     long _ovrdCount;
     /** Total number of steps interpolated */
     long _stepSum;
+    /** Whether this instance acts as host. */
+    bool _isHost;
 
     /** The next available obstacle ID */
     Uint64 _objRotation;
@@ -127,7 +129,7 @@ public:
      * Constructor for the controller without initialization. 
      */
     NetPhysicsController():
-        _itprCount(0),_ovrdCount(0),_stepSum(0),_objRotation(0) {};
+        _itprCount(0),_ovrdCount(0),_stepSum(0),_objRotation(0),_isHost(false) {};
 
     /**
      * Allocates a new physics controller with the default values.
@@ -153,10 +155,11 @@ public:
      * user is recommended to use custom NetEvent types to handle obstacle
      * creation without use of the physics controller.
      */
-    void init(std::shared_ptr<physics2::ObstacleWorld>& world, Uint32 shortUID, std::function<void(const std::shared_ptr<physics2::Obstacle>&, const std::shared_ptr<scene2::SceneNode>&)> linkSceneToObsFunc) {
+    void init(std::shared_ptr<physics2::ObstacleWorld>& world, Uint32 shortUID, bool isHost, std::function<void(const std::shared_ptr<physics2::Obstacle>&, const std::shared_ptr<scene2::SceneNode>&)> linkSceneToObsFunc) {
         _world = world;
         _world->setShortUID(shortUID);
         _linkSceneToObsFunc = linkSceneToObsFunc;
+        _isHost = isHost;
     }
 
     /**
@@ -209,7 +212,42 @@ public:
      * or for custom obstacle setups.
      */
     std::pair<std::shared_ptr<physics2::Obstacle>,std::shared_ptr<scene2::SceneNode>> addSharedObstacle(Uint32 factoryID, std::shared_ptr<std::vector<std::byte>> bytes);
+    
+    /**
+     * Acquires the ownership of the object for an amount of time
+     *
+     * This method is used for one client to obtain ownership of the obstacle.
+     * When called by host, duration is permenant.
+     *
+     * Normally, the host would own all objects upon their creation. This method allows
+     * any client to be the owner of an obstacle, therefore potentially reducing response time for client controlled objects
+     *
+     * @param duration  the amount of physics steps to hold ownership for, if 0, then ownership will last until it is released.
+     *
+     * REQUIRES: only one client should call it on an object within a period of time to avoid race conditions.
+     */
+    void acquireObs(std::shared_ptr<physics2::Obstacle> obs, Uint64 duration);
+    
+    /**
+     * Releases the ownership of the object.
+     *
+     * This method works in opposite to the acquireObs method. When called on a client,
+     * it would return ownership to the host.
+     *
+     * This method takes no effect if the client doens't have ownership of that obstacle or
+     * if called by the host.
+     */
+    void releaseObs(std::shared_ptr<physics2::Obstacle> obs);
 
+    /**
+     * Makes this client the owner of all objects.
+     *
+     * THIS DOES NOT SEND ANY INFORMATION!
+     * SHOULD BE USED FOR INIT OBSTACLES ONLY.
+     */
+    void ownAll();
+    
+    
     /**
      * Removes a shared obstacle from the physics world.
      *

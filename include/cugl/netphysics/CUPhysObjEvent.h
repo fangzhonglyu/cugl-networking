@@ -69,7 +69,9 @@ public:
         OBJ_ANGLE,
         OBJ_ANGULAR_VEL,
         OBJ_BOOL_CONSTS,
-        OBJ_FLOAT_CONSTS
+        OBJ_FLOAT_CONSTS,
+        OBJ_OWNER_ACQUIRE,
+        OBJ_OWNER_RELEASE
     };
 
 protected:
@@ -120,6 +122,9 @@ public:
 
     /** field for OBJ_BODY_TYPE */
     b2BodyType _bodyType;
+    
+    /** field for OBJ_OWNER_ACQUIRE */
+    Uint64 _duration;
 
     /** Serializer for packing data */
     LWSerializer _serializer;
@@ -308,6 +313,17 @@ public:
         _inertia = inertia;
         _centroid = centroid;
     }
+    
+    void initOwnerAcquire(Uint64 objId, Uint64 duration){
+        _type = OBJ_OWNER_ACQUIRE;
+        _objId = objId;
+        _duration = duration;
+    }
+    
+    void initOwnerRelease(Uint64 objId){
+        _type = OBJ_OWNER_RELEASE;
+        _objId = objId;
+    }
 
     /** 
      * Allocates a new OBJ_CREATION event.
@@ -407,6 +423,20 @@ public:
         e->initFloatConsts(objId, density, friction, restitution, linearDamping, angularDamping, gravityScale, mass, inertia, centroid);
         return e;
     }
+    
+    
+    static std::shared_ptr<PhysObjEvent> allocOwnerAcquire(Uint64 objId, Uint64 duration){
+        auto e = std::make_shared<PhysObjEvent>();
+        e->initOwnerAcquire(objId,duration);
+        return e;
+    }
+    
+    static std::shared_ptr<PhysObjEvent> allocOwnerRelease(Uint64 objId){
+        auto e = std::make_shared<PhysObjEvent>();
+        e->initOwnerRelease(objId);
+        return e;
+    }
+    
 
     /**
 	 * Returns a newly allocated copy of this event.
@@ -465,6 +495,11 @@ public:
             _serializer.writeFloat(_inertia);
             _serializer.writeFloat(_centroid.x);
             _serializer.writeFloat(_centroid.y);
+            break;
+        case PhysObjEvent::OBJ_OWNER_ACQUIRE:
+            _serializer.writeUint64(_duration);
+            break;
+        case PhysObjEvent::OBJ_OWNER_RELEASE:
             break;
         default:
             CUAssertLog(false, "Serializing invalid obstacle event type");
@@ -527,6 +562,11 @@ public:
             _inertia = _deserializer.readFloat();
             _centroid.x = _deserializer.readFloat();
             _centroid.y = _deserializer.readFloat();
+            break;
+        case PhysObjEvent::OBJ_OWNER_ACQUIRE:
+            _duration = _deserializer.readUint64();
+            break;
+        case PhysObjEvent::OBJ_OWNER_RELEASE:
             break;
         default:
             CUAssertLog(false, "Deserializing invalid obstacle event type");

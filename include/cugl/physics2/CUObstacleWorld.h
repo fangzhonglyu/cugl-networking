@@ -113,7 +113,7 @@ protected:
     std::vector<std::shared_ptr<Obstacle>> _objects;
     std::unordered_map<Uint64, std::shared_ptr<physics2::Obstacle>> _idToObj;
     std::unordered_map<std::shared_ptr<physics2::Obstacle>, Uint64> _objToId;
-    std::unordered_set<std::shared_ptr<physics2::Obstacle>> _owned;
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>,Uint64> _owned;
     
     std::unordered_map<Uint64, b2Joint*> _idToJoint;
     
@@ -223,7 +223,7 @@ public:
 
     const std::unordered_map<std::shared_ptr<physics2::Obstacle>,Uint64>& getObjToId() { return _objToId; }
     const std::unordered_map<Uint64, std::shared_ptr<physics2::Obstacle>>& getIdToObj() { return _idToObj; }
-    const std::unordered_set<std::shared_ptr<physics2::Obstacle>>& getOwned() { return _owned; }
+    std::unordered_map<std::shared_ptr<physics2::Obstacle>,Uint64>& getOwned() { return _owned; }
 
     const std::unordered_map<Uint64, b2Joint*>& getIdToJoint() { return _idToJoint; }
     
