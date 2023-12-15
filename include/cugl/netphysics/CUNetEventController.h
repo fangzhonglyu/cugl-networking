@@ -331,7 +331,9 @@ public:
     void enablePhysics(std::shared_ptr<physics2::ObstacleWorld>& world, std::function<void(const std::shared_ptr<physics2::Obstacle>&,const std::shared_ptr<scene2::SceneNode>&)> linkSceneToObsFunc) {
         CUAssertLog(_shortUID, "You must receive a UID assigned from host before enabling physics.");
         _physEnabled = true;
+        _physController = NetPhysicsController::alloc();
         _physController->init(world,_shortUID,_isHost,linkSceneToObsFunc);
+        CULog("ENABLED PHYSICS");
         attachEventType<PhysSyncEvent>();
         attachEventType<PhysObjEvent>();
         if(_isHost)
